@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -39,10 +40,11 @@
       "@vue/airbnb",
       "@vue/typescript"
     ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "typescript-eslint-parser"
-    }
+    "rules" : {
+      "callable-types": true,
+      "max-line-length": [true, 200]
+    },
+    "parserOptions": {}
   },
   "postcss": {
     "plugins": {
