@@ -13,7 +13,9 @@ export default class Componenta extends Vue {
     return (
       <div class="vtx-componenta">
         <h2>component-a</h2>
-        <el-button type='success'>button</el-button>
+        <el-button type='success'>
+          {this.$t('home')}
+        </el-button>
       </div>
     );
   }
