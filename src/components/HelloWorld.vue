@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <el-button type='success'>button</el-button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -33,6 +34,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Button } from 'element-ui';
 
 @Component
 export default class HelloWorld extends Vue {
