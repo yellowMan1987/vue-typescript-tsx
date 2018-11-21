@@ -7,7 +7,7 @@ import en_US from './en_US';
 
 vue.use(vueI18n);
 // zh_CN  en_US
-const language = 'en_US';
+const language = 'zh_CN';
 
 const i18n = new vueI18n({
   messages: { // set locale messages

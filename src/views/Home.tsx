@@ -1,6 +1,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
-import Componenta from '@/components/Componenta';
+import Example from '@/components/Example';
 
 @Component({
   components: {
@@ -13,7 +13,7 @@ export default class Home extends Vue {
     return (
       <div>
         <h1>使用tsx-class风格编写</h1>
-        <Componenta />
+        <Example />
         <HelloWorld />
       </div> 
     ) 
