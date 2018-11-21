@@ -8,6 +8,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "new": "node order/new.js",
+    "newvue": "node order/newvue.js",
     "zip": "sh order/publish.sh"
   },
   "dependencies": {

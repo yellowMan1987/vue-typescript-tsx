@@ -42,28 +42,27 @@ const testImportpath = (paths.length < 2 || (paths.length >= 2 && paths[0] === p
 const className = componentName.substring(0,1).toLowerCase() + componentName.substring(1);;
 const Files = [
   {
-    filename: "index.tsx",
+    filename: "index.vue",
     content: `
-import { Component, Vue } from 'vue-property-decorator';
-import './style.scss';
-
-@Component({
-  props: {},
-  computed: {},
-  methods: {},
-  watch: {},
-})
-
-export default class ${componentName} extends Vue {
-  render () {
-    return (
-      <div class="vtx-${className}"></div>
-    );
+  <template>
+    <div class="vtx-${className}">
+      this is vue template component
+    </div>
+  </template>
+  
+  <script lang="ts">
+  import { Component, Prop, Vue } from 'vue-property-decorator';
+  import './style.scss'
+  @Component
+  export default class ${componentName} extends Vue {
+    
   }
-  created() {}
-  mouted() {}
-  befordestoyed() {}
-}`
+  </script>
+  
+  <!-- Add "scoped" attribute to limit scss to this component only -->
+  <style lang="sass" scoped>
+  
+  </style>`
   },
   {
     filename: "style.scss",
@@ -86,4 +85,4 @@ Files.forEach(file => {
 
 
 
-console.info("新建tsx组件完成!");
+console.info("新建vue组件完成!");
