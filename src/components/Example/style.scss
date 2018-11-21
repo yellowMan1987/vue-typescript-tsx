@@ -2,7 +2,7 @@
 	@import 'src/themes/mixins/mixins.scss';
 	
 	@include b(example) {
-		@include b(block) {
-			margin-top: 20px;
+		@include e(block) {
+			margin-top: 0.5rem;
 		}
 	}

@@ -4,3 +4,52 @@
 @import './element-variables.scss';
 
 @import '../app.scss';
+
+@import '../../components/Example/style.scss';
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  color: $--font-colr-default;
+  font-size: $--font-size-large;
+  letter-spacing: 1px;
+  overflow: hidden;
+  padding: 0;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $--font-colr-default;
+  background: $--bg-color-default;
+}
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: $--font-colr-default;
+}
+
+#nav a.router-link-exact-active {
+  color: $--op-nav-active;
+}
