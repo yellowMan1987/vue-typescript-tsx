@@ -17,7 +17,5 @@ const i18n = new vueI18n({
   locale: language, // set locale
 });
 
-console.log(i18n)
-
 
 export { language, i18n };
