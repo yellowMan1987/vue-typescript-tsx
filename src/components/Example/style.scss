@@ -1,6 +1,8 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(componenta) {
-
-    }
+	@import 'src/themes/mixins/mixins.scss';
+	
+	@include b(example) {
+		@include b(block) {
+			margin-top: 20px;
+		}
+	}
