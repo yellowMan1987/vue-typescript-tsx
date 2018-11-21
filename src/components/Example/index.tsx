@@ -50,11 +50,11 @@ export default class Example extends Vue {
   mouted() {}
   befordestoyed() {}
 
-  changeLanguage(lang: string) {
+  changeLanguage(lang:string) {
     this.$i18n.locale = lang
   }
 
-  changeTheme (theme: string) {
+  changeTheme (theme:string) {
     window.document.documentElement && 
     window.document.documentElement.setAttribute('data-theme', theme)
   }
