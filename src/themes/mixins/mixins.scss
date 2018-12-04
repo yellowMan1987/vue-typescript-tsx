@@ -121,6 +121,28 @@ BEM
     }
   }
 }
+
+
+@mixin themify($themes: $themes) {
+  @each $theme-name, $map in $themes {
+
+    .theme-#{$theme-name} & {
+      $theme-map: () !global;
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
 /*
 状态切换时使用  需要与区分BEM中的modifier 功能不一样  modifier中M始终始终保持某个状态
 div {

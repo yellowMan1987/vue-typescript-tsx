@@ -1,15 +1,25 @@
 
 import { Component, Vue } from 'vue-property-decorator';
-import vueI18n from 'vue-i18n';
-
+import { mapState, mapActions, mapMutations } from 'vuex';
+import {
+  actionTypes,
+  MODULE_PATH,
+} from '@/store/modules/system';
 @Component({
   props: {},
   computed: {},
-  methods: {},
+  methods: {
+    ...mapMutations(MODULE_PATH,{
+      updateThemes: actionTypes.UPDATE_THEMES,
+    })
+  },
   watch: {},
 })
 
 export default class Example extends Vue {
+
+  updateThemes!: (res:any) => void;
+
   render () {
     return (
       <div class="vtx-example">
@@ -30,18 +40,11 @@ export default class Example extends Vue {
        </div>
        <div class="vtx-example__block">
         <h1>换肤</h1>
-          <el-button 
-            type='success'
-            onClick={() => this.changeTheme('theme1')}
-          >
-            绿色 
-          </el-button>
-          <el-button 
-            type='success'
-            onClick={() => this.changeTheme('theme2')}
-          >
-            红色
-          </el-button>
+        <select onChange={this.changeTheme}>
+          <option value="red">Red</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+        </select>
        </div>
       </div>
     );
@@ -54,8 +57,7 @@ export default class Example extends Vue {
     this.$i18n.locale = lang
   }
 
-  changeTheme (theme:string) {
-    window.document.documentElement && 
-    window.document.documentElement.setAttribute('data-theme', theme)
+  changeTheme (e:any) {
+    this.updateThemes(e.target.value);
   }
 }

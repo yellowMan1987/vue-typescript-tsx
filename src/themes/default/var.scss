@@ -14,3 +14,16 @@ $--bg-color-default: #d9d9d9;
 
 // opeartion
 $--op-nav-active: blue;
+
+
+$themes: (
+  red: (
+    font-color: red,
+  ),
+  green: (
+    font-color: green 
+  ),
+  blue: (
+    font-color: blue
+  ),
+);
