@@ -47,7 +47,7 @@ const Files = [
 import { Component, Vue } from 'vue-property-decorator';
 import './style.scss';
 
-@Component({
+@Component<${componentName}>({
   props: {},
   computed: {},
   methods: {},
