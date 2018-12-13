@@ -3,6 +3,12 @@
 	
 	@include b(example) {
 		@include e(block) {
-			margin-top: 0.5rem;
+			@include themify($themes) {
+				border-color: themed('font-color');
+			};
+			padding: 0.2rem;
+			border-bottom: 2px solid;
+			width: 8rem;
+			margin: 0 auto;
 		}
 	}

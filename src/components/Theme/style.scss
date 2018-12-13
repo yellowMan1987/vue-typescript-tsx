@@ -1,0 +1,9 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(theme) {
+	.el-select {
+		width: 1rem;
+		margin-left: 0.1rem;
+	}	
+}

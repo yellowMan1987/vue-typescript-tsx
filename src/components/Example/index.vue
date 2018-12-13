@@ -1,64 +1,106 @@
 <template>
   <div class="vtx-example">
-       <div class="vtx-example__block">
-        <h1>国际化</h1>
-          <el-button 
-            type='success'
-            @lick="changeLanguage('zh_CN')"
-          >
-            {{this.$t('cn')}}
-          </el-button>
-          <el-button 
-            type='success'
-            @lick="changeLanguage('en_US')"
-          >
-            {{this.$t('en')}}
-          </el-button>
-       </div>
-       <div class="vtx-example__block">
-        <h1>换肤</h1>
-        <select @change="changeTheme">
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
-        </select>
-       </div>
-      </div>
+    <div class="vtx-example__block">
+      <h1>{{this.$t('lang')}}</h1>
+      <Language/>
+    </div>
+    <div class="vtx-example__block">
+      <h1>{{this.$t('theme')}}</h1>
+      <Theme/>
+    </div>
+    <div class="vtx-example__block">
+      <h2>{{this.$t('msg')}}</h2>
+      <el-button type="primary" @click="openMsg">msg</el-button>
+    </div>
+    <div class="vtx-example__block">
+      <h2>{{this.$t('contextMenu')}}</h2>
+      <div
+        :style="{
+          height: '1rem',
+          color: '#fff',
+          background:'#d9d9d9'
+        }"
+        v-rightMouseClick="showContextMenu"
+      ></div>
+    </div>
+    <ContextMenu
+      :mousePosition="rightMouseClickPosition"
+      :menuOptionsList="contextMenuOpsList"
+    ></ContextMenu>
+  </div>
 </template>
 <script lang="ts">
-
-import { Component, Vue } from 'vue-property-decorator';
-import { mapState, mapActions, mapMutations } from 'vuex';
-import {
-  actionTypes,
-  MODULE_PATH,
-} from '@/store/modules/system';
-@Component({
+import { Component, Vue } from "vue-property-decorator";
+import Language from "@/components/Language/index.vue";
+import Theme from "@/components/Theme/index.vue";
+import ContextMenu,{IMenuOptionItem} from "@/components/ContextMenu/index.vue";
+import "./style.scss";
+@Component<Example>({
+  components: {
+    Theme,
+    Language,
+    ContextMenu
+  },
   props: {},
   computed: {},
-  methods: {
-    ...mapMutations(MODULE_PATH,{
-      updateThemes: actionTypes.UPDATE_THEMES,
-    })
-  },
-  watch: {},
+
+  watch: {}
 })
-
 export default class Example extends Vue {
+  updateThemes!: (res: any) => void;
+  rightMouseClickPosition = {
+    clientX: 0,
+    clientY: 0
+  };
+  contextActiveData: any;
 
-  updateThemes!: (res:any) => void;
+  contextMenuOpsList = [
+    {
+      txt: "右键操作项",
+      class: "",
+      disable: false,
+      handle: this.handleContextMenuClick
+    },
+    {
+      txt: "右键操作项",
+      class: "",
+      disable: false,
+      handle: this.handleContextMenuClick
+    },
+    {
+      txt: "右键操作项",
+      class: "",
+      disable: true, // 不显示布控
+      handle: this.handleContextMenuClick
+    },
+    {
+      txt: "右键操作项",
+      class: "",
+      disable: false,
+      handle: this.handleContextMenuClick
+    }
+  ] as IMenuOptionItem[];
 
   created() {}
   mouted() {}
   befordestoyed() {}
 
-  changeLanguage(lang:string) {
-    this.$i18n.locale = lang
+  // msg
+  openMsg() {
+    this.$message({
+      duration: 1000,
+      message: "错误 -- 信息",
+      type: "error"
+    });
   }
 
-  changeTheme (e:any) {
-    this.updateThemes(e.target.value);
+  // 右键操作
+  showContextMenu(event: any, data: any) {
+    const { clientX, clientY } = event;
+    this.rightMouseClickPosition = { clientX, clientY };
+    this.contextActiveData = data;
   }
+
+  handleContextMenuClick() {}
 }
-
 </script>

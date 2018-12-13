@@ -2,8 +2,9 @@
 // $--font-path: "~element-ui/lib/theme-chalk/fonts";
 
 // Font
+$--font-size-base: 0.12rem !default;
 $--font-size-large:  0.16rem !default;
-$--font-size-error: 16px !default;
+$--font-size-error: 0.16rem !default;
 
 // color
 $--font-colr-default: #333;
@@ -15,15 +16,36 @@ $--bg-color-default: #d9d9d9;
 // opeartion
 $--op-nav-active: blue;
 
+// shadiw
+$--box-shadow-default: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+$--box-shadow-hover: 0 7px 8px -4px rgba(0,0,0,.2), 0 12px 17px 2px rgba(0,0,0,.14), 0 5px 22px 4px rgba(0,0,0,.12);
+
+// contextMenu
+$--contextMenu-box-shadow:0 0  20px 2px rgba(#808080,0.5);
+$--contextMenu-background: #fff;
+$--contextMenu-font-color: #333;
+$--contextMenu-active-font-color: #fff;
+$--contextMenu-active-background: #4285f4;
+$--contextMenu-disable-font-color:#b6d4ff;
+
 
 $themes: (
-  red: (
-    font-color: red,
+
+  Pink: (
+    font-color: #e91e63,
+    color: #e91e63,
   ),
-  green: (
-    font-color: green 
+
+
+  Orange: (
+    font-color: #ff5722,
+    color:  #ff5722,
   ),
-  blue: (
-    font-color: blue
+
+
+
+  Green: (
+    font-color: #4caf50,
+    color: #4caf50,
   ),
 );

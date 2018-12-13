@@ -1,0 +1,12 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(header) {
+	height: 0.8rem;
+	width: calc(100% - 2rem);
+	margin: 0 auto;
+	@include flexRow(space-between);
+	@include e(right) {
+		@include flexRow(space-between);
+	}
+}

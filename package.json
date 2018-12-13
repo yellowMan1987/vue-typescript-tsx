@@ -7,14 +7,16 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "new": "node order/new.js",
+    "new": "node order/newvue.js",
     "newvue": "node order/newvue.js",
     "zip": "sh order/publish.sh"
   },
   "dependencies": {
+    "ramda": "^0.26.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

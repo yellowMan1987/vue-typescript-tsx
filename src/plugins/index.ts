@@ -1,1 +1,3 @@
-import './element'
+import './element';
+import './directive';
+import './quill';

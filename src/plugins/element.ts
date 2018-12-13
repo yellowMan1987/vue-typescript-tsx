@@ -9,6 +9,12 @@ import {
   Form,
   Loading,
   Message,
+  Select,
+  Option,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Dialog,
 } from "element-ui";
 
 import Vue from "vue";
@@ -30,6 +36,14 @@ Vue.use(FormItem);
 Vue.use(Form);
 Vue.use(Input);
 Vue.use(ColorPicker);
+Vue.use(Select);
+Vue.use(Option);
+
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+
+Vue.use(Dialog);
 
 Vue.use(Loading.directive as any);
 

@@ -1,0 +1,41 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(contextMenu) {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	@include e(list) {
+		border-radius: 3px;
+		background: $--contextMenu-background;
+		overflow: hidden;
+		box-shadow: $--contextMenu-box-shadow;
+		@include m(item) {
+			height: 29px;
+			line-height: 29px;
+			text-align: center;
+			color: $--contextMenu-font-color;
+			cursor: pointer;
+			min-width: 60px;
+			// max-width: 100px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			padding: 0 10px;
+			font-size: $--font-size-base;
+			&.active {
+				@include themify($themes) {
+					background: themed('color');
+				}
+				background: $--contextMenu-active-background;
+				color: $--contextMenu-active-font-color;
+			}
+		}
+		.disable {
+			cursor: not-allowed;
+			background: $--contextMenu-active-background;
+			color: $--contextMenu-disable-font-color;
+		}
+  }
+}

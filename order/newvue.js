@@ -44,35 +44,35 @@ const Files = [
   {
     filename: "index.vue",
     content: `
-  <template>
-    <div class="vtx-${className}">
-      this is vue template component
-    </div>
-  </template>
-  
-  <script lang="ts">
-  import { Component, Prop, Vue } from 'vue-property-decorator';
-  import './style.scss'
+<template>
+  <div class="vtx-${className}">
+    this is vue template component
+  </div>
+</template>
 
-  @Component({
-    components:{},
-    props: {},
-    computed: {},
-    methods: {},
-    watch: {},
-  })
-  
-  export default class ${componentName} extends Vue {
-    created() {}
-    mouted() {}
-    befordestoyed() {}
-  }
-  </script>
-  
-  <!-- Add "scoped" attribute to limit scss to this component only -->
-  <style lang="sass" scoped>
-  
-  </style>`
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import './style.scss'
+
+@Component<${componentName}>({
+  components:{},
+  props: {},
+  computed: {},
+  methods: {},
+  watch: {},
+})
+
+export default class ${componentName} extends Vue {
+  created() {}
+  mouted() {}
+  befordestoyed() {}
+}
+</script>
+
+<!-- Add "scoped" attribute to limit scss to this component only -->
+<style lang="sass" scoped>
+
+</style>`
   },
   {
     filename: "style.scss",
