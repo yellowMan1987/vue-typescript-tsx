@@ -53,9 +53,19 @@ const Files = [
   <script lang="ts">
   import { Component, Prop, Vue } from 'vue-property-decorator';
   import './style.scss'
-  @Component
+
+  @Component({
+    components:{},
+    props: {},
+    computed: {},
+    methods: {},
+    watch: {},
+  })
+  
   export default class ${componentName} extends Vue {
-    
+    created() {}
+    mouted() {}
+    befordestoyed() {}
   }
   </script>
   
