@@ -1,6 +1,6 @@
 <template>
   <div class="vtx-example">
-    <div class="vtx-example__block">
+    <!-- <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
       <Language/>
     </div>
@@ -22,6 +22,10 @@
         }"
         v-rightMouseClick="showContextMenu"
       ></div>
+    </div> -->
+    <div class="vtx-example__block">
+      <h2>map</h2>
+      <Map></Map>
     </div>
     <ContextMenu
       :mousePosition="rightMouseClickPosition"
@@ -34,12 +38,14 @@ import { Component, Vue } from "vue-property-decorator";
 import Language from "@/components/Language/index.vue";
 import Theme from "@/components/Theme/index.vue";
 import ContextMenu,{IMenuOptionItem} from "@/components/ContextMenu/index.vue";
-import "./style.scss";
+import Map from '@/components/Map/index.vue';
+import "./style.scss"; 
 @Component<Example>({
   components: {
     Theme,
     Language,
-    ContextMenu
+    ContextMenu,
+    Map,
   },
   props: {},
   computed: {},

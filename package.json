@@ -12,6 +12,7 @@
     "zip": "sh order/publish.sh"
   },
   "dependencies": {
+    "coordtransform": "^2.1.2",
     "ramda": "^0.26.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
