@@ -13,6 +13,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import coordtransform from "coordtransform";
+
 @Component<BaiduMap>({
   props: {
     id: {
