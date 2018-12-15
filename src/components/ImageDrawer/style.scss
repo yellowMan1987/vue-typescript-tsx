@@ -1,0 +1,22 @@
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(imageDrawer) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+
+  @include e(canvas) {
+    position: absolute;
+    background-color: transparent;
+  }
+  @include e(buttons) {
+    position: absolute;
+  }
+
+  @include when(drawing) {
+    canvas {
+    }
+  }
+}

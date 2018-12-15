@@ -10,7 +10,7 @@ export function debounceByKey(key: string, func: any, timeout:number) {
   if (!debounceTimer[str]) {
     debounceTimer[str] = setTimeout(
       () => {
-        func();
+        func && func();
         clearTimeout(debounceTimer[str]);
         delete debounceTimer[str];
       },
@@ -107,3 +107,4 @@ export function isInPolygon(checkPoint:any , polygonPoints:any) {
     return true;
   }
 }
+

@@ -4,7 +4,11 @@
 
 import vue from 'vue';
 // import * as isects from '2d-polygon-self-intersections';
-import { checkIntersection } from 'line-intersect';
+const {
+  checkIntersection,
+  colinearPointWithinSegment
+} = require('line-intersect');
+
 
 const COR_SCALE = 1000000;
 const CLOSE_PIXELS = 15; // 当起点和当前点的距离小于这个像素时，显示闭合提示

@@ -1,5 +1,5 @@
 
-import { Cache } from '@/utils/cache';
+import { Cache } from './cache';
 import { dataURItoBlob } from './file';
 
 

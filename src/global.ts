@@ -7,6 +7,10 @@ declare module "lodash.cloneDeep" {
   const content: any;
   export default content;
 }
+declare module "lodash.debounce" {
+  const content: any;
+  export default content;
+}
 declare module "lodash.assign" {
   const content: any;
   export default content;
@@ -37,6 +41,10 @@ declare module "ramda" {
   export default content;
 }
 declare module "coordtransform" {
+  const content: any;
+  export default content;
+}
+declare module "line-intersect" {
   const content: any;
   export default content;
 }
