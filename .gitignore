@@ -3,6 +3,7 @@ node_modules
 /dist
 
 *.tar.gz
+*.zip
 
 # local env files
 .env.local
