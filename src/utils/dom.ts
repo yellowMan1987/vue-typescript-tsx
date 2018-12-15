@@ -1,4 +1,23 @@
 
+export const on = (
+  element: HTMLElement | Element | HTMLDocument,
+  event: string,
+  handler: EventListenerOrEventListenerObject
+) => {
+  if (element && event && handler) {
+    element.addEventListener(event, handler, false);
+  }
+};
+
+export const off = (
+  element: HTMLElement | Element | HTMLDocument,
+  event: string,
+  handler: EventListenerOrEventListenerObject
+) => {
+  if (element && event) {
+    element.removeEventListener(event, handler, false);
+  }
+};
 
 export function offset(element: any) {
   let left = 0;

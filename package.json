@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "coordtransform": "^2.1.2",
+    "line-intersect": "^2.2.0",
     "ramda": "^0.26.1",
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",

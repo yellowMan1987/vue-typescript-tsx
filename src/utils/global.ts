@@ -47,4 +47,63 @@ export function setHTMLfontSize() {
   EventBus.$emit('viewport-resize');
 }
 
+// 获取图片尺寸
+export function getImageSize(
+  url: string,
+): Promise<{ width: number; height: number }> {
+  const img = document.createElement('img');
 
+  return new Promise<{ width: number; height: number }>((resolve, reject) => {
+    img.onload = (ev) => {
+      resolve({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+
+    img.onerror = reject;
+
+    img.src = url;
+  });
+}
+
+/*
+  计算点位是否在区域内
+  参数格式经纬度例子: Number
+  checkPoint = [102,31],
+  polygonPoints = [
+    [102,31],
+    [102,31],
+    [102,31],
+    ...
+  ]
+*/
+export function isInPolygon(checkPoint:any , polygonPoints:any) {
+  var counter = 0;
+  var i;
+  var xinters;
+  var p1, p2;
+  var pointCount = polygonPoints.length;
+  p1 = polygonPoints[0];
+
+  for (i = 1; i <= pointCount; i++) {
+    p2 = polygonPoints[i % pointCount];
+    if (
+      checkPoint[0] > Math.min(p1[0], p2[0]) &&
+      checkPoint[0] <= Math.max(p1[0], p2[0])
+    ) {
+      if (checkPoint[1] <= Math.max(p1[1], p2[1])) {
+        if (p1[0] != p2[0]) {
+          xinters =
+            (checkPoint[0] - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
+          if (p1[1] == p2[1] || checkPoint[1] <= xinters) {
+            counter++;
+          }
+        }
+      }
+    }
+    p1 = p2;
+  }
+  if (counter % 2 == 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
