@@ -9,9 +9,11 @@ export default {
   //component
   theme: 'Theme',
   lang: 'Language',
-  msg: 'message',
-  dialog: 'dialog',
-  contextMenu: 'contextMenu',
+  msg: 'Message',
+  dialog: 'Dialog',
+  contextMenu: 'ContextMenu',
+  map: 'Map',
+  polygonDrawer: 'PolygonDrawer',
 
   confirm: 'confirm',
   cancel: 'cancel',
