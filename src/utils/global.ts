@@ -108,3 +108,24 @@ export function isInPolygon(checkPoint:any , polygonPoints:any) {
   }
 }
 
+/**
+ *  特定条件数据分组
+ * @param arr :[]; 原数组
+ * @param prop :string; 关键key
+ * @param callback :function;条件
+*/
+export function groupBy(arr:any[], prop:string, callback:any) {
+  const newArr = [];
+  const tempArr = [];
+  for (let i = 0, j = arr.length; i < j; i++) {
+    const result = callback(arr[i], arr[i + 1], prop);
+    if (result) {
+      tempArr.push(arr[i]);
+    } else {
+      tempArr.push(arr[i]);
+      newArr.push(tempArr.slice(0));
+      tempArr.length = 0;
+    }
+  }
+  return newArr;
+}
