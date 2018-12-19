@@ -3,6 +3,7 @@
     <router-link to="/">{{this.$t('home')}}</router-link> |
     <!-- <router-link to="/article">{{this.$t('article')}}</router-link> | -->
     <router-link to="/about">vue</router-link> |
+    <router-link to="/post">post</router-link> |
     <router-link to="/ts">typeScript</router-link> |
   </div>
 </template>

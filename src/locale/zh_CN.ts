@@ -4,7 +4,7 @@ export default {
   article: '文章',
   about: '关于',
 
-  des: '工程中一些公用组件/插件的展示',
+  des: '组件的展示',
 
   //component
   theme: '主题',
