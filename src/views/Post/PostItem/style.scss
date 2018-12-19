@@ -1,6 +1,16 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(postItem) {
+@import 'src/themes/mixins/mixins.scss';
 
-    }
+@include b(postItem) {
+  @include flexColumn(flex-start,flex-start);
+  margin-bottom: 0.4rem;
+	@include e(title) {
+    font-size: 0.3rem;
+  }
+  @include e(tag) {
+    font-size: 0.14rem;
+  }
+  @include e(des) {
+    font-size: 0.14rem;
+  }
+}

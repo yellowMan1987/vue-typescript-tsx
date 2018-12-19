@@ -212,6 +212,15 @@ div.is-active {
   align-items: center;
 }
 
+@mixin flexColumn($justifyContent, $items) {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: nowrap;
+  justify-content: $justifyContent;
+  list-style: none;
+  align-items: $items;
+}
+
 
 
 /*px转rem*/

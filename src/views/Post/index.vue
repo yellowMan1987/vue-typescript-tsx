@@ -1,7 +1,7 @@
 
 <template>
   <div class="vtx-post">
-    <div v-for="(post, index) in posts" :key="index">
+    <div class="vtx-post__list" v-for="(post, index) in posts" :key="index">
       <PostItem :post="post"/>
     </div>
   </div>
@@ -29,56 +29,56 @@ export default class Post extends Vue {
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
     {
       title: '标题标题',
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: '1545225926029'
+      updateTime: 1545225926029
     },
 
   ];

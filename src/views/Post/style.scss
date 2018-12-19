@@ -1,6 +1,7 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(post) {
+@import 'src/themes/mixins/mixins.scss';
 
-    }
+@include b(post) {
+	width: 10rem;
+	margin: 0 auto;
+}
