@@ -6,6 +6,9 @@
   margin-bottom: 0.4rem;
 	@include e(title) {
     font-size: 0.3rem;
+    @include themify($themes) {
+      color: themed('font-color') !important;
+    }
   }
   @include e(tag) {
     font-size: 0.14rem;

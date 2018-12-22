@@ -2,7 +2,7 @@
 <template>
   <div class="vtx-editor">
     <quill-editor :content="content" @change="onEditorChange"></quill-editor>
-    <div>{{this.content}}</div>
+    <div class="vtx-editor__content" v-html="content"></div>
   </div>
 </template>
   
@@ -24,6 +24,7 @@ export default class Editor extends Vue {
   befordestoyed() {}
   onEditorChange(e: any) {
     this.content = e.html;
+    this.$emit('getContent',this.content)
   }
 }
 </script>

@@ -1,20 +1,23 @@
 
 <template>
   <div class="vtx-post">
-    <div class="vtx-post__list" v-for="(post, index) in posts" :key="index">
-      <PostItem :post="post"/>
-    </div>
+    <span v-show="!isCreate" @click="isCreate = true">CREATE POST</span>
+    <span v-show="isCreate" @click="isCreate = false">BACK LIST</span>
+    <Editor v-show="isCreate" @getContent="getContent"/>
+    <PostList v-show="!isCreate"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import PostItem from '@/views/Post/PostItem/index.vue';
+import Editor from '@/components/Editor/index.vue';
+import PostList from '@/views/Post/PostList/index.vue';
 import './style.scss'
 
 @Component<Post>({
   components:{
-    PostItem,
+    Editor,
+    PostList,
   },
   props: {},
   computed: {},
@@ -23,68 +26,15 @@ import './style.scss'
 })
 
 export default class Post extends Vue {
-  posts = [
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-
-  ];
+  isEdit = false;
+  isCreate = false;
   created() {}
   mouted() {}
   befordestoyed() {}
+
+  getContent(val:string) {
+    console.log('getContent',val)
+  }
 }
 </script>
 
