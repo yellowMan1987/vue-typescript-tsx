@@ -1,7 +1,8 @@
 
 <template>
   <div class="vtx-editor">
-    <quill-editor :content="content" @change="onEditorChange"></quill-editor>
+    <!-- <quill-editor :content="content" @change="onEditorChange"></quill-editor> -->
+    <mavon-editor v-model="content" @change="onEditorChange"/>
     <div class="vtx-editor__content" v-html="content"></div>
   </div>
 </template>
@@ -23,8 +24,9 @@ export default class Editor extends Vue {
   mouted() {}
   befordestoyed() {}
   onEditorChange(e: any) {
-    this.content = e.html;
-    this.$emit('getContent',this.content)
+    this.content = e;
+    // console.log(e)
+    this.$emit('getContent',e)
   }
 }
 </script>
