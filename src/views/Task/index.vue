@@ -1,10 +1,7 @@
+
 <template>
-  <div class="vtx-nav">
-    <router-link to="/">{{this.$t('home')}}</router-link> |
-    <!-- <router-link to="/article">{{this.$t('article')}}</router-link> | -->
-    <router-link to="/about">VUE</router-link> |
-    <router-link to="/post">POST</router-link> |
-    <router-link to="/task">TASK</router-link> |
+  <div class="vtx-task">
+    this is vue template component
   </div>
 </template>
 
@@ -12,7 +9,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import './style.scss'
 
-@Component<Nav>({
+@Component<Task>({
   components:{},
   props: {},
   computed: {},
@@ -20,7 +17,7 @@ import './style.scss'
   watch: {},
 })
 
-export default class Nav extends Vue {
+export default class Task extends Vue {
   created() {}
   mouted() {}
   befordestoyed() {}

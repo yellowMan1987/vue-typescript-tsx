@@ -4,6 +4,8 @@
     <quill-editor :content="content" @change="onEditorChange"></quill-editor>
     <!-- <mavon-editor v-model="content" @change="onEditorChange"/> -->
     <div class="vtx-editor__content" v-html="content"></div>
+    <el-button type="primary" @click="submit">SUBMIT</el-button>
+
   </div>
 </template>
   
@@ -27,6 +29,9 @@ export default class Editor extends Vue {
     this.content = e.html;
     // console.log(e)
     this.$emit('getContent',this.content)
+  }
+  submit() {
+
   }
 }
 </script>
