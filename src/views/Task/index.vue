@@ -1,9 +1,9 @@
 
 <template>
   <div class="vtx-task">
-    <!-- <draggable :list="taskList" @start="start" @end="end"> -->
+    <draggable class="vtx-task__drag-container" :list="taskList" @start="start" @end="end" :options="{group:'taskList'}">
       <List v-for="(list,index) in taskList" :key="index" :list="list"/>
-    <!-- </draggable> -->
+    </draggable>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ import "./style.scss";
   },
   props: {},
   computed: {
-    ...mapState(MODULE_PATH, ["taskList"])
+    ...mapState(MODULE_PATH, ['taskList',])
   },
   methods: {
     ...mapMutations(MODULE_PATH, {

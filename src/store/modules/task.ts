@@ -2,6 +2,7 @@ export const MODULE_PATH = "task";
 export enum actionTypes {
   INIT = "INIT",
   UPDATE_TASK = "UPDATE_TASK",
+  UPDATE_DROP_ID = "UPDATE_DROP_ID",
 }
 
 const R = require('ramda');
@@ -66,6 +67,8 @@ const initialState = {
       ]
     },
   ],
+
+  dropId: 0,
 };
 
 const state = R.clone(initialState);
@@ -81,6 +84,9 @@ const mutations = {
 
   [actionTypes.UPDATE_TASK](state:any,data:any) {
     state.taskList = data;
+  },
+  [actionTypes.UPDATE_DROP_ID](state:any,data:any) {
+    state.dropId = data;
   },
 
 };

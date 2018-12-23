@@ -2,13 +2,17 @@
 <template>
   <div class="vtx-list">
     <div>{{list.name}}</div>
-    <Card v-for="(item) in list.cards" :key="item.name" :cardInfo="item"/>
+    <draggable :list="list.cards" @start="start" @end="end" :options="{group:'cards'}">
+      <Card v-for="(item) in list.cards" :key="item.name" :cardInfo="item"/>
+    </draggable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import Card from "@/views/Task/Card/index.vue";
+import draggable from "vuedraggable";
+
 import { ILists } from "@/store/modules/task";
 
 import "./style.scss";
@@ -16,10 +20,14 @@ import "./style.scss";
 @Component<List>({
   components: {
     Card,
+    draggable
   },
   props: {
     list: {
       type: Object
+    },
+    taskList: {
+      type: Array
     }
   },
   computed: {},
@@ -28,9 +36,17 @@ import "./style.scss";
 })
 export default class List extends Vue {
   list!: ILists;
+  taskList!: ILists[];
   created() {}
   mouted() {}
   befordestoyed() {}
+
+  start(e: any) {
+    console.log(e);
+  }
+  end(e: any) {
+    console.log(e);
+  }
 }
 </script>
 
