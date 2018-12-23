@@ -1,31 +1,33 @@
 
 <template>
   <div class="vtx-list">
-    <Card v-for="(item) in list" :key="item.name" :cardInfo="item"/>
+    <div>{{list.name}}</div>
+    <Card v-for="(item) in list.cards" :key="item.name" :cardInfo="item"/>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from "vue-property-decorator";
 import Card from "@/views/Task/Card/index.vue";
-import './style.scss'
+import { ILists } from "@/store/modules/task";
+
+import "./style.scss";
 
 @Component<List>({
-  components:{
+  components: {
     Card,
   },
   props: {
     list: {
-      type: Array,
+      type: Object
     }
   },
   computed: {},
   methods: {},
-  watch: {},
+  watch: {}
 })
-
 export default class List extends Vue {
-  list!: any[];
+  list!: ILists;
   created() {}
   mouted() {}
   befordestoyed() {}

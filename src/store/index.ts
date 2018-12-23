@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import system from './modules/system';
+import task from './modules/task';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
     system,
-
+    task,
   },
   
 });

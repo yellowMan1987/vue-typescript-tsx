@@ -3,7 +3,6 @@
   <div class="vtx-card">
     {{cardInfo.name}}  
     {{cardInfo.name}}  
-    {{cardInfo.name}}  
   </div>
 </template>
 
