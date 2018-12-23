@@ -1,6 +1,9 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(task) {
-
-    }
+	@import 'src/themes/mixins/mixins.scss';
+	
+	@include b(task) {
+		@include flexRow(flex-start);
+		@include e(drop-container) {
+			width: 3rem;
+		}
+	}

@@ -25,7 +25,7 @@ export default new Router({
     {
       path: '/task',
       name: 'task',
-      component: () => import(/* webpackChunkName: "about" */ './views/Task/index.vue'),
+      component: () => import(/* webpackChunkName: "task" */ './views/Task/index.vue'),
     },
   ],
 });
