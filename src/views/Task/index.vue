@@ -1,7 +1,7 @@
 
 <template>
   <div class="vtx-task">
-    <draggable class="vtx-task__drag-container" :list="taskList" @start="start" @end="end" :options="{group:'taskList'}">
+    <draggable class="vtx-task__drag-container" @start="start" @end="end" :options="{group:'taskList'}">
       <List v-for="(list,index) in taskList" :key="index" :list="list"/>
     </draggable>
   </div>
