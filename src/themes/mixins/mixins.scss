@@ -203,6 +203,14 @@ div.is-active {
   -webkit-animation: #{$str};
 }
 
+@mixin flexRowStart($justifyContent) {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: nowrap;
+  justify-content: $justifyContent;
+  list-style: none;
+  align-items: flex-start;
+}
 @mixin flexRow($justifyContent) {
   display: flex;
   flex-flow: row;

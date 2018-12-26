@@ -5,6 +5,7 @@
     <draggable class="vtx-list__drag-container" @start="start" @end="end" :options="{group:'cards'}">
       <Card v-for="(item) in list.cards" :key="item.name" :cardInfo="item"/>
     </draggable>
+    <div class="vtx-list__add-card">添加卡片</div>
   </div>
 </template>
 

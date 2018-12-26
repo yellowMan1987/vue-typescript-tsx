@@ -16,4 +16,8 @@
 				}
 			}
 		}
+
+		@include e(drag-container) {
+			min-height: 0.5rem;
+		}
 	}
