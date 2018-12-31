@@ -2,9 +2,10 @@
   <div class="vtx-nav">
     <router-link to="/">{{this.$t('home')}}</router-link> |
     <!-- <router-link to="/article">{{this.$t('article')}}</router-link> | -->
-    <router-link to="/about">VUE</router-link> |
-    <router-link to="/post">POST</router-link> |
-    <router-link to="/task">TASK</router-link> |
+    <router-link to="/about">自由</router-link> |
+    <router-link to="/about">哲学</router-link> |
+    <!-- <router-link to="/post">POST</router-link> |
+    <router-link to="/task">TASK</router-link> | -->
   </div>
 </template>
 

@@ -9,6 +9,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue';
 import Example from '@/components/Example/index.vue';
 
+
+//boy♂next♂door
+//ass we can
+//乖乖站好♀
 @Component({
   components: {
     Example,

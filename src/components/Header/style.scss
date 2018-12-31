@@ -3,7 +3,7 @@
 
 @include b(header) {
 	height: 0.8rem;
-	width: calc(100% - 2rem);
+	width: calc(100% - 0.22rem);
 	margin: 0 auto;
 	@include flexRow(space-between);
 	@include e(right) {

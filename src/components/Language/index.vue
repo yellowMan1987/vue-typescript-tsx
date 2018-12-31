@@ -9,6 +9,7 @@
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="zh_CN">中文</el-dropdown-item>
         <el-dropdown-item command="en_US">EN</el-dropdown-item>
+        <el-dropdown-item command="ko">한국어</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
@@ -29,6 +30,8 @@ import "./style.scss";
           return "中文";
         case "en_US":
           return "EN";
+        case "ko":
+          return "한국어";
         default:
           break;
       }
