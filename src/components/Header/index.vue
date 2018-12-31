@@ -1,12 +1,12 @@
 <template>
   <div class="vtx-header">
     <Nav/>
-    <span class="vtx-header__setting el-icon-setting" v-if="!visible" @click="visible = !visible"></span>
+    <span class="vtx-header__setting el-icon-setting" @click="visible = !visible"></span>
     <el-dialog :visible="visible">
       <div class="vtx-header__right" >
         <Language/>
         <Theme/>
-        <el-button type="primary" v-if="visible" @click="visible = !visible">关闭</el-button>
+        <el-button type="primary" @click="visible = !visible">关闭</el-button>
       </div>
     </el-dialog>
     
