@@ -1,9 +1,10 @@
+
 <template>
-  <div class="vtx-nav">
-    <router-link to="/">{{this.$t('home')}}</router-link> |
-    <!-- <router-link to="/article">{{this.$t('article')}}</router-link> | -->
-   <router-link to="/post">哲学</router-link> |
-    <!--  <router-link to="/task">TASK</router-link> | -->
+  <div v-show="visible" class="vtx-globalAlarm">
+    全局告警的告警
+    <div>
+      <el-button type="primary" size="small" @click="hide">确定</el-button>
+    </div>
   </div>
 </template>
 
@@ -11,7 +12,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import './style.scss'
 
-@Component<Nav>({
+@Component<GlobalAlarm>({
   components:{},
   props: {},
   computed: {},
@@ -19,10 +20,17 @@ import './style.scss'
   watch: {},
 })
 
-export default class Nav extends Vue {
+export default class GlobalAlarm extends Vue {
+  visible = true;
   created() {}
   mouted() {}
   befordestoyed() {}
+  show() {
+    this.visible = true;
+  }
+  hide() {
+    this.visible = false;
+  }
 }
 </script>
 

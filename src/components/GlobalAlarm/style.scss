@@ -1,0 +1,10 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(globalAlarm) {
+	position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}

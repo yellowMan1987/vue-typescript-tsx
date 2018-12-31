@@ -1,10 +1,15 @@
 <template>
   <div class="vtx-header">
     <Nav/>
-    <div class="vtx-header__right">
-      <Language/>
-      <Theme/>
-    </div>
+    <span class="vtx-header__setting el-icon-setting" v-if="!visible" @click="visible = !visible"></span>
+    <el-dialog :visible="visible">
+      <div class="vtx-header__right" >
+        <Language/>
+        <Theme/>
+        <el-button type="primary" v-if="visible" @click="visible = !visible">关闭</el-button>
+      </div>
+    </el-dialog>
+    
   </div>
 </template>
 
@@ -27,6 +32,7 @@ import "./style.scss";
   watch: {}
 })
 export default class Header extends Vue {
+  visible = false;
   created() {}
   mouted() {}
   befordestoyed() {}

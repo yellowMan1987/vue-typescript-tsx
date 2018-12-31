@@ -71,3 +71,21 @@ a {
 .el-select-dropdown {
 	border-radius: 0 !important;
 }
+
+.el-select-dropdown__item.selected {
+	@include themify($themes) {
+		color: themed('font-color') !important;
+	}
+}
+
+// dialog
+.el-dialog {
+	width: 80% !important;
+}
+.el-dialog__header {
+	display: none;
+}
+
+.el-dialog__body {
+	min-width: 1rem;
+}

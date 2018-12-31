@@ -18,11 +18,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "post" */ './views/Post/index.vue'),
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-    {
       path: '/task',
       name: 'task',
       component: () => import(/* webpackChunkName: "task" */ './views/Task/index.vue'),

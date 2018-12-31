@@ -1,6 +1,7 @@
 <template>
   <div id="app" :class="className">
     <Header/>
+    <GlobalAlarm/>
     <router-view/>
   </div>
 </template>
@@ -11,10 +12,12 @@ import { resizeWindow, setHTMLfontSize } from '@/utils/global';
 import { mapState, mapActions, mapMutations } from 'vuex';
 import * as system from '@/store/modules/system';
 import Header from "@/components/Header/index.vue";
+import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
 
 @Component<App>({
   components: {
     Header,
+    GlobalAlarm,
   },
   props: {},
   computed: {
