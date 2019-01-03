@@ -143,3 +143,52 @@ export async function compressImageIfLarge(file: File) {
     URL.revokeObjectURL(objectUrl);
   }
 }
+
+
+// 图片下载
+export function getImageData(url: string): Promise<ArrayBuffer> {
+  const xhr = new XMLHttpRequest();
+  xhr.open("get", url);
+  xhr.responseType = "blob";
+
+  return new Promise<ArrayBuffer>((resolve, reject) => {
+    xhr.onload = () => {
+      const reader = new FileReader() as any;
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsArrayBuffer(xhr.response);
+    };
+    xhr.onerror = () => reject();
+    xhr.send();
+  });
+}
+
+export function getTypeOfImage(img: ArrayBuffer) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader() as any;
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(new Blob([img], { type: "image/jpg" }));
+  });
+}
+
+export const toDataUrl = (url: string): any => {
+  return getImageData(url).then((imageData: ArrayBuffer) =>
+    getTypeOfImage(imageData)
+  );
+};
+
+export const clickDownload = ({ download, href }:any) => {
+  if (download && href) {
+    const a = document.createElement("a");
+    a.href = href;
+    a.target = '_blank';
+    a.download = download;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } else {
+    console.error("缺少参数");
+  }
+};

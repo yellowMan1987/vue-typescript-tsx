@@ -47,6 +47,11 @@
         size="small"
         @click="imageDrawerData.drawingRect = false ,imageDrawerData.drawingPolygon = false"
       >取消绘制</el-button>
+      <el-button
+        size="small"
+        type="primary"
+        @click="downloadImage"
+      >下载图片</el-button>
     </div>
     <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList"></ContextMenu>
   </div>
@@ -60,6 +65,7 @@ import ContextMenu, {
 } from "@/components/ContextMenu/index.vue";
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
+import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 @Component<Example>({
   components: {
@@ -110,7 +116,7 @@ export default class Example extends Vue {
   ] as IMenuOptionItem[];
 
   imagePolygonDrawerImgUrl: string =
-    "https://i0.hdslb.com/bfs/article/669b74844e47c4ca9774aad43dc62b0d879fbcd6.jpg";
+    "http://desk.fd.zol-img.com.cn/t_s1920x1080/g5/M00/0B/01/ChMkJ1wcspmIRAZ3AAMCvbwwrIQAAt6UwLoOVMAAwLV134.jpg";
   imageDrawerData = {
     drawingPolygon: false,
     drawingRect: false,
@@ -157,6 +163,15 @@ export default class Example extends Vue {
     console.log("完成绘制", JSON.stringify(val));
     this.imageDrawerData.drawingPolygon = false;
     this.imageDrawerData.drawingRect = false;
+  }
+
+  async downloadImage(e:any) {
+    e.preventDefault();
+    e.stopPropagation();
+    const fileName = `${new Date().getTime()}.jpg`;
+    let href;
+    href = await toDataUrl(this.imagePolygonDrawerImgUrl);
+    clickDownload({ href, download: fileName });
   }
 }
 </script>

@@ -9,4 +9,9 @@
 	@include e(right) {
 		@include flexRow(space-between);
 	}
+	@include e(setting) {
+		&::before {
+			color: #292929;
+		}
+	}
 }

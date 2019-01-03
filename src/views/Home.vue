@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{this.$t('des')}}</h1>
-    <!-- <Example /> -->
+    <Example />
   </div> 
 </template>
 <script lang="ts">
