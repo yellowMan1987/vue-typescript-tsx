@@ -15,6 +15,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { formatDate } from '@/utils/format';
+import dayjs from 'dayjs';
 import './style.scss'
 
 @Component<PostItem>({
@@ -33,7 +34,8 @@ import './style.scss'
 export default class PostItem extends Vue {
   post: any;
   showContent = false;
-  time = this.post.updateTime && formatDate(this.post.updateTime,'yyyy-MM-dd HH:mm:ss');
+  time = this.post.updateTime && dayjs(this.post.updateTime).format('YYYY-MM-DD HH:mm');
+
   created() {}
   mouted() {}
   befordestoyed() {}
