@@ -8,7 +8,9 @@
     </div>
     <div class="vtx-postItem__des">{{post.des}}</div>
     <span  @click="showContent = !showContent">====>{{!showContent ? '显示文章内容' : '收起'}}</span>
-    <div v-if="showContent" class="vtx-postItem__content">{{post.content}}</div>
+    <div v-if="showContent" class="vtx-postItem__content">
+      {{post.content}}
+    </div>
   </div>
 </template>
 

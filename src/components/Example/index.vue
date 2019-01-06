@@ -1,6 +1,18 @@
 <template>
   <div class="vtx-example">
     <div class="vtx-example__block">
+      <div
+        :style="{
+          backgroundImage: `url(${xiangjiao})`,
+          backgroundSize:'cover',
+          backgroundRepeat: 'no-repeat',
+          width:'400px',
+          height:'300px',
+        }"
+      >
+      </div>
+    </div>
+    <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
       <Language/>
     </div>
@@ -67,6 +79,7 @@ import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
+
 @Component<Example>({
   components: {
     Theme,
@@ -137,6 +150,9 @@ export default class Example extends Vue {
       }
     ]
   };
+
+  xiangjiao = require("../../../static/image/timg.jpg");
+
   created() {}
   mouted() {}
   befordestoyed() {}
