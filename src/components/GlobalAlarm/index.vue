@@ -21,7 +21,8 @@
     <div
       v-if="!isAlarmEnd"
       class="enter-image image button"
-      :style="{backgroundImage: `url(${leve})`,  }"
+      :style="{backgroundImage: `url(${leve})`}"
+      @click="hide"
     ></div>
   </div>
 </template>
