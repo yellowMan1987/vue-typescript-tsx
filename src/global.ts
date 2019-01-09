@@ -56,3 +56,7 @@ declare module "vuedraggable" {
   const content: any;
   export default content;
 }
+declare module "msr" {
+  const content: any;
+  export default content;
+}

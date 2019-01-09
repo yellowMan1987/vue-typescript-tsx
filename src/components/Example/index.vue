@@ -21,8 +21,8 @@
       <Theme/>
     </div>
     <div class="vtx-example__block">
-      <h2>{{this.$t('msg')}}</h2>
-      <el-button type="primary" @click="openMsg">msg</el-button>
+      <h2>WebRtc</h2>
+      <el-button type="primary" @click="showWebRtc">打开摄像头</el-button>
     </div>
     <div class="vtx-example__block">
       <h2>{{this.$t('contextMenu')}}</h2>
@@ -66,12 +66,14 @@
       >下载图片</el-button>
     </div>
     <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList"></ContextMenu>
+    <WebRtc ref="webRtc"/>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Language from "@/components/Language/index.vue";
 import Theme from "@/components/Theme/index.vue";
+import WebRtc from "@/components/WebRtc/index.vue";
 import ContextMenu, {
   IMenuOptionItem
 } from "@/components/ContextMenu/index.vue";
@@ -84,6 +86,7 @@ import "./style.scss";
   components: {
     Theme,
     Language,
+    WebRtc,
     ContextMenu,
     Map,
     ImageDrawer
@@ -100,7 +103,7 @@ export default class Example extends Vue {
     clientY: 0
   };
   contextActiveData: any;
-
+  refs: any;
   contextMenuOpsList = [
     {
       txt: "右键操作项",
@@ -164,6 +167,11 @@ export default class Example extends Vue {
       message: "错误的提示信息",
       type: "error"
     });
+  }
+  // showWebRtc
+  showWebRtc() {
+    const webRtc = this.$refs.webRtc as any;
+    webRtc.show();
   }
 
   // 右键操作
