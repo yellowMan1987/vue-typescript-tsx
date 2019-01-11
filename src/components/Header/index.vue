@@ -34,8 +34,8 @@ import "./style.scss";
 export default class Header extends Vue {
   visible = false;
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 
