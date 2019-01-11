@@ -7,9 +7,9 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "new": "node order/newvue.js",
-    "newvue": "node order/newvue.js",
-    "zip": "sh order/publish.sh"
+    "new": "node bin/newvue.js",
+    "newvue": "node bin/newvue.js",
+    "zip": "sh bin/publish.sh"
   },
   "dependencies": {
     "coordtransform": "^2.1.2",

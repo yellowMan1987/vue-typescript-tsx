@@ -14,7 +14,7 @@
       <li
         v-for="(item,index) in menuOptionsList" 
         :key="index"
-        v-if="!item.disable"
+        v-show="!item.disable"
         :class="['vtx-contextMenu__list--item', item.class ? item.class : '']"
         @click="handleItem($event,index)"
         @mouseleave="handleMouseInOut($event, item)"
