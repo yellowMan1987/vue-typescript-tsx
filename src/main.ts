@@ -10,12 +10,12 @@ import { language, i18n } from '@/locale';
 import "./plugins";
 
 Vue.config.productionTip = false;
-loadMapFiles().then(() => {
+// loadMapFiles().then(() => {
   new Vue({
     i18n,
     router,
     store,
     render: h => h(App),
   }).$mount('#app');
-})
+// })
 

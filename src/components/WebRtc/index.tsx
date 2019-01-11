@@ -1,5 +1,5 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
-import * as MediaStreamRecorder from "msr";
+import MediaStreamRecorder  from "msr";
 
 @Component<WebRtc>({
   components: {},
