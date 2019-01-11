@@ -60,3 +60,7 @@ declare module "msr" {
   const content: any;
   export default content;
 }
+declare module "vue-tsx-support" {
+  const content: any;
+  export default content;
+}
