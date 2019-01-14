@@ -4,6 +4,9 @@
     <div ref="videosContainer" >
       <video class="sf-faceLogin__video" ref="video"></video>
       <canvas ref="canvas" class="sf-faceLogin__video-mask" style="background-color: rgba(3,3,3,0%);"></canvas>
+      <el-button type="primary" @click="start">开始录制</el-button>
+      <el-button type="primary" @click="stop">停止录制</el-button>
+      <el-button type="primary" @click="save">下载</el-button>
       <el-button type="primary" @click="hide">关闭</el-button>
     </div>
   </el-dialog>
@@ -147,6 +150,16 @@ export default class WebRtc extends Vue {
     //     }
     //   }
     // };
+  }
+
+  start() {
+    this.mediaRecorder.start()
+  }
+  stop() {
+    this.mediaRecorder.stop();
+  }
+  save() {
+    this.mediaRecorder.save();
   }
 
   show() {
