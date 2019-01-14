@@ -39,8 +39,8 @@ export default class PostItem extends Vue {
   time = this.post.updateTime && dayjs(this.post.updateTime).format('YYYY-MM-DD HH:mm');
 
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 

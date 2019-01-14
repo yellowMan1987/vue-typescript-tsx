@@ -21,8 +21,8 @@ import './style.scss'
 
 export default class Nav extends Vue {
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 

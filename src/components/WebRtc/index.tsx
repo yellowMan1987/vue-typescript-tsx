@@ -39,8 +39,8 @@ export default class WebRtc extends Vue {
   };
   $refs: any;
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
   onMediaSuccess(stream: any) {
     let video = this.$refs.video && (this.$refs.video as any);
     this.mediaRecorder = new MediaStreamRecorder(stream);

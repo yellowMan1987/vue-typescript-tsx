@@ -23,8 +23,8 @@ import "./style.scss";
 export default class Editor extends Vue {
   content: string = "";
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
   onEditorChange(e: any) {
     this.content = e.html;
     // console.log(e)

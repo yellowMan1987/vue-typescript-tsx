@@ -50,8 +50,8 @@ export default class Language extends Vue {
   readonly local!: string;
   readonly language!: string;
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 
   changeLanguage(lang:string) {
     this.updateLanguage(lang);

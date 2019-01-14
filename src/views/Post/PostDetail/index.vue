@@ -19,8 +19,8 @@ import './style.scss'
 
 export default class PostDetail extends Vue {
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 

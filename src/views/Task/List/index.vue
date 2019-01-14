@@ -39,8 +39,8 @@ export default class List extends Vue {
   list!: ILists;
   taskList!: ILists[];
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 
   start(e: any) {
     console.log(e);

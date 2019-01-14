@@ -62,8 +62,8 @@ export default class GlobalAlarm extends Vue {
 
 
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
   show() {
     this.visible = true;
   }

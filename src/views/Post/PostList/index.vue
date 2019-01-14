@@ -83,8 +83,8 @@ export default class PostList extends Vue {
 
   ];
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 

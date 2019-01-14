@@ -25,6 +25,10 @@
       <el-button type="primary" @click="showWebRtc">打开摄像头</el-button>
     </div>
     <div class="vtx-example__block">
+      <h2>防拍水印</h2>
+      <el-button type="primary" @click="waterMarkVisible = !waterMarkVisible">打开防拍水印</el-button>
+    </div>
+    <div class="vtx-example__block">
       <h2>{{this.$t('contextMenu')}}</h2>
       <div
         :style="{
@@ -67,6 +71,7 @@
     </div>
     <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList"></ContextMenu>
     <WebRtc ref="webRtc"/>
+    <WaterMark :visible="waterMarkVisible"/>
   </div>
 </template>
 <script lang="ts">
@@ -79,6 +84,7 @@ import ContextMenu, {
 } from "@/components/ContextMenu/index.vue";
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
+import WaterMark from "@/components/WaterMark/index.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -89,7 +95,8 @@ import "./style.scss";
     WebRtc,
     ContextMenu,
     Map,
-    ImageDrawer
+    ImageDrawer,
+    WaterMark,
   },
   props: {},
   computed: {},
@@ -98,6 +105,7 @@ import "./style.scss";
 })
 export default class Example extends Vue {
   updateThemes!: (res: any) => void;
+  waterMarkVisible = false;
   rightMouseClickPosition = {
     clientX: 0,
     clientY: 0
@@ -157,8 +165,8 @@ export default class Example extends Vue {
   xiangjiao = require("../../../static/image/timg.jpg");
 
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 
   // msg
   openMsg() {

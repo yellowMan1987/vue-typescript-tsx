@@ -42,8 +42,8 @@ import "./style.scss";
 export default class Task extends Vue {
   taskList!: ILists[];
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
   start(e: any) {
     console.log(e);
   }

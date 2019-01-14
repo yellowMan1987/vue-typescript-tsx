@@ -25,8 +25,8 @@ import './style.scss'
 export default class Card extends Vue {
   cardInfo!: any;
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 

@@ -29,8 +29,8 @@ export default class Post extends Vue {
   isEdit = false;
   isCreate = false;
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 
   getContent(val:string) {
     console.log('getContent',val)

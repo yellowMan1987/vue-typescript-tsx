@@ -64,8 +64,8 @@ import './style.scss'
 
 export default class ${componentName} extends Vue {
   created() {}
-  mouted() {}
-  befordestoyed() {}
+  mounted() {}
+  beforeDestroy() {}
 }
 </script>
 
