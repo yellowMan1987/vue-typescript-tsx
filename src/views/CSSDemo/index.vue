@@ -1,6 +1,7 @@
 <template>
   <div class="cssDemo">
     <Heart/>
+    <Terminal/>
     <FontInput/>
     <Loading1/>
     <Macaron/>
@@ -14,6 +15,7 @@ import FantasyNav from '@/views/CSSDemo/FantasyNav.vue';
 import Heart from '@/views/CSSDemo/Heart.vue';
 import Loading1 from '@/views/CSSDemo/Loading1.vue';
 import FontInput from '@/views/CSSDemo/FontInput.vue';
+import Terminal from '@/views/CSSDemo/Terminal.vue';
 @Component({
   components: {
     Macaron,
@@ -21,6 +23,7 @@ import FontInput from '@/views/CSSDemo/FontInput.vue';
     Heart,
     Loading1,
     FontInput,
+    Terminal,
   },
   
 })
