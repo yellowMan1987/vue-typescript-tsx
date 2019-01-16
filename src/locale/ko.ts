@@ -16,6 +16,6 @@ export default {
   polygonDrawer: '汪汪',
 
   confirm: '汪汪',
-  cancel: '汪汪汪汪',
+  cancel: '汪汪',
 
 }

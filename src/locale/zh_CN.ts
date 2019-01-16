@@ -4,7 +4,7 @@ export default {
   article: '文章',
   about: '关于',
 
-  des: '组件的展示',
+  des: '组件的展示2',
 
   //component
   theme: '主题',
