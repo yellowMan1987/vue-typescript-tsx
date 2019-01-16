@@ -1,4 +1,4 @@
-var HappyPack = require('HappyPack');
+// var HappyPack = require('HappyPack');
 module.exports = {
   // 部署应用时的基本 URL
   // baseUrl: process.env.NODE_ENV === 'production' ? '' : '',
