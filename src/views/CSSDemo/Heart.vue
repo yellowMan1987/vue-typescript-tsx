@@ -34,7 +34,7 @@ export default class Heart extends Vue {}
 	font-style:normal;
 	font-weight:400;
 	text-align:center;
-  height: 300px;
+  height: 40vh;
 }
 
 .heart{

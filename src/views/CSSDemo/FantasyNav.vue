@@ -41,7 +41,7 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 40vh;
   overflow: hidden;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
