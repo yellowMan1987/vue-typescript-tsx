@@ -1,14 +1,17 @@
 <template>
   <div class="cssDemo">
-    <!-- <Macaron/> -->
+    <Macaron/>
+    <FantasyNav/>
   </div> 
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Macaron from '@/views/CSSDemo/Macaron.vue';
+import FantasyNav from '@/views/CSSDemo/FantasyNav.vue';
 @Component({
   components: {
     Macaron,
+    FantasyNav,
   },
   
 })

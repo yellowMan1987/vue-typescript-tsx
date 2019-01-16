@@ -29,7 +29,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   watch: {}
 })
 export default class Macaron extends Vue {
-  macarons = [1,2,3,4,5,6,7]
+  macarons = [1,2,3]
 
 }
 </script>
@@ -66,6 +66,9 @@ $pink: #ee786e;
   }
 }
 
+h1 {
+  color:#fff;
+}
 .css_content {
   width: 100%;
   height: 100%;
