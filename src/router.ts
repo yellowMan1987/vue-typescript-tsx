@@ -23,9 +23,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "task" */ './views/Task/index.vue'),
     },
     {
-      path: '/css',
-      name: 'css',
-      component: () => import(/* webpackChunkName: "css" */ './views/CSSDemo/index.vue'),
+      path: '/cssdemo',
+      name: 'cssdemo',
+      component: () => import(/* webpackChunkName: "cssdemo" */ './views/CSSDemo/index.vue'),
     },
   ],
 });
