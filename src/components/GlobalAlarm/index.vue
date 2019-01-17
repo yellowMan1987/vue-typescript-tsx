@@ -16,14 +16,14 @@
       class="vtx-globalAlarm__next-button button"
       @click="next"
     >
-      <span>NEXT</span>
+      <span>提示{{alarmNum + 1}}</span>
     </div>
     <div
       v-if="isAlarmEnd"
       class="vtx-globalAlarm__next-button button"
       @click="hide"
     >
-      <span>CONFIRM</span>
+      <span>关闭并强行进入</span>
     </div>
     <div
       v-if="!isAlarmEnd"
