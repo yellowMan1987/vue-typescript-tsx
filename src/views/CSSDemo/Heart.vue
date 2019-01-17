@@ -42,7 +42,7 @@ export default class Heart extends Vue {}
 	height:200px;
 	top:50%;
 	left:50%;
-	z-index:1;
+	/* z-index:1; */
 	display:block;
 	position:absolute;
 	transform:translate(-50%,-50%);

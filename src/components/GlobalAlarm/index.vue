@@ -19,6 +19,13 @@
       <span>NEXT</span>
     </div>
     <div
+      v-if="isAlarmEnd"
+      class="vtx-globalAlarm__next-button button"
+      @click="hide"
+    >
+      <span>CONFIRM</span>
+    </div>
+    <div
       v-if="!isAlarmEnd"
       class="enter-image image button"
       :style="{backgroundImage: `url(${leve})`}"
