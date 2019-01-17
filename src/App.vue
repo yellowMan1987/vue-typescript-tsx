@@ -35,6 +35,7 @@ import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
 export default class App extends Vue {
   theme!: string;
   className = 'theme-';
+  refs:any;
 
   mounted() {
     this.className = `theme-${this.theme}`

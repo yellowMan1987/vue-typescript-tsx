@@ -1,5 +1,5 @@
 <template>
-  <div class="vtx-example">
+  <div class="vtx-example" ref="example">
     <div class="vtx-example__block">
       <div
         :style="{
@@ -20,7 +20,7 @@
       <h1>{{this.$t('theme')}}</h1>
       <Theme/>
     </div>
-    <div class="vtx-example__block">
+    <div class="vtx-example__block" v-if="!mobi">
       <h2>WebRtc</h2>
       <el-button type="primary" @click="showWebRtc">打开摄像头</el-button>
     </div>
@@ -28,7 +28,7 @@
       <h2>防拍水印</h2>
       <el-button type="primary" @click="waterMarkVisible = !waterMarkVisible">打开防拍水印</el-button>
     </div>
-    <div class="vtx-example__block">
+    <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t('contextMenu')}}</h2>
       <div
         :style="{
@@ -39,11 +39,11 @@
         v-rightMouseClick="showContextMenu"
       ></div>
     </div>
-    <div class="vtx-example__block">
+    <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("map")}}</h2>
       <Map></Map>
     </div>
-    <div class="vtx-example__block">
+    <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("polygonDrawer")}}</h2>
       <ImageDrawer
         :imageUrl="imagePolygonDrawerImgUrl"
@@ -53,8 +53,8 @@
         :drawingRect="imageDrawerData.drawingRect"
         @finish="finish"
         :style="{
-          width: '800px',
-          height: '600px'
+          width: '8.6rem',
+          height: '6rem'
         }"
       />
       <el-button type="primary" size="small" @click="imageDrawerData.drawingPolygon = true">画多边形</el-button>
@@ -69,9 +69,9 @@
         @click="downloadImage"
       >下载图片</el-button>
     </div>
-    <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList"></ContextMenu>
-    <WebRtc ref="webRtc"/>
-    <WaterMark :visible="waterMarkVisible"/>
+    <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList" v-if="!mobi"></ContextMenu>
+    <WebRtc ref="webRtc" v-if="!mobi"/>
+    <WaterMark :visible="waterMarkVisible" />
   </div>
 </template>
 <script lang="ts">
@@ -106,6 +106,7 @@ import "./style.scss";
 export default class Example extends Vue {
   updateThemes!: (res: any) => void;
   waterMarkVisible = false;
+  mobi = false;
   rightMouseClickPosition = {
     clientX: 0,
     clientY: 0
@@ -164,7 +165,9 @@ export default class Example extends Vue {
 
   xiangjiao = require("../../../static/image/timg.jpg");
 
-  created() {}
+  created() {
+    this.mobi = window.innerWidth <= 900;
+  }
   mounted() {}
   beforeDestroy() {}
 

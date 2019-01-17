@@ -13,7 +13,7 @@
       <!-- <a v-for="(i,index) in urls" :url="i" :key="index">{{index}}</a> -->
     </div>
     <div class="vtx-webRtc__footer">
-      <el-button type="primary" @click="start">开始录制</el-button>
+      <el-button type="primary" @click="start" :disabled="isRec">开始录制</el-button>
       <el-button type="primary" @click="stop">停止录制</el-button>
       <el-button type="primary" @click="save">下载</el-button>
       <el-button type="primary" @click="hide">关闭</el-button>
@@ -59,7 +59,7 @@ export default class WebRtc extends Vue {
   };
   $refs: any;
   urls = [] as string[];
-  isRec = true;
+  isRec = false;
   recTimer = null as any;
   millisecond = 0;
   videoTime!: string;
@@ -68,9 +68,7 @@ export default class WebRtc extends Vue {
   hour = 0;
 
   created() {}
-  mounted() {
-    this.getCamera();
-  }
+  mounted() {}
   beforeDestroy() {
     this.videoRecReset();
   }
@@ -229,6 +227,7 @@ export default class WebRtc extends Vue {
 
   hide() {
     this.dialogVisible = false;
+    this.mediaRecorder.stop();
     this.videoRecReset();
   }
 

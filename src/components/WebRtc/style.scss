@@ -54,6 +54,9 @@
 		top: 0;
 		left: 0;
 	}
+	@include e(footer) {
+		height:0.5rem;
+	}
 	@keyframes rec {
 		0% {
 			opacity: 1;

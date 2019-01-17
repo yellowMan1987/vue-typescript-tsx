@@ -1,7 +1,7 @@
 <template>
   <div
     :style="{
-      width: '8rem',
+      width: '8.6rem',
       height: '6rem',
     }"
   >
