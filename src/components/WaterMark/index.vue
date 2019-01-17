@@ -45,7 +45,7 @@ export default class WaterMark extends Vue {
   visible!: boolean;
   msg!: string;
   total = 0;
-  observer = new MutationObserver(() => this.$emit('change'));
+  observer = new MutationObserver(() => null);
   created() {}
   mounted() {
     this.calculateRowsAndCols(this.msg);

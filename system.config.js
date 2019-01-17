@@ -10,7 +10,7 @@ window.config = {
     minZoom: 5,
     heatRadius: 40,
     baidu: 
-    'http://api.map.baidu.com/getscript?v=2.0&ak=IXdnlKGwXtwh1gzs9cgxOuSciPRgQOXE',
+    'https://api.map.baidu.com/getscript?v=2.0&ak=IXdnlKGwXtwh1gzs9cgxOuSciPRgQOXE&s=1',
 
     // minemap: {
     //   mineMapHost: 'minedata.cn',
