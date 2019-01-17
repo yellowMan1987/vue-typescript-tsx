@@ -206,13 +206,16 @@ export default class WebRtc extends Vue {
   }
 
   start() {
+    this.videoRecReset();
     this.isRec = true;
     this.mediaRecorder.start();
     this.recTimer = setInterval(this.timer,50);
   }
   stop() {
     this.mediaRecorder.stop();
-    this.videoRecReset();
+    // this.videoRecReset();
+    this.isRec = false;
+    clearInterval(this.recTimer);
   }
   save() {
     this.mediaRecorder.save();
