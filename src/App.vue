@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="className">
     <Header/>
-    <!-- <GlobalAlarm/> -->
+    <GlobalAlarm/>
     <router-view/>
   </div>
 </template>

@@ -2,7 +2,14 @@
 <template>
   <div v-if="visible" class="vtx-waterMark">
     <ul class="vtx-waterMark__container">
-        <li v-for="(i,index) in total" :key="index" class="vtx-waterMark__item">
+        <li v-for="(i,index) in total" 
+          :key="index" 
+          class="vtx-waterMark__item"
+          :style="{
+            'color':color,
+            '-webkit-text-stroke':color,
+          }"
+        >
           {{msg}}
         </li>
     </ul>
@@ -23,6 +30,10 @@ import './style.scss'
     msg: {
       type: String,
       default: '防拍水印',
+    },
+    color: {
+      type: String,
+      default: 'rgba(218, 107, 222, 0.4)',
     }
   },
   computed: {},

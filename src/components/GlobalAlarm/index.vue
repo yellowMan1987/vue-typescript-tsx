@@ -16,7 +16,7 @@
       class="vtx-globalAlarm__next-button button"
       @click="next"
     >
-      <span>提示{{alarmNum + 1}}</span>
+      <span>查看下一个提示</span>
     </div>
     <div
       v-if="isAlarmEnd"
@@ -31,15 +31,20 @@
       :style="{backgroundImage: `url(${leve})`}"
       @click="hide"
     ></div>
+    <WaterMark :visible="true" :msg="warning" :color="'rgba(255, 255, 0, 0.8)'"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import WaterMark from "@/components/WaterMark/index.vue";
+
 import "./style.scss";
 
 @Component<GlobalAlarm>({
-  components: {},
+  components: {
+    WaterMark,
+  },
   props: {},
   computed: {},
   methods: {},
@@ -49,6 +54,7 @@ export default class GlobalAlarm extends Vue {
   visible = true;
   isAlarmEnd = true;
   alarmNum = 0;
+  warning = 'WARNING'
   alarmImages = [
     "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6a9d95529822720ec2eed0c378cb0a46f21fab55.jpg",
     "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6c4e47a7d933c895b28eb3bfd31373f0800200ef.jpg",
