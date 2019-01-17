@@ -4,6 +4,7 @@
     <div ref="videosContainer" class="vtx-webRtc__video-container">
       <video class="vtx-webRtc__video" ref="video"></video>
       <span v-show="isRec" class="vtx-webRtc__isRec"></span>
+      <span v-show="isRec" class="vtx-webRtc__isRec-big"></span>
       <span v-show="isRec" class="vtx-webRtc__recTime">{{videoTime}}</span>
 
       <canvas ref="canvas" class="vtx-webRtc__video-mask" style="background-color: rgba(3,3,3,0%);"></canvas>
@@ -48,7 +49,7 @@ import "./style.scss";
   }
 })
 export default class WebRtc extends Vue {
-  dialogVisible = true;
+  dialogVisible = false;
   timeInterval = 3000;
   mediaRecorder: any;
   mediaStreamTrack: any;
