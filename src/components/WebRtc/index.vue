@@ -1,9 +1,17 @@
 
 <template>
   <el-dialog :visible="dialogVisible" class="vtx-webRtc">
-    <div ref="videosContainer" >
-      <video class="sf-faceLogin__video" ref="video"></video>
-      <canvas ref="canvas" class="sf-faceLogin__video-mask" style="background-color: rgba(3,3,3,0%);"></canvas>
+    <div ref="videosContainer" class="vtx-webRtc__video-container">
+      <video class="vtx-webRtc__video" ref="video"></video>
+      <span v-show="isRec" class="vtx-webRtc__isRec"></span>
+      <span v-show="isRec" class="vtx-webRtc__recTime">{{videoTime}}</span>
+
+      <canvas ref="canvas" class="vtx-webRtc__video-mask" style="background-color: rgba(3,3,3,0%);"></canvas>
+    </div>
+    <div class="vtx-webRtc__url" ref="videoUrl">
+      <!-- <a v-for="(i,index) in urls" :url="i" :key="index">{{index}}</a> -->
+    </div>
+    <div class="vtx-webRtc__footer">
       <el-button type="primary" @click="start">开始录制</el-button>
       <el-button type="primary" @click="stop">停止录制</el-button>
       <el-button type="primary" @click="save">下载</el-button>
@@ -14,28 +22,23 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import MediaStreamRecorder  from "msr";
+import MediaStreamRecorder from "msr";
 
 import "./style.scss";
 
 @Component<WebRtc>({
   components: {},
   props: {},
-  computed: {},
+  computed: {
+    videoTime() {
+      return `${this.hour > 9 ? this.hour : '0' + this.hour}:${this.minute > 9 ? this.minute : '0' + this.minute}:${this.second > 9 ? this.second : '0' + this.second}`
+    }
+  },
   methods: {},
   watch: {
     dialogVisible(val) {
       if (val) {
-        // 调用摄像头
-        navigator.mediaDevices
-          .getUserMedia(this.mediaConstraints)
-          .then(stream => {
-            // this.drawCanvas();
-            this.onMediaSuccess(stream);
-          })
-          .catch(error => {
-            this.onMediaError(error);
-          });
+        this.getCamera();
       } else {
         // 关闭摄像头
         this.mediaStreamTrack && this.mediaStreamTrack.stop();
@@ -45,7 +48,7 @@ import "./style.scss";
   }
 })
 export default class WebRtc extends Vue {
-  dialogVisible = false;
+  dialogVisible = true;
   timeInterval = 3000;
   mediaRecorder: any;
   mediaStreamTrack: any;
@@ -54,19 +57,43 @@ export default class WebRtc extends Vue {
     video: true
   };
   $refs: any;
-  created() {
-  }
-  mounted() {
+  urls = [] as string[];
+  isRec = true;
+  recTimer = null as any;
+  millisecond = 0;
+  videoTime!: string;
+  second = 0;
+  minute = 0;
+  hour = 0;
 
+  created() {}
+  mounted() {
+    this.getCamera();
   }
-  beforeDestroy() {}
+  beforeDestroy() {
+    this.videoRecReset();
+  }
+  getCamera() {
+    // 调用摄像头
+    navigator.mediaDevices
+      .getUserMedia(this.mediaConstraints)
+      .then(stream => {
+        // this.drawCanvas();
+        this.onMediaSuccess(stream);
+      })
+      .catch(error => {
+        this.onMediaError(error);
+      });
+  }
   onMediaSuccess(stream: any) {
     let video = this.$refs.video && (this.$refs.video as any);
     this.mediaRecorder = new MediaStreamRecorder(stream);
     this.mediaStreamTrack =
       typeof stream.stop === "function" ? stream : stream.getTracks()[1];
-    const videoWidth = 957;
-    const videoHeight = 741;
+    const videoWidth = this.$refs.videosContainer.clientWidth;
+    const videoHeight = this.$refs.videosContainer.clientHeight;
+    video.width = videoWidth;
+    video.height = videoHeight - 5;
     video = Object.assign(video, {
       controls: false,
       muted: true
@@ -76,31 +103,41 @@ export default class WebRtc extends Vue {
     this.mediaRecorder.mimeType = "video/mp4";
     this.mediaRecorder.videoWidth = videoWidth;
     this.mediaRecorder.videoHeight = videoHeight;
-    this.mediaRecorder.ondataavailable = (blob:any) => {
-      const url =
-        "Open Recorded Video No. " +
-        Date.now() +
-        " (Size: " +
-        this.bytesToSize(blob.size) +
-        ") Time Length: " +
-        this.getTimeLength(this.timeInterval);
+    this.mediaRecorder.ondataavailable = (blob: any) => {
+      const url = `Open Recorded Video .${Date.now()} Size=${this.bytesToSize(blob.size)} Time=${this.videoTime}`
       this.mediaRecorder.stop();
-      this.upload(blob);
+      // this.upload(blob);
       // 测试保存图片;
       // this.mediaRecorder.save();
+      // this.urls.push(url);
+      this.viewVideo(blob,url)
     };
-    this.mediaRecorder.start(this.timeInterval);
+    // this.mediaRecorder.start(this.timeInterval);
 
-  //   // setTimeout(function() {
-  //   //   this.mediaRecorder && this.mediaRecorder.stop();
-  //   // },this.timeInterval)
+    //   // setTimeout(function() {
+    //   //   this.mediaRecorder && this.mediaRecorder.stop();
+    //   // },this.timeInterval)
+  }
+
+  viewVideo(blob:any, url:string) {
+    const a = document.createElement('a');
+    a.target = '_blank';
+    a.innerHTML = url;
+    a.href = URL.createObjectURL(blob);
+    this.$refs.videoUrl.appendChild(a);
+    this.$refs.videoUrl.appendChild(document.createElement('hr'));
+  }
+  drawCanvasText() {
+     const ctx = (this.$refs.canvas as any).getContext("2d");
+
   }
   drawCanvas() {
-    const containerHeight = this.$refs.videosContainer && this.$refs.videosContainer.clientHeight;
-    const containerWidth = this.$refs.videosContainer && this.$refs.videosContainer.clientWidth;
-    this.$refs.canvas.height = containerHeight;
+    const containerHeight =
+      this.$refs.videosContainer && this.$refs.videosContainer.clientHeight;
+    const containerWidth =
+      this.$refs.videosContainer && this.$refs.videosContainer.clientWidth;
+    this.$refs.canvas.height = containerHeight - 5;
     this.$refs.canvas.width = containerWidth;
-    console.log("=====<containerWidth", containerWidth);
     const ctx = (this.$refs.canvas as any).getContext("2d");
     ctx.beginPath();
     ctx.arc(
@@ -151,22 +188,53 @@ export default class WebRtc extends Vue {
     //   }
     // };
   }
+  timer() {
+    this.millisecond = this.millisecond + 50;//毫秒
+
+    if (this.millisecond >= 1000) {
+      this.millisecond = 0;
+      this.second = this.second+1;
+    }
+    if (this.second >= 60) {
+      this.second = 0;
+      this.minute = this.minute+1;
+    }
+    if (this.minute >= 60) {
+      this.minute = 0;
+      this.hour = this.hour + 1;
+    }
+  }
 
   start() {
-    this.mediaRecorder.start()
+    this.isRec = true;
+    this.mediaRecorder.start();
+    this.recTimer = setInterval(this.timer,50);
   }
   stop() {
     this.mediaRecorder.stop();
+    this.videoRecReset();
   }
   save() {
     this.mediaRecorder.save();
+    this.stop();
   }
 
   show() {
     this.dialogVisible = true;
   }
+
   hide() {
     this.dialogVisible = false;
+    this.videoRecReset();
+  }
+
+  videoRecReset() {
+    this.isRec = false;
+    clearInterval(this.recTimer);
+    this.recTimer = null;
+    this.second = 0;
+    this.minute = 0;
+    this.hour = 0;
   }
 }
 </script>

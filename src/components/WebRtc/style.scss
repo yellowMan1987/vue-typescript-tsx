@@ -1,6 +1,46 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(webRtc) {
-        
-    }
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(webRtc) {
+	.el-dialog {
+		margin-top: 7vh !important;
+    min-height: 7rem;
+    width: 9rem !important;
+	}
+	.el-dialog__body {
+		height: 100%;
+		overflow: auto;
+	}
+	@include e(video-container) {
+		height: 6.80rem;
+		width: 9rem;
+	}
+	@include e(video) {
+		// margin-top:-0.05rem ;
+	}
+	@include e(isRec) {
+		position: absolute;
+    left: 0.2rem;
+    top: 0.2rem;
+    width: 0.4rem;
+    height: 0.4rem;
+		background: red;
+		border-radius: 50%;
+	}
+	@include e(recTime) {
+		position: absolute;
+    left: 0.7rem;
+    top: 0.2rem;
+    width: 0.4rem;
+		height: 0.4rem;
+		line-height: 0.4rem;
+		font-size: 0.2rem;
+		font-weight: 600;
+	}
+	@include e(video-mask) {
+		position:absolute;
+		top: 0;
+		left: 0;
+	}
+  display: flex;
+}
