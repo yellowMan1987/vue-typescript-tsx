@@ -25,8 +25,3 @@ export default class Nav extends Vue {
   beforeDestroy() {}
 }
 </script>
-
-<!-- Add "scoped" attribute to limit scss to this component only -->
-<style lang="sass" scoped>
-
-</style>
