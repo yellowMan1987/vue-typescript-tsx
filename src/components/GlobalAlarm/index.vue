@@ -56,19 +56,19 @@ export default class GlobalAlarm extends Vue {
   alarmNum = 0;
   warning = 'WARNING'
   alarmImages = [
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6a9d95529822720ec2eed0c378cb0a46f21fab55.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6c4e47a7d933c895b28eb3bfd31373f0800200ef.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6fbd942397dda14448b54776b0b7d0a20df48624.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/ac961b178a82b90136d1e8f7718da9773812ef64.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/ce21d41373f08202d50c53fb49fbfbeda9641bc6.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/d0768201a18b87d62b593edb050828381e30fd41.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/e4fea1c27d1ed21b4d643c21af6eddc450da3f2a.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/55bb2a2eb9389b50bb4af2968735e5dde6116e23.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/f441d10735fae6cd22bcbe530cb30f2442a70f65.jpg",
-    "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/5690e3cd7b899e5143f23fd240a7d933c9950d65.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6a9d95529822720ec2eed0c378cb0a46f21fab55.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6c4e47a7d933c895b28eb3bfd31373f0800200ef.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/6fbd942397dda14448b54776b0b7d0a20df48624.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/ac961b178a82b90136d1e8f7718da9773812ef64.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/ce21d41373f08202d50c53fb49fbfbeda9641bc6.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/d0768201a18b87d62b593edb050828381e30fd41.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/e4fea1c27d1ed21b4d643c21af6eddc450da3f2a.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/55bb2a2eb9389b50bb4af2968735e5dde6116e23.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/f441d10735fae6cd22bcbe530cb30f2442a70f65.jpg",
+    "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/5690e3cd7b899e5143f23fd240a7d933c9950d65.jpg",
   ];
-  enter = "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/7c5aec24b899a901bc01aaf01f950a7b0308f5af.jpg" ;  // 安全出口
-  leve =  "http://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/d33bfd198618367af5d13eec2d738bd4b31ce515.jpg"; // 结尾
+  enter = "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/7c5aec24b899a901bc01aaf01f950a7b0308f5af.jpg" ;  // 安全出口
+  leve =  "https://foss.oss-cn-shenzhen.aliyuncs.com/images/alarmCard/d33bfd198618367af5d13eec2d738bd4b31ce515.jpg"; // 结尾
   stops = [
 
   ];

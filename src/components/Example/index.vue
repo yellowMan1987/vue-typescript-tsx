@@ -140,8 +140,7 @@ export default class Example extends Vue {
     }
   ] as IMenuOptionItem[];
 
-  imagePolygonDrawerImgUrl: string =
-    "http://desk.fd.zol-img.com.cn/t_s1920x1080/g5/M00/0B/01/ChMkJ1wcspmIRAZ3AAMCvbwwrIQAAt6UwLoOVMAAwLV134.jpg";
+  imagePolygonDrawerImgUrl: string = 'https://foss.oss-cn-shenzhen.aliyuncs.com/laoge/image/ChMkJ1wcspmIRAZ3AAMCvbwwrIQAAt6UwLoOVMAAwLV134.jpg'
   imageDrawerData = {
     drawingPolygon: false,
     drawingRect: false,
