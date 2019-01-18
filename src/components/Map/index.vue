@@ -16,6 +16,7 @@
 import { Component,Vue } from 'vue-property-decorator';
 import { getRandomId } from '@/utils/global';
 import BaiduMap from '@/components/Map/BaiduMap.vue';
+import {loadMapFiles} from '@/components/Map/utils';
 
 
 const DEFAULT_MAP_SCALE = 17;
@@ -36,9 +37,12 @@ export default class Map extends Vue{
   $refs: any;
   id = getRandomId()
 
+
   mounted() {
     console.log('1111======>')
-    this.initMap();
+    loadMapFiles().then(() => {
+      this.initMap();
+    })
   }
 
   initMap(cb?:any) {

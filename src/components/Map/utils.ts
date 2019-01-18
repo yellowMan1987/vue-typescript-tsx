@@ -3,7 +3,9 @@
 export const loadMapFiles = () =>
   new Promise((resolve, reject) => {
     const jsElm = document.createElement('script');
-    jsElm.src = 'http://api.map.baidu.com/getscript?v=2.0&ak=0EdgN8Esqj7WbNqjiSnNwarkP3Ck0KQV';
+    jsElm.src = process.env.NODE_ENV === 'development' ? 
+    'http://api.map.baidu.com/getscript?v=2.0&ak=0EdgN8Esqj7WbNqjiSnNwarkP3Ck0KQV':
+    'https://api.map.baidu.com/api?v=3.0&ak=0EdgN8Esqj7WbNqjiSnNwarkP3Ck0KQV';
 
     // if (config.type === 'baidu') {
       // jsElm.src = config.baidu;
