@@ -39,10 +39,10 @@
         v-rightMouseClick="showContextMenu"
       ></div>
     </div>
-    <div class="vtx-example__block" v-if="!mobi">
+    <!-- <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("map")}}</h2>
       <Map></Map>
-    </div>
+    </div> -->
     <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("polygonDrawer")}}</h2>
       <ImageDrawer
