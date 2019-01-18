@@ -1,7 +1,7 @@
 <template>
   <div id="app" :class="className">
     <Header/>
-    <GlobalAlarm/>
+    <GlobalAlarm v-if="!isDev"/>
     <router-view/>
   </div>
 </template>
@@ -21,7 +21,10 @@ import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
   },
   props: {},
   computed: {
-    ...mapState(system.MODULE_PATH,['theme'])
+    ...mapState(system.MODULE_PATH,['theme']),
+    isDev() {
+      return process.env.NODE_ENV === 'development';
+    }
   },
   methods: {},
   watch: {
@@ -36,6 +39,7 @@ export default class App extends Vue {
   theme!: string;
   className = 'theme-';
   refs:any;
+  isDev!: boolean;
 
   mounted() {
     this.className = `theme-${this.theme}`

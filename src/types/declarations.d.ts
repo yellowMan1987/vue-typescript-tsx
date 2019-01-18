@@ -46,4 +46,5 @@ interface MyWindow extends Window {
   BMap: any;
   BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW: any;
   minemap: any;
+  env: any;
 }
