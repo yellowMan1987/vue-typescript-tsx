@@ -1,0 +1,9 @@
+
+	@import 'src/themes/mixins/mixins.scss';
+	
+	@include b(task) {
+		@include e(drag-container) {
+			@include flexRowStart(flex-start);
+		}
+	
+	}

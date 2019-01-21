@@ -1,7 +1,7 @@
 <template>
   <div class="vtx-example" ref="example">
     <div class="vtx-example__block">
-      <div
+      <!-- <div
         :style="{
           backgroundImage: `url(${xiangjiao})`,
           backgroundSize:'cover',
@@ -10,7 +10,7 @@
           height:'300px',
         }"
       >
-      </div>
+      </div> -->
     </div>
     <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
@@ -38,6 +38,10 @@
         }"
         v-rightMouseClick="showContextMenu"
       ></div>
+    </div>
+    <div class="vtx-example__block" v-if="!mobi">
+      <h2>{{this.$t('contextMenu')}}</h2>
+      <Task/>
     </div>
     <!-- <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("map")}}</h2>
@@ -82,6 +86,7 @@ import WebRtc from "@/components/WebRtc/index.vue";
 import ContextMenu, {
   IMenuOptionItem
 } from "@/components/ContextMenu/index.vue";
+import Task from '@/components/Task/index.vue';
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
 import WaterMark from "@/components/WaterMark/index.vue";
@@ -94,6 +99,7 @@ import "./style.scss";
     Language,
     WebRtc,
     ContextMenu,
+    Task,
     Map,
     ImageDrawer,
     WaterMark,

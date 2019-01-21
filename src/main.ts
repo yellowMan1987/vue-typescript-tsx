@@ -9,7 +9,7 @@ import { language, i18n } from '@/locale';
 import "./plugins";
 
 Vue.config.productionTip = false;
-console.log(process.env.NODE_ENV === 'development')
+console.log('process.env.NODE_ENV :)',process.env.NODE_ENV)
 new Vue({
   i18n,
   router,
