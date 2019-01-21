@@ -2,9 +2,9 @@
 <template>
   <div class="vtx-task">
     <draggable class="vtx-task__drag-container" @start="start" @end="end" :options="{group:'taskList'}">
-      <List v-for="(list,index) in taskList" :key="index" :list="list"/>
+      <List v-for="(list,index) in taskList" :key="index" :list="list" @addCard="addCard"/>
       <div class="vtx-list" >
-        <div class="vtx-list__title">添加列表</div>
+        <div class="vtx-list__title" @click="addList">添加列表</div>
       </div>
     </draggable>
   </div>
@@ -49,6 +49,12 @@ export default class Task extends Vue {
   }
   end(e: any) {
     console.log(e);
+  }
+  addList() {
+    
+  }
+  addCard() {
+    
   }
 }
 </script>

@@ -3,6 +3,8 @@ export enum actionTypes {
   INIT = "INIT",
   UPDATE_TASK = "UPDATE_TASK",
   UPDATE_DROP_ID = "UPDATE_DROP_ID",
+  ADD_LIST = 'ADD_LIST',
+  ADD_CARD = 'ADD_CARD',
 }
 
 const R = require('ramda');
