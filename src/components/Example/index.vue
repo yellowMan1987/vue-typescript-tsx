@@ -1,7 +1,7 @@
 <template>
   <div class="vtx-example" ref="example">
     <div class="vtx-example__block">
-      <!-- <div
+      <div
         :style="{
           backgroundImage: `url(${xiangjiao})`,
           backgroundSize:'cover',
@@ -10,7 +10,7 @@
           height:'300px',
         }"
       >
-      </div> -->
+      </div>
     </div>
     <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
