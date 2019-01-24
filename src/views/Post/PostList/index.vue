@@ -26,6 +26,7 @@ export default class PostList extends Vue {
   posts = [
     {
       title: '标题标题',
+      id: 1,
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
@@ -33,53 +34,20 @@ export default class PostList extends Vue {
     },
     {
       title: '标题标题',
+      id: 2,
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
       updateTime: 1545225926029
-    },
+      },
     {
       title: '标题标题',
+      id: 3,
       des: '简介',
       tag: '分组',
       content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
       updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
-    {
-      title: '标题标题',
-      des: '简介',
-      tag: '分组',
-      content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-      updateTime: 1545225926029
-    },
+}
 
   ];
   created() {}

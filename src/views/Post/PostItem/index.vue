@@ -7,7 +7,7 @@
       <span>{{time}}</span>
     </div>
     <div class="vtx-postItem__des">{{post.des}}</div>
-    <span  @click="showContent = !showContent">====>{{!showContent ? '显示文章内容' : '收起'}}</span>
+    <span  @click="jumpToDetail(post.id)">====>{{!showContent ? '显示文章内容' : '收起'}}</span>
     <div v-if="showContent" class="vtx-postItem__content">
       {{post.content}}
     </div>
@@ -41,6 +41,10 @@ export default class PostItem extends Vue {
   created() {}
   mounted() {}
   beforeDestroy() {}
+
+  jumpToDetail(id:number) {
+    this.$router.push(`/postDetail/${id}`);
+  }
 }
 </script>
 
