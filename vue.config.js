@@ -12,7 +12,7 @@ module.exports = {
     proxy: {
       '/api': {
         // 目标 API 地址
-        target: 'http://47.106.137.74:7001/',
+        target: 'https://www.laoge.mobi/server/',
         // 如果要代理 websockets
         ws: true,
         // 将主机标头的原点更改为目标URL
