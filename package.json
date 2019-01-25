@@ -12,6 +12,7 @@
     "zip": "sh bin/publish.sh"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "coordtransform": "^2.1.2",
     "dayjs": "^1.7.8",
     "line-intersect": "^2.2.0",

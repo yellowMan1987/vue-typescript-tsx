@@ -13,6 +13,8 @@ import { mapState, mapActions, mapMutations } from 'vuex';
 import * as system from '@/store/modules/system';
 import Header from "@/components/Header/index.vue";
 import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
+import * as user from "@/apiService/apis/post";
+import { initHeaders } from "@/apiService/apiBase/apiRequest";
 
 @Component<App>({
   components: {
@@ -42,9 +44,13 @@ export default class App extends Vue {
   isDev!: boolean;
 
   mounted() {
+    initHeaders('');
     this.className = `theme-${this.theme}`
     setHTMLfontSize();
     resizeWindow(setHTMLfontSize);
+    user.getUserList().then((res) => {
+      console.log('请求====>',res)
+    }) 
   }
 }
 
