@@ -3,7 +3,9 @@
   <div class="vtx-post">
     <span v-show="!isCreate" @click="isCreate = true">CREATE POST</span>
     <span v-show="isCreate" @click="isCreate = false">BACK LIST</span>
-    <Editor v-show="isCreate" @getContent="getContent"/>
+    <div v-show="isCreate" >
+      <Editor @getContent="getContent"/>
+    </div>
     <PostList v-show="!isCreate"/>
   </div>
 </template>

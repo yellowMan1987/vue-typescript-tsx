@@ -1,0 +1,26 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(login) {
+	.el-dialog__header {
+		display: block;
+	}
+	.el-dialog__body {
+		padding: 0.3rem 0.2rem !important;
+	}
+	.el-input__inner {
+		border-color: #e91e63 !important;
+    background-color: unset !important;
+	}
+	@include e(input) {
+		display: flex;
+		height: 50px;
+		line-height: 50px;
+		width: 70%;
+		margin:0 auto;
+	}
+	@include e(input-lable) {
+		width: 1rem;
+		
+	}
+}

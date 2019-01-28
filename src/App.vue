@@ -2,6 +2,7 @@
   <div id="app" :class="className">
     <Header/>
     <GlobalAlarm v-if="!isDev"/>
+    <Login/>
     <router-view/>
   </div>
 </template>
@@ -13,6 +14,7 @@ import { mapState, mapActions, mapMutations } from 'vuex';
 import * as system from '@/store/modules/system';
 import Header from "@/components/Header/index.vue";
 import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
+import Login from "@/views/Login/index.vue";
 import * as user from "@/apiService/apis/post";
 import { initHeaders } from "@/apiService/apiBase/apiRequest";
 
@@ -20,6 +22,7 @@ import { initHeaders } from "@/apiService/apiBase/apiRequest";
   components: {
     Header,
     GlobalAlarm,
+    Login,
   },
   props: {},
   computed: {

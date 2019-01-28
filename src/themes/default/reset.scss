@@ -13,10 +13,20 @@ a {
 .el-input__inner {
 	border-radius: 0 !important;
 	font-weight: 500;
-  @include themify($themes) {
-		border-color: themed('font-color') !important;
-		background-color: themed('font-color') !important;
-		color: #fff;
+//   @include themify($themes) {
+// 		border-color: themed('font-color') !important;
+// 		background-color: themed('font-color') !important;
+// 		color: #fff;
+// 	}
+}
+
+.el-select {
+	.el-input__inner {
+	  @include themify($themes) {
+			border-color: themed('font-color') !important;
+			background-color: themed('font-color') !important;
+			color: #fff;
+		}
 	}
 }
 
