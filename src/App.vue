@@ -15,7 +15,7 @@ import * as system from '@/store/modules/system';
 import Header from "@/components/Header/index.vue";
 import GlobalAlarm from "@/components/GlobalAlarm/index.vue";
 import Login from "@/views/Login/index.vue";
-import * as user from "@/apiService/apis/post";
+import * as user from "@/apiService/apis/user";
 import { initHeaders } from "@/apiService/apiBase/apiRequest";
 
 @Component<App>({

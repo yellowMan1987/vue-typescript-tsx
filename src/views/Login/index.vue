@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import * as user from "@/apiService/apis/user";
 import "./style.scss";
 
 @Component<Login>({
@@ -33,7 +34,17 @@ import "./style.scss";
 export default class Login extends Vue {
   dialogVisible = true;
   created() {}
-  mounted() {}
+  mounted() {
+    const pramas = {
+      username: 'admin',
+      password: 'admin'
+    }
+    user.addUser(pramas).then((res) => {
+      console.log('请求====>',res)
+    }) 
+    
+  }
+
   beforeDestroy() {}
 }
 </script>
