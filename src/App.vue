@@ -1,8 +1,8 @@
 <template>
   <div id="app" :class="className">
     <Header/>
-    <GlobalAlarm v-if="!isDev"/>
-    <Login/>
+    <!-- <GlobalAlarm v-if="!isDev"/> -->
+    <!-- <Login/> -->
     <router-view/>
   </div>
 </template>
@@ -51,9 +51,9 @@ export default class App extends Vue {
     this.className = `theme-${this.theme}`
     setHTMLfontSize();
     resizeWindow(setHTMLfontSize);
-    user.getUserList().then((res) => {
-      console.log('请求====>',res)
-    }) 
+    // user.getUserList().then((res) => {
+    //   console.log('请求====>',res)
+    // }) 
   }
 }
 

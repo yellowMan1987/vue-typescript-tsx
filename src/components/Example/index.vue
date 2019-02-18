@@ -1,6 +1,6 @@
 <template>
   <div class="vtx-example" ref="example">
-    <div class="vtx-example__block">
+    <!-- <div class="vtx-example__block">
       <div
         :style="{
           backgroundImage: `url(${xiangjiao})`,
@@ -11,7 +11,7 @@
         }"
       >
       </div>
-    </div>
+    </div> -->
     <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
       <Language/>

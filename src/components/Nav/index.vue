@@ -1,8 +1,8 @@
 <template>
   <div class="vtx-nav">
-    <router-link to="/">{{this.$t('home')}}</router-link> |
-    <router-link to="/post">{{this.$t('article')}}</router-link> |
-    <router-link to="/cssdemo">CSS DEMO</router-link> |
+    <router-link to="/">Component Demo</router-link> |
+    <!-- <router-link to="/post">{{this.$t('article')}}</router-link> | -->
+    <router-link to="/cssdemo">CSS Demo</router-link> |
   </div>
 </template>
 
