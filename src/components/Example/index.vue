@@ -14,6 +14,7 @@
     </div> -->
     <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
+      <i class="iconguandanmu"></i>
       <Language/>
     </div>
     <div class="vtx-example__block">
@@ -26,7 +27,7 @@
     </div>
     <div class="vtx-example__block">
       <h1>{{this.$t('videoPlayer')}}</h1>
-      <VideoPlayer/>
+      <VideoPlayer :url="mp4url"/>
     </div>
     <div class="vtx-example__block">
       <h2>{{this.$t('waterMark')}}</h2>
@@ -175,6 +176,7 @@ export default class Example extends Vue {
   };
 
   xiangjiao = require("../../../static/image/timg.jpg");
+  mp4url = 'https://vjs.zencdn.net/v/oceans.mp4';
 
   created() {
     this.mobi = window.innerWidth <= 900;
