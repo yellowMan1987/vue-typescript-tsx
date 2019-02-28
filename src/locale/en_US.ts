@@ -12,8 +12,13 @@ export default {
   msg: 'Message',
   dialog: 'Dialog',
   contextMenu: 'ContextMenu',
+  taskDrag: 'taskDrag',
+  videoPlayer: 'videoPlayer',
   map: 'Map',
   polygonDrawer: 'PolygonDrawer',
+  waterMark: 'waterMark',
+
+
 
   confirm: 'confirm',
   cancel: 'cancel',

@@ -12,8 +12,12 @@ export default {
   msg: '汪汪',
   dialog: '汪汪',
   contextMenu: '汪汪',
+  taskDrag: '汪汪汪汪',
+  videoPlayer: '汪汪汪汪',
   map: '汪汪汪汪',
   polygonDrawer: '汪汪',
+  waterMark: '汪汪',
+
 
   confirm: '汪汪',
   cancel: '汪汪',

@@ -25,7 +25,11 @@
       <el-button type="primary" @click="showWebRtc">打开摄像头</el-button>
     </div>
     <div class="vtx-example__block">
-      <h2>防拍水印</h2>
+      <h1>{{this.$t('videoPlayer')}}</h1>
+      <VideoPlayer/>
+    </div>
+    <div class="vtx-example__block">
+      <h2>{{this.$t('waterMark')}}</h2>
       <el-button type="primary" @click="waterMarkVisible = !waterMarkVisible">打开防拍水印</el-button>
     </div>
     <div class="vtx-example__block" v-if="!mobi">
@@ -90,6 +94,7 @@ import Task from '@/components/Task/index.vue';
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
 import WaterMark from "@/components/WaterMark/index.vue";
+import VideoPlayer from "@/components/VideoPlayer/index.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -103,6 +108,7 @@ import "./style.scss";
     Map,
     ImageDrawer,
     WaterMark,
+    VideoPlayer,
   },
   props: {},
   computed: {},
