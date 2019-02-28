@@ -266,6 +266,10 @@ export default class VideoPlayer extends Vue {
         this.currentTimeStr = this.calcTime(this.videoEle.currentTime * 1000);
         const rate = this.videoEle.currentTime / this.videoDuration;
         if (rate < 1) {
+          if (this.playKey) {
+            // this.intervalControl(Math.ceil(this.videoEle.currentTime));
+            this.intervalControl(this.videoEle.currentTime);
+          }
           this.sliderValue = Math.floor(rate * 10000) / 100;
         } else {
           this.sliderValue = 100;
