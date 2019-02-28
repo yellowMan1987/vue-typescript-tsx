@@ -14,7 +14,6 @@
     </div> -->
     <div class="vtx-example__block">
       <h1>{{this.$t('lang')}}</h1>
-      <i class="iconguandanmu"></i>
       <Language/>
     </div>
     <div class="vtx-example__block">

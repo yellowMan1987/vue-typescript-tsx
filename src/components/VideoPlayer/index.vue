@@ -8,6 +8,31 @@
         :id="playerId">
         <source :src="url" type="video/mp4" />
       </video>
+     <div class="vtx-captureVideo__control">
+        <Icon
+          :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
+          :size="26"
+          @click="playOrStopVideo">
+        </Icon>
+        <div class="vtx-videoPlayer__control--time">
+          {{currentTimeStr}}/{{durationStr}}  
+        </div>
+        <div class="vtx-videoPlayer__progress">
+          <el-slider
+            ref="slider"
+            :defaultVal="sliderValue"
+            @input="handleProgress"
+            @change="handleProgressChange"
+            :minVal="0"
+            :maxVal="100"
+            :step="1"
+            :showTooltip="false"
+            :value="0"
+          >
+          </el-slider>
+          <!-- {this.playKey && this.renderProgressRole(h)} -->
+        </div>
+     </div>
   </div>
 </template>
 
@@ -17,11 +42,13 @@ import { getRandomId, EventBus } from '@/utils/global';
 import { swallowEvent, on, off } from '@/utils/dom';
 import { debounceByKey } from '@/utils/object';
 import { duration } from 'moment';
-
+import Icon from '@/components/Icon/index.vue';
 import './style.scss'
 
 @Component<VideoPlayer>({
-  components:{},
+  components:{
+    Icon,
+  },
   props: {
     videoType: {
       type: String,
@@ -153,8 +180,8 @@ export default class VideoPlayer extends Vue {
     return `${minutesStr}:${secondsStr}`;
   }
 
-
-
+  handleProgress() {}
+  handleProgressChange() {}
   // mp4
 
   // rtsp

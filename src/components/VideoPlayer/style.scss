@@ -1,6 +1,78 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(videoPlayer) {
-
+@import "src/themes/mixins/mixins.scss";
+$--font-color:  #fff;
+$--background-color: rgba(0,0,0,0.6);
+$--controller-background-color: rgba(0,0,0,0.5);
+@include b(videoPlay) {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: $--background-color;
+  color: $--font-color;
+  &:hover{
+    .el-switch {
+      opacity: 1;
+      visibility: unset;
     }
+  }
+  @include e(video) {
+    width: 100%;
+    height: calc(100% - 46px);
+    cursor: pointer;
+    
+  }
+  @include e(control) {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    padding: 0 9px;
+    width: calc(100% - 18px);
+    height: 40px;
+    line-height: 40px;
+    background-color: $--controller-background-color;
+    transition: bottom 0.2s, opacity 0.32s;
+    @include m(time) {
+      padding: 0 20px;
+    }
+    @include m(rightIcons) {
+      margin: 0 9px 0 20px;
+    }
+    .el-slider {
+      // flex-grow: 1;
+    }
+    .vtx-icon {
+      margin: 0 8px;
+    }
+    &.active {
+      bottom: 6px;
+      opacity: 1;
+    }
+  }
+
+  .progress_role {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    height: 17px;
+    width: 2px;
+    background-color: rgba(255, 0, 0, 0.39);
+    transform: scaleY(0.5);
+    transition: all .15s ease;
+    pointer-events: none;
+  }
+
+  @include e(progress) {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  .el-switch {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}
