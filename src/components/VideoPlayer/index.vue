@@ -12,16 +12,11 @@
       @click="playOrStopVideo"
       ref="video"
       class="vtx-videoPlayer__video"
+      :poster="poster"
       :id="playerId">
       <source :src="url" type="video/mp4" />
     </video>
-    <el-switch
-      :value="playKey"
-      :active-text="playKey ? '只看重点打开' : '只看重点关闭'"
-      inactive-color="#ff4949"
-      @input="this.playKeyChange"
-    >
-    </el-switch>
+
     <div class="vtx-videoPlayer__control">
       <Icon
         :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
@@ -32,9 +27,30 @@
         {{currentTimeStr}}/{{durationStr}}  
       </div>
       <div class="vtx-videoPlayer__progress">
-        <div class="vtx-videoPlayer__progress-default progress-height"></div>
-        <div class="vtx-videoPlayer__progress-inner progress-height"></div>
+        <div class="vtx-videoPlayer__progress-default progress-height"
+          @click="handleProgress"></div>
+        <div class="vtx-videoPlayer__progress-inner progress-height"
+          :style="{
+            width: `${sliderValue}%`,
+          }"></div>
+        <div
+          v-show="playKey"
+          v-for="(item, index) in videoDataKeyTime"
+          :key="index"
+          class="progress_role progress-height"
+          :style="{ 
+            width: `${((item.end / durationMileSecond) - (item.start / durationMileSecond)) * 100 }%`, 
+            left:`${(item.start / durationMileSecond) * 100}%` }"
+          >
+        </div>
       </div>
+      <el-switch
+        :value="playKey"
+        :active-text="playKey ? '只看重点打开' : '只看重点关闭'"
+        inactive-color="#ff4949"
+        @input="this.playKeyChange"
+      >
+      </el-switch>
       <!-- <div class="vtx-videoPlayer__progress">
         <el-slider
           ref="slider"
@@ -73,7 +89,7 @@ import './style.scss'
     },
     url: {
       type: String,
-      default: '',
+      default: 'https://foss.oss-cn-shenzhen.aliyuncs.com/public/video/lol_kda.mp4',
     },
     height: {
       type: Number,
@@ -82,6 +98,14 @@ import './style.scss'
     width: {
       type: Number,
       default: 8.6,
+    },
+    poster: {
+      type: String,
+      default: 'https://yz.lol.qq.com/v1/assets/images/featuredvideocover/shurima-rise-ascended.jpg',
+    },
+    videoDataKeyTime: {
+      type: Array,
+      default: [],
     }
   },
   computed: {},
@@ -94,21 +118,8 @@ export default class VideoPlayer extends Vue {
   readonly videoType!: string;
   playerId!: string;
   videoCanPlay!: boolean;
-
-  videoDataKeyTime =  [
-    {
-      start: 10 * 1000,
-      end: 13 * 1000,
-    },
-    {
-      start: 20 * 1000,
-      end: 22 * 1000,
-    },
-    {
-      start: 30 * 1000,
-      end: 34 * 1000,
-    },
-  ];
+  videoDataKeyTime!: any[];
+  
   playKey = false;
 
   videoDataKeyIndex = 0;
@@ -117,6 +128,7 @@ export default class VideoPlayer extends Vue {
   controllerShowTimer: any;
   prograssChanging: boolean = false;
   videoDuration: number = 0; // 视频总时长  单位秒
+  durationMileSecond: number = 0 // 毫秒
   prograssIntervalTimer: any;
   durationStr: string = '00:00';
   currentTimeStr: string = '00:00';
@@ -139,7 +151,6 @@ export default class VideoPlayer extends Vue {
       this.videoType === 'mp4' && this.initPlayer();
       this.clearIntervalWhenSliderChange();
     });
-
   }
   beforeDestroy() {
     this.clearPrograssIntervalTimer();
@@ -161,8 +172,8 @@ export default class VideoPlayer extends Vue {
       this.videoCanPlay = true;
       // 获取总时长
       this.videoDuration = this.videoEle.duration;
-      const durationMileSecond = this.videoDuration * 1000;
-      this.durationStr = this.calcTime(durationMileSecond);
+      this.durationMileSecond = this.videoDuration * 1000;
+      this.durationStr = this.calcTime(this.durationMileSecond);
     };
 
     this.videoEle.onpause = (event: Event) => {
@@ -186,11 +197,15 @@ export default class VideoPlayer extends Vue {
   }
 
     // 处理进度条变化,不隐藏控制器
-  handleProgress(val: number) {
+  handleProgress(event: any) {
     event && event.preventDefault();
     event && event.stopPropagation();
     this.prograssChanging = true;
-    this.sliderValue = val;
+    const playProgress = event.offsetX / event.target.clientWidth;
+    this.sliderValue = playProgress * 100;
+    console.log(this.sliderValue)
+    this.videoEle.currentTime = playProgress * this.videoDuration;
+    console.log()
   }
 
   // 处理进度条回传值

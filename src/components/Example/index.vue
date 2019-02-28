@@ -26,7 +26,9 @@
     </div>
     <h2>{{this.$t('videoPlayer')}}</h2>
     <div class="vtx-example__block" >
-      <VideoPlayer :url="mp4url"/>
+      <VideoPlayer 
+        :videoDataKeyTime="videoDataKeyTime"
+      />
     </div>
     <h2>{{this.$t('waterMark')}}</h2>
     <div class="vtx-example__block">
@@ -176,7 +178,22 @@ export default class Example extends Vue {
 
   xiangjiao = require("../../../static/image/timg.jpg");
   mp4url = 'https://vjs.zencdn.net/v/oceans.mp4';
+  // 只看阿卡丽
+  videoDataKeyTime =  [
+    {
+      start: 12 * 1000,
+      end: 20 * 1000,
+    },
+    {
+      start: 33 * 1000,
+      end: 46 * 1000,
+    },
+    {
+      start: 82 * 1000,
+      end: 180 * 1000,
+    },
 
+  ];
   created() {
     this.mobi = window.innerWidth <= 900;
   }

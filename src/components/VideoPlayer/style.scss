@@ -52,13 +52,8 @@ $--controller-background-color: rgba(0,0,0,1);
 
   .progress_role {
     position: absolute;
-    left: 0;
-    top: 11px;
-    height: 17px;
     width: 2px;
-    background-color: rgba(255, 0, 0, 0.39);
-    transform: scaleY(0.5);
-    transition: all .15s ease;
+    background-color: rgba(21, 206, 21, 0.39);
     pointer-events: none;
   }
 
@@ -95,10 +90,10 @@ $--controller-background-color: rgba(0,0,0,1);
   }
 
   .el-switch {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    // visibility: hidden;
     position: absolute;
-    top: 20px;
+    bottom: 10px;
     right: 10px;
   }
 }
