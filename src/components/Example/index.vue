@@ -12,28 +12,28 @@
       >
       </div>
     </div> -->
+    <h2>{{this.$t('lang')}}</h2>
     <div class="vtx-example__block">
-      <h1>{{this.$t('lang')}}</h1>
       <Language/>
     </div>
+    <h2>{{this.$t('theme')}}</h2>
     <div class="vtx-example__block">
-      <h1>{{this.$t('theme')}}</h1>
       <Theme/>
     </div>
+    <h2>WebRtc</h2>
     <div class="vtx-example__block" v-if="!mobi">
-      <h2>WebRtc</h2>
       <el-button type="primary" @click="showWebRtc">打开摄像头</el-button>
     </div>
-    <div class="vtx-example__block">
-      <h1>{{this.$t('videoPlayer')}}</h1>
+    <h2>{{this.$t('videoPlayer')}}</h2>
+    <div class="vtx-example__block" >
       <VideoPlayer :url="mp4url"/>
     </div>
+    <h2>{{this.$t('waterMark')}}</h2>
     <div class="vtx-example__block">
-      <h2>{{this.$t('waterMark')}}</h2>
       <el-button type="primary" @click="waterMarkVisible = !waterMarkVisible">打开防拍水印</el-button>
     </div>
+    <h2>{{this.$t('contextMenu')}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
-      <h2>{{this.$t('contextMenu')}}</h2>
       <div
         :style="{
           height: '1rem',
@@ -43,16 +43,16 @@
         v-rightMouseClick="showContextMenu"
       ></div>
     </div>
+    <h2>{{this.$t('contextMenu')}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
-      <h2>{{this.$t('contextMenu')}}</h2>
       <Task/>
     </div>
     <!-- <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("map")}}</h2>
       <Map></Map>
     </div> -->
+    <h2>{{this.$t("polygonDrawer")}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
-      <h2>{{this.$t("polygonDrawer")}}</h2>
       <ImageDrawer
         :imageUrl="imagePolygonDrawerImgUrl"
         :polygons="imageDrawerData.polygons"

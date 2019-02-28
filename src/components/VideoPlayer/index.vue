@@ -1,6 +1,13 @@
 
 <template>
-  <div class="vtx-videoPlayer">
+  <div 
+    class="vtx-videoPlayer"
+    :style="{
+      width: `${width}rem`,
+      height: `${height}rem`,
+      margin: '0 auto',
+    }"
+  >
       <video
         @click="playOrStopVideo"
         ref="video"
@@ -8,7 +15,7 @@
         :id="playerId">
         <source :src="url" type="video/mp4" />
       </video>
-     <div class="vtx-captureVideo__control">
+     <div class="vtx-videoPlayer__control">
         <Icon
           :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
           :size="26"
@@ -58,6 +65,14 @@ import './style.scss'
       type: String,
       default: '',
     },
+    height: {
+      type: Number,
+      default: 6,
+    },
+    width: {
+      type: Number,
+      default: 8.6,
+    }
   },
   computed: {},
   methods: {},
