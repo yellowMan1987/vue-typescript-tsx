@@ -64,7 +64,34 @@ $--controller-background-color: rgba(0,0,0,1);
 
   @include e(progress) {
     position: relative;
-    flex-grow: 1;
+    // flex-grow: 1;
+    width: 60%;
+    // background: rgba(235, 228, 228, 0.39);
+    display: flex;
+    @include flexRow(flex-start);
+    &:hover {
+      .progress-height {
+        height: 10px;
+      }
+    }
+  }
+
+  @include e(progress-default) {
+    width: 100%;
+    background: rgba(235, 228, 228, 0.39);
+    cursor: pointer;
+  }
+
+
+  @include e(progress-inner) {
+    width: 30%;
+    background: rgb(255, 102, 0);
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .progress-height {
+    height: 6px;
   }
 
   .el-switch {

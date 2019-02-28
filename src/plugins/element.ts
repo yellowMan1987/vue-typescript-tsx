@@ -16,6 +16,7 @@ import {
   DropdownItem,
   Dialog,
   Slider,
+  Switch,
 } from "element-ui";
 
 import Vue from "vue";
@@ -30,6 +31,7 @@ locale.use(en);
 Vue.use(Button);
 Vue.use(Badge);
 Vue.use(Slider);
+Vue.use(Switch);
 
 Vue.use(Collapse);
 Vue.use(CollapseItem);

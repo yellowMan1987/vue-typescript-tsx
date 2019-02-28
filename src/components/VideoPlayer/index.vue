@@ -8,38 +8,48 @@
       margin: '0 auto',
     }"
   >
-      <video
-        @click="playOrStopVideo"
-        ref="video"
-        class="vtx-videoPlayer__video"
-        :id="playerId">
-        <source :src="url" type="video/mp4" />
-      </video>
-     <div class="vtx-videoPlayer__control">
-        <Icon
-          :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
-          :size="26"
-          @click="playOrStopVideo">
-        </Icon>
-        <div class="vtx-videoPlayer__control--time">
-          {{currentTimeStr}}/{{durationStr}}  
-        </div>
-        <div class="vtx-videoPlayer__progress">
-          <el-slider
-            ref="slider"
-            :defaultVal="sliderValue"
-            @input="handleProgress"
-            @change="handleProgressChange"
-            :minVal="0"
-            :maxVal="100"
-            :step="1"
-            :showTooltip="false"
-            :value="0"
-          >
-          </el-slider>
-          <!-- {this.playKey && this.renderProgressRole(h)} -->
-        </div>
-     </div>
+    <video
+      @click="playOrStopVideo"
+      ref="video"
+      class="vtx-videoPlayer__video"
+      :id="playerId">
+      <source :src="url" type="video/mp4" />
+    </video>
+    <el-switch
+      :value="playKey"
+      :active-text="playKey ? '只看重点打开' : '只看重点关闭'"
+      inactive-color="#ff4949"
+      @input="this.playKeyChange"
+    >
+    </el-switch>
+    <div class="vtx-videoPlayer__control">
+      <Icon
+        :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
+        :size="26"
+        @click="playOrStopVideo">
+      </Icon>
+      <div class="vtx-videoPlayer__control--time">
+        {{currentTimeStr}}/{{durationStr}}  
+      </div>
+      <div class="vtx-videoPlayer__progress">
+        <div class="vtx-videoPlayer__progress-default progress-height"></div>
+        <div class="vtx-videoPlayer__progress-inner progress-height"></div>
+      </div>
+      <!-- <div class="vtx-videoPlayer__progress">
+        <el-slider
+          ref="slider"
+          :defaultVal="sliderValue"
+          @input="handleProgress"
+          @change="handleProgressChange"
+          :minVal="0"
+          :maxVal="100"
+          :step="1"
+          :showTooltip="false"
+          :value="0"
+        >
+        </el-slider>
+      </div> -->
+    </div>
   </div>
 </template>
 
@@ -131,10 +141,66 @@ export default class VideoPlayer extends Vue {
     });
 
   }
-  beforeDestroy() {}
+  beforeDestroy() {
+    this.clearPrograssIntervalTimer();
+    if (this.$refs.slider && this.$refs.slider.$el) {
+      const slider = this.$refs.slider.$el;
+      const sliderButton = slider.getElementsByClassName('el-slider__button-wrapper')[0];
+      sliderButton.removeEventListener(
+        'mousedown',
+        this.clearPrograssIntervalTimer,
+        false,
+      );
+    }
+    this.pauseVideo(); 
+  }
 
   initPlayer() {
+    this.videoEle.oncanplay = (event: Event) => {
+      // this.initScreenshotsCanvas();
+      this.videoCanPlay = true;
+      // 获取总时长
+      this.videoDuration = this.videoEle.duration;
+      const durationMileSecond = this.videoDuration * 1000;
+      this.durationStr = this.calcTime(durationMileSecond);
+    };
 
+    this.videoEle.onpause = (event: Event) => {
+      this.videoPlayState = false;
+    };
+    this.videoEle.onplay = (event: Event) => {
+      this.videoPlayState = true;
+    };
+  }
+
+  playKeyChange(val: boolean) {
+    this.playKey = val;
+    if (val) {
+      // 后面优化一下这里，做到可以实时播放的时候切换；
+      this.resetVideo();
+      // this.playVideo();
+    }
+    if (!val) {
+      this.videoDataKeyIndex = 0;
+    }
+  }
+
+    // 处理进度条变化,不隐藏控制器
+  handleProgress(val: number) {
+    event && event.preventDefault();
+    event && event.stopPropagation();
+    this.prograssChanging = true;
+    this.sliderValue = val;
+  }
+
+  // 处理进度条回传值
+  handleProgressChange(value: number) {
+    this.clearPrograssIntervalTimer();
+    this.videoEle.pause(); // 后期看是拖拽暂停还是继续播放
+    const rate = value / 100;
+    this.videoEle.currentTime = this.videoEle.duration * rate;
+    this.currentTimeStr = this.calcTime(this.videoEle.currentTime * 1000);
+    this.sliderValueChange(); // 后期看是拖拽暂停还是继续播放
   }
 
 // 播放 / 暂停播放
@@ -155,13 +221,29 @@ export default class VideoPlayer extends Vue {
     }
   }
   
-  clearIntervalWhenSliderChange() {
+  // 播放关键位置的处理
+  intervalControl(time: number) {
+    const index = this.videoDataKeyIndex;
+    if (this.videoDataKeyIndex <= this.videoDataKeyTime.length - 1 && this.videoDataKeyTime[index].start) {
+      if (index === 0) {
+        if (time - (this.videoDataKeyTime[index].start / 1000) < 0) {
+          this.videoEle.currentTime = (this.videoDataKeyTime[index].start / 1000);
+          this.videoDataKeyIndex = this.videoDataKeyIndex + 1;
+        }
+      } else {
+        if (time > (this.videoDataKeyTime[index - 1].end / 1000)) {
+          this.videoEle.currentTime = (this.videoDataKeyTime[index].start / 1000);
+          this.videoDataKeyIndex = this.videoDataKeyIndex + 1;
+        }
+      }
+    }
 
+    if (time > (this.videoDataKeyTime[this.videoDataKeyTime.length - 1].end / 1000)) {
+      this.resetVideo();
+    }
   }
 
-  clearPrograssIntervalTimer () {
 
-  }
   sliderValueChange () {
     this.clearPrograssIntervalTimer();
     this.prograssIntervalTimer = setInterval(
@@ -175,9 +257,31 @@ export default class VideoPlayer extends Vue {
           this.clearPrograssIntervalTimer();
         }
       },
-      16,
+      100,
     );
   }
+
+  clearPrograssIntervalTimer(event?: Event) {
+    if (event) {
+      // 阻止冒泡,防止地图联动
+      event.stopPropagation();
+    }
+    clearInterval(this.prograssIntervalTimer);
+  }
+
+  // 在拖拽的时候,清除计时器
+  clearIntervalWhenSliderChange() {
+    if (this.$refs.slider && this.$refs.slider.$el) {
+      const slider = this.$refs.slider.$el;
+      const sliderButton = slider.getElementsByClassName('el-slider__button-wrapper')[0];
+      sliderButton.addEventListener(
+        'mousedown',
+        this.clearPrograssIntervalTimer,
+        false,
+      );
+    }
+  }
+
   // 计算时间
   calcTime(mileSecond: number) {
     if (mileSecond === Infinity) {
@@ -195,11 +299,58 @@ export default class VideoPlayer extends Vue {
     return `${minutesStr}:${secondsStr}`;
   }
 
-  handleProgress() {}
-  handleProgressChange() {}
-  // mp4
 
-  // rtsp
+ // 播放中的处理
+  playing() {
+    const video = this.$refs.myPlayer;
+    video.addEventListener('timeupdate', () => {
+      let timeDisplay;
+      // 用秒数来显示当前播放进度
+      timeDisplay = Math.floor(video.currentTime);
+      // 当视频播放到 4s的时候做处理
+      if (timeDisplay === 4) {
+        // 处理代码
+      }
+    }, false);
+  }
+
+ // 全屏请求
+  handleFullSize(state: boolean) {
+    this.videoEle.pause();
+    // if (this.videoType === 'mp4') {
+    //   this.videoEle.pause();
+    // }else {
+    //   EventBus.$emit('pauseUpdate');
+    // }
+    this.videoPlayState = false;
+    this.pauseVideo();
+    this.$emit('fullSize', state);
+  }
+  playVideo() {
+    const video = this.videoEle;
+    video.play();
+    this.sliderValueChange();
+  }
+
+  pauseVideo() {
+    const video = this.videoEle;
+    video && video.pause();
+    this.clearPrograssIntervalTimer();
+    if (this.videoType === 'rtsp') {
+      this.$refs.sfVideoPlayer.destroyPlayer();
+    }
+  }
+
+  resetVideo() {
+    if (this.videoType === 'mp4') {
+      const video = this.videoEle;
+      video.currentTime = 0;
+      this.sliderValue = 0;
+      this.currentTimeStr = this.calcTime(0);
+      this.pauseVideo();
+      this.videoDataKeyIndex = 0;
+    }
+  }
 }
 </script>
 
