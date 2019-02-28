@@ -19,6 +19,11 @@ export const off = (
   }
 };
 
+export function swallowEvent(ev: Event) {
+  ev.stopPropagation();
+  ev.preventDefault();
+}
+
 export function offset(element: any) {
   let left = 0;
   let top = 0;

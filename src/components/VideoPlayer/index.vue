@@ -7,6 +7,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { getRandomId, EventBus } from '@/utils/global';
+import { swallowEvent, on, off } from '@/utils/dom';
+import { debounceByKey } from '@/utils/object';
+
 import './style.scss'
 
 @Component<VideoPlayer>({
