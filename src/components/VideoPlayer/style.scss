@@ -18,8 +18,13 @@ $--controller-background-color: rgba(0,0,0,1);
   }
   @include e(video) {
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 0.5rem);
     cursor: pointer;
+  }
+  @include e(progress-wrap) {
+    height: 10px;
+    margin-top: -7px;
+    @include flexRow(flex-start);
   }
   @include e(control) {
     display: flex;
@@ -28,19 +33,19 @@ $--controller-background-color: rgba(0,0,0,1);
     bottom: 0;
     padding: 0 9px;
     width: calc(100%);
-    height: 40px;
-    line-height: 40px;
+    height: 0.4rem;
+    line-height: 0.4rem;
     background-color: $--controller-background-color;
     transition: bottom 0.2s, opacity 0.32s;
     @include m(time) {
       padding: 0 20px;
     }
-    @include m(rightIcons) {
-      margin: 0 9px 0 20px;
-    }
-    .el-slider {
-      // flex-grow: 1;
-    }
+    // @include m(rightIcons) {
+    //   margin: 0 9px 0 20px;
+    // }
+    // .el-slider {
+    //   // flex-grow: 1;
+    // }
     .vtx-icon {
       margin: 0 8px;
     }
@@ -60,7 +65,7 @@ $--controller-background-color: rgba(0,0,0,1);
   @include e(progress) {
     position: relative;
     // flex-grow: 1;
-    width: 60%;
+    width: 100%;
     // background: rgba(235, 228, 228, 0.39);
     display: flex;
     @include flexRow(flex-start);
@@ -75,6 +80,7 @@ $--controller-background-color: rgba(0,0,0,1);
     width: 100%;
     background: rgba(235, 228, 228, 0.39);
     cursor: pointer;
+    // transition: all 0.2s ease;
   }
 
 
@@ -83,11 +89,11 @@ $--controller-background-color: rgba(0,0,0,1);
     background: rgb(255, 102, 0);
     position: absolute;
     pointer-events: none;
-    transition: all 0.2s ease;
   }
 
   .progress-height {
     height: 6px;
+    transition: all 0.2s ease;
   }
 
   .el-switch {

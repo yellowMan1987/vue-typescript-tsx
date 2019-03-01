@@ -17,15 +17,7 @@
       <source :src="url" type="video/mp4" />
     </video>
 
-    <div class="vtx-videoPlayer__control">
-      <Icon
-        :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
-        :size="26"
-        @click="playOrStopVideo">
-      </Icon>
-      <div class="vtx-videoPlayer__control--time">
-        {{currentTimeStr}}/{{durationStr}}  
-      </div>
+    <div class="vtx-videoPlayer__progress-wrap">
       <div class="vtx-videoPlayer__progress">
         <div class="vtx-videoPlayer__progress-default progress-height"
           @click="handleProgress"></div>
@@ -43,6 +35,17 @@
             left:`${(item.start / durationMileSecond) * 100}%` }"
           >
         </div>
+      </div>
+
+    </div>
+    <div class="vtx-videoPlayer__control">
+      <Icon
+        :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
+        :size="26"
+        @click="playOrStopVideo">
+      </Icon>
+      <div class="vtx-videoPlayer__control--time">
+        {{currentTimeStr}}/{{durationStr}}  
       </div>
       <el-switch
         :value="playKey"
