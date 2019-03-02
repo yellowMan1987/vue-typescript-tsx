@@ -92,7 +92,7 @@ import './style.scss'
     },
     url: {
       type: String,
-      default: 'https://foss.oss-cn-shenzhen.aliyuncs.com/public/video/lol_kda.mp4',
+      default: '../static/video/lol_kda.mp4',
     },
     height: {
       type: Number,

@@ -28,6 +28,7 @@
     <div class="vtx-example__block" >
       <VideoPlayer 
         :videoDataKeyTime="videoDataKeyTime"
+        :url="mp4url"
       />
     </div>
     <h2>{{this.$t('waterMark')}}</h2>
@@ -45,7 +46,7 @@
         v-rightMouseClick="showContextMenu"
       ></div>
     </div>
-    <h2>{{this.$t('contextMenu')}}</h2>
+    <h2>{{this.$t('taskDrag')}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
       <Task/>
     </div>
@@ -154,30 +155,26 @@ export default class Example extends Vue {
     }
   ] as IMenuOptionItem[];
 
-  imagePolygonDrawerImgUrl: string = 'https://foss.oss-cn-shenzhen.aliyuncs.com/laoge/image/ChMkJ1wcspmIRAZ3AAMCvbwwrIQAAt6UwLoOVMAAwLV134.jpg'
+  imagePolygonDrawerImgUrl: string = 'http://ossweb-img.qq.com/images/lol/web201310/skin/big145000.jpg'
   imageDrawerData = {
     drawingPolygon: false,
     drawingRect: false,
     polygons: [
       {
         points: [
-          { x: 276, y: 362.4 },
-          { x: 254.3, y: 984 },
-          { x: 444, y: 1010.4 },
-          { x: 276, y: 362.4 }
-        ]
+         {"x":530.6046511627907,"y":276.83720930232556},{"x":530.6046511627907,"y":311.44186046511624},{"x":484.4651162790697,"y":360.4651162790697},{"x":523.3953488372092,"y":382.09302325581393},{"x":547.906976744186,"y":413.8139534883721},{"x":586.8372093023255,"y":422.4651162790697},{"x":624.3255813953488,"y":367.6744186046511},{"x":653.1627906976744,"y":341.7209302325581},{"x":687.767441860465,"y":302.7906976744186},{"x":687.767441860465,"y":284.04651162790697},{"x":667.5813953488372,"y":245.11627906976742},{"x":581.0697674418604,"y":209.06976744186045},{"x":527.7209302325581,"y":203.30232558139534}]
       }
     ],
     rects: [
       {
-        leftTop: { x: 1605.6, y: 45.6 },
-        rightBottom: { x: 1848, y: 307.2 }
+        leftTop: { x: 565.6, y: 25.6 },
+        rightBottom: { x: 688, y: 157.2 }
       }
     ]
   };
 
   xiangjiao = require("../../../static/image/timg.jpg");
-  mp4url = 'https://vjs.zencdn.net/v/oceans.mp4';
+  mp4url = require("../../../static/video/lol_kda.mp4");
   // 只看阿卡丽
   videoDataKeyTime =  [
     {
