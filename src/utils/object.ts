@@ -1,4 +1,6 @@
-import { cloneDeep, pick, omit} from 'lodash'
+import omit  from 'lodash.omit';
+import pick  from 'lodash.pick';
+import cloneDeep  from 'lodash.cloneDeep';
 
 export function deepCopy(src: any) {
   return cloneDeep(src);

@@ -7,6 +7,14 @@ declare module "lodash.cloneDeep" {
   const content: any;
   export default content;
 }
+declare module "lodash.omit" {
+  const content: any;
+  export default content;
+}
+declare module "lodash.pick" {
+  const content: any;
+  export default content;
+}
 declare module "lodash.merge" {
   const content: any;
   export default content;
