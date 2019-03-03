@@ -42,8 +42,9 @@ export default class Map extends Vue{
     // loadMapFiles().then(() => {
     //   this.initMap();
     // })
-    this.initMap();
-
+    this.$nextTick(() => {
+      this.initMap();
+    })
   }
 
   initMap(cb?:any) {
