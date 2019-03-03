@@ -3,8 +3,8 @@ window.config = {
     type: 'baidu',
     net: 'offline',
     initialLocation: {
-      x: 102.688661,
-      y: 24.986613
+      x: 116.397507,
+      y: 40.025193
     },
     initialZoom: 17,
     maxZoom: 18,

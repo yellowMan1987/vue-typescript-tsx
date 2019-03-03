@@ -19,12 +19,12 @@ import BaiduMap from '@/components/Map/BaiduMap.vue';
 import {loadMapFiles} from '@/components/Map/utils';
 
 
-const DEFAULT_MAP_SCALE = 17;
+const DEFAULT_MAP_SCALE = 14;
 const DEFAULT_MAP_MAX_SCALE = 18;
 const DEFAULT_MAP_MIN_SCALE = 5;
 const DEFAULT_MAP_LOCATION = {
-      x: 114,
-      y: 23
+      x: 116.397507,
+      y: 40.025193
     };
 
 @Component<Map>({
