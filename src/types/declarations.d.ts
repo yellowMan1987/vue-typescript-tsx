@@ -7,6 +7,7 @@ interface MyWindow extends Window {
   config: {
     map: {
       type: string;
+      net: string;
       initialLocation: {
         x: number;
         y: number;
@@ -30,7 +31,11 @@ interface MyWindow extends Window {
           y: any,
         }
       }
-      baidu: string;
+      baidu_online: string;
+      baidu_offline: string;
+      baidu_offline_loadUrl: string;
+      baidu_offline_home: string;
+
       minemap: {
         host: string;
         jsLink: string;

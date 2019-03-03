@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+public/static/offlineMap/tiles*
+public/static/offlineMap/sateTiles*
 
 *.tar.gz
 *.zip

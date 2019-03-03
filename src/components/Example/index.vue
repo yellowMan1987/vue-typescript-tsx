@@ -50,10 +50,10 @@
     <div class="vtx-example__block" v-if="!mobi">
       <Task/>
     </div>
-    <!-- <div class="vtx-example__block" v-if="!mobi">
-      <h2>{{this.$t("map")}}</h2>
+    <div class="vtx-example__block" v-if="!mobi">
+      <h2>{{this.$t("offlinemap")}}</h2>
       <Map></Map>
-    </div> -->
+    </div>
     <h2>{{this.$t("polygonDrawer")}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
       <ImageDrawer

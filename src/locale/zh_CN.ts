@@ -14,7 +14,7 @@ export default {
   contextMenu: '右键菜单',
   taskDrag: '任务拖拽',
   videoPlayer: '视频播放器',
-  map: '地图',
+  offlinemap: '离线地图',
   polygonDrawer: '区域绘制',
   waterMark: '水印',
 

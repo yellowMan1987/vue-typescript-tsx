@@ -39,10 +39,11 @@ export default class Map extends Vue{
 
 
   mounted() {
-    console.log('1111======>')
-    loadMapFiles().then(() => {
-      this.initMap();
-    })
+    // loadMapFiles().then(() => {
+    //   this.initMap();
+    // })
+    this.initMap();
+
   }
 
   initMap(cb?:any) {

@@ -14,7 +14,7 @@ export default {
   contextMenu: 'ContextMenu',
   taskDrag: 'taskDrag',
   videoPlayer: 'videoPlayer',
-  map: 'Map',
+  offlinemap: 'offline map',
   polygonDrawer: 'PolygonDrawer',
   waterMark: 'waterMark',
 

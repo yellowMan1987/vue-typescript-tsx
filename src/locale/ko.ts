@@ -14,7 +14,7 @@ export default {
   contextMenu: '汪汪',
   taskDrag: '汪汪汪汪',
   videoPlayer: '汪汪汪汪',
-  map: '汪汪汪汪',
+  offlinemap: '汪汪汪汪',
   polygonDrawer: '汪汪',
   waterMark: '汪汪',
 

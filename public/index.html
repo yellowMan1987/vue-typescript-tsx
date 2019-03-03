@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/offlineMap/css/map.css"/>
+    <script type="text/javascript" src="./config.js"></script>
     <title>〔 LAO GE 〕</title>
   </head>
   <body>
@@ -15,4 +17,16 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script type="text/javascript">
+    function addJs(url) {
+      document.write('<script type="text/javascript" src="' + url + '"> <\/script>');
+    }
+    function addCss(url) {
+      document.write('<link rel="stylesheet" type="text/css" href="' + url + '"/>');
+    }
+
+    addJs("./static/offlineMap/map_load.js");
+    addCss("./static/offlineMap/css/map.css")
+
+  </script>
 </html>
