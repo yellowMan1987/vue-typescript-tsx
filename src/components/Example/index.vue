@@ -173,8 +173,8 @@ export default class Example extends Vue {
     ]
   };
 
-  xiangjiao = require("../../../static/image/timg.jpg");
-  mp4url = require("../../../static/video/lol_kda.mp4");
+  xiangjiao = require("../../../public/static/image/timg.jpg");
+  mp4url = require("../../../public/static/video/lol_kda.mp4");
   // 只看阿卡丽
   videoDataKeyTime =  [
     {
