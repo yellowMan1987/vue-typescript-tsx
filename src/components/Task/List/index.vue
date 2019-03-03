@@ -2,7 +2,7 @@
 <template>
   <div class="vtx-list">
     <div class="vtx-list__title">{{list.name}}</div>
-    <draggable class="vtx-list__drag-container" @start="start" @end="end" :options="{group:'cards'}">
+    <draggable class="vtx-list__drag-container" @start="start" @end="end" group="cards">
       <Card v-for="(item) in list.cards" :key="item.name" :cardInfo="item"/>
     </draggable>
     <div class="vtx-list__add-card" @click="addCard">添加卡片</div>
