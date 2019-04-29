@@ -1,14 +1,7 @@
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 import { getRandomId } from '@/utils/global';
-import BaiduMap from './BaiduMap';
+import BaiduMap from '@/components/VtMap/BaiduMap';
 import { loadMapFiles } from './utils';
-
-@Component({
-  props: {},
-  computed: {},
-  methods: {},
-  watch: {},
-})
 
 const DEFAULT_MAP_SCALE = 14;
 const DEFAULT_MAP_MAX_SCALE = 18;
@@ -18,8 +11,12 @@ const DEFAULT_MAP_LOCATION = {
   y: 40.025193
 };
 
+@Component({
 
-export default class extends Vue {
+})
+
+
+export default class VtMap extends Vue {
   $refs: any;
   id = getRandomId()
 
@@ -31,9 +28,9 @@ export default class extends Vue {
           height: '6rem',
         }}
       >
-        <BaiduMap
+        <baidu-map
           ref="map"
-          id={this.id}
+          id={`${this.id}`}
         />
       </div>
     );

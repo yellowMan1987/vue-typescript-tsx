@@ -15,8 +15,8 @@
 <script lang="ts">
 import { Component,Vue } from 'vue-property-decorator';
 import { getRandomId } from '@/utils/global';
-import BaiduMap from '@/components/Map/BaiduMap';
-import { loadMapFiles } from '@/components/Map/utils';
+import BaiduMap from './BaiduMap_vue.vue';
+import { loadMapFiles } from './utils';
 
 
 const DEFAULT_MAP_SCALE = 14;

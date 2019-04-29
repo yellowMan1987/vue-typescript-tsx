@@ -1,7 +1,5 @@
 import { Component, Vue } from 'vue-property-decorator'
-import ContextMenu, {
-  IMenuOptionItem
-} from "@/components/ContextMenu/index.vue";
+import { IMenuOptionItem } from "@/components/VtContextMenu/index_vue.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 

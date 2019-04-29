@@ -52,7 +52,6 @@
     </div>
     <h2>{{this.$t('taskDrag')}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
-      <Task/>
     </div>
     <div class="vtx-example__block" v-if="!mobi">
       <h2>{{this.$t("offlinemap")}}</h2>
@@ -91,16 +90,15 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Language from "@/components/Language/index.vue";
-import Theme from "@/components/Theme/index.vue";
-import WebRtc from "@/components/WebRtc/index.vue";
+import Language from "@/components/VtLanguage/index_vue.vue";
+import Theme from "@/components/VtTheme/index_vue.vue";
+import WebRtc from "@/components/VtWebRtc/index_vue.vue";
 import ContextMenu, {
   IMenuOptionItem
-} from "@/components/ContextMenu/index.vue";
-import Task from '@/components/Task/index.vue';
-import Map from "@/components/Map/index.vue";
-import ImageDrawer from "@/components/ImageDrawer/index.vue";
-import VtWaterMark from "@/components/VtWaterMark/index.vue";
+} from "@/components/VtContextMenu/index_vue.vue";
+import Map from "@/components/VtMap/index_vue.vue";
+import ImageDrawer from "@/components/VtImageDrawer/index_vue.vue";
+import VtWaterMark from "@/components/VtWaterMark/index_vue.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -110,7 +108,6 @@ import "./style.scss";
     Language,
     WebRtc,
     ContextMenu,
-    Task,
     Map,
     ImageDrawer,
     VtWaterMark,
