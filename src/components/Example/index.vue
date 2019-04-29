@@ -12,6 +12,10 @@
       >
       </div>
     </div> -->
+    <h2>tsx</h2>
+    <div class="vtx-example__block">
+      <st-player :message="message" @setData="setData"></st-player>
+    </div>
     <h2>{{this.$t('lang')}}</h2>
     <div class="vtx-example__block">
       <Language/>
@@ -98,6 +102,7 @@ import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
 import WaterMark from "@/components/WaterMark/index.vue";
 import VideoPlayer from "@/components/VideoPlayer/index.vue";
+import StPlayer from "@/components/st-player";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -112,6 +117,7 @@ import "./style.scss";
     ImageDrawer,
     WaterMark,
     VideoPlayer,
+    'st-player': StPlayer,
   },
   props: {},
   computed: {},
@@ -172,7 +178,7 @@ export default class Example extends Vue {
       }
     ]
   };
-
+  message = '一段信息';
   xiangjiao = require("../../../public/static/image/timg.jpg");
   mp4url = require("../../../public/static/video/lol_kda.mp4");
   // 只看阿卡丽
@@ -233,6 +239,10 @@ export default class Example extends Vue {
     let href;
     href = await toDataUrl(this.imagePolygonDrawerImgUrl);
     clickDownload({ href, download: fileName });
+  }
+
+  setData() {
+    console.log('setData')
   }
 }
 </script>
