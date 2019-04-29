@@ -16,7 +16,7 @@
 import { Component,Vue } from 'vue-property-decorator';
 import { getRandomId } from '@/utils/global';
 import BaiduMap from '@/components/Map/BaiduMap.vue';
-import {loadMapFiles} from '@/components/Map/utils';
+import { loadMapFiles } from '@/components/Map/utils';
 
 
 const DEFAULT_MAP_SCALE = 14;
@@ -27,7 +27,7 @@ const DEFAULT_MAP_LOCATION = {
       y: 40.025193
     };
 
-@Component<Map>({
+@Component({
   components: {
     BaiduMap,
   }
@@ -39,11 +39,11 @@ export default class Map extends Vue{
 
 
   mounted() {
-    // loadMapFiles().then(() => {
-    //   this.initMap();
-    // })
+
     this.$nextTick(() => {
-      this.initMap();
+      loadMapFiles().then(() => {
+        this.initMap();
+      })
     })
   }
 

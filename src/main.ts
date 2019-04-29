@@ -1,7 +1,8 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './App';
 import router from './router';
 import store from './store/index';
+import '@/components'
 import '@/themes/default/index.scss';
 import '@/themes/iconfont/iconfont.css';
 

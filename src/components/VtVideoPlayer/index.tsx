@@ -1,90 +1,10 @@
-
-<template>
-  <div 
-    class="vtx-videoPlayer"
-    :style="{
-      width: `${width}rem`,
-      height: `${height}rem`,
-      margin: '0 auto',
-    }"
-  >
-    <video
-      @click="playOrStopVideo"
-      ref="video"
-      class="vtx-videoPlayer__video"
-      :poster="poster"
-      :id="playerId">
-      <source :src="url" type="video/mp4" />
-    </video>
-
-    <div class="vtx-videoPlayer__progress-wrap">
-      <div class="vtx-videoPlayer__progress">
-        <div class="vtx-videoPlayer__progress-default progress-height"
-          @click="handleProgress"></div>
-        <div class="vtx-videoPlayer__progress-inner progress-height"
-          :style="{
-            width: `${sliderValue}%`,
-          }"></div>
-        <div
-          v-show="playKey"
-          v-for="(item, index) in videoDataKeyTime"
-          :key="index"
-          class="progress_role progress-height"
-          :style="{ 
-            width: `${((item.end / durationMileSecond) - (item.start / durationMileSecond)) * 100 }%`, 
-            left:`${(item.start / durationMileSecond) * 100}%` }"
-          >
-        </div>
-      </div>
-
-    </div>
-    <div class="vtx-videoPlayer__control">
-      <Icon
-        :name="videoPlayState ? 'iconzanting' : 'iconbofang'"
-        :size="26"
-        @click="playOrStopVideo">
-      </Icon>
-      <div class="vtx-videoPlayer__control--time">
-        {{currentTimeStr}}/{{durationStr}}  
-      </div>
-      <el-switch
-        :value="playKey"
-        :active-text="playKey ? '只看重点打开' : '只看重点关闭'"
-        inactive-color="#ff4949"
-        @input="this.playKeyChange"
-      >
-      </el-switch>
-      <!-- <div class="vtx-videoPlayer__progress">
-        <el-slider
-          ref="slider"
-          :defaultVal="sliderValue"
-          @input="handleProgress"
-          @change="handleProgressChange"
-          :minVal="0"
-          :maxVal="100"
-          :step="1"
-          :showTooltip="false"
-          :value="0"
-        >
-        </el-slider>
-      </div> -->
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import { getRandomId, EventBus } from '@/utils/global';
 import { swallowEvent, on, off } from '@/utils/dom';
 import { debounceByKey } from '@/utils/object';
 import { duration } from 'moment';
-import Icon from '@/components/Icon/index.vue';
-import './style.scss'
 
-@Component<VideoPlayer>({
-  components:{
-    Icon,
-  },
+@Component<VtVideoPlayer>({
   props: {
     videoType: {
       type: String,
@@ -106,23 +26,29 @@ import './style.scss'
       type: String,
       default: 'https://yz.lol.qq.com/v1/assets/images/featuredvideocover/shurima-rise-ascended.jpg',
     },
+    onlyPlayKey: {
+      type: Boolean,
+      default: false,
+    },
     videoDataKeyTime: {
       type: Array,
-      default: [],
-    }
+    },
   },
   computed: {},
   methods: {},
   watch: {},
 })
+export default class VtVideoPlayer extends Vue {
 
-export default class VideoPlayer extends Vue {
   readonly url!: string;
+  readonly height!: number;
+  readonly width!: number;
   readonly videoType!: string;
+  readonly onlyPlayKey!: string;
+  readonly videoDataKeyTime!: any[];
   playerId!: string;
   videoCanPlay!: boolean;
-  videoDataKeyTime!: any[];
-  
+
   playKey = false;
 
   videoDataKeyIndex = 0;
@@ -140,6 +66,23 @@ export default class VideoPlayer extends Vue {
   $refs: any;
   videoEle = null as any;
   loadingInstance = null;
+
+
+  render() {
+    return (
+      <div 
+      class="vtx-videoPlayer"
+      style={{
+        width: `${this.width}rem`,
+        height: `${this.height}rem`,
+        margin: '0 auto',
+      }}
+     >
+     
+      
+    </div>
+    );
+  }
 
 
   created() {
@@ -166,7 +109,7 @@ export default class VideoPlayer extends Vue {
         false,
       );
     }
-    this.pauseVideo(); 
+    this.pauseVideo();
   }
 
   initPlayer() {
@@ -199,7 +142,7 @@ export default class VideoPlayer extends Vue {
     }
   }
 
-    // 处理进度条变化,不隐藏控制器
+  // 处理进度条变化,不隐藏控制器
   handleProgress(event: any) {
     event && event.preventDefault();
     event && event.stopPropagation();
@@ -221,7 +164,7 @@ export default class VideoPlayer extends Vue {
     this.sliderValueChange(); // 后期看是拖拽暂停还是继续播放
   }
 
-// 播放 / 暂停播放
+  // 播放 / 暂停播放
   playOrStopVideo(event: any) {
     event && event.preventDefault();
     event && event.stopPropagation();
@@ -238,7 +181,7 @@ export default class VideoPlayer extends Vue {
       this.videoEle && this.videoEle.play();
     }
   }
-  
+
   // 播放关键位置的处理
   intervalControl(time: number) {
     const index = this.videoDataKeyIndex;
@@ -262,7 +205,7 @@ export default class VideoPlayer extends Vue {
   }
 
 
-  sliderValueChange () {
+  sliderValueChange() {
     this.clearPrograssIntervalTimer();
     this.prograssIntervalTimer = setInterval(
       () => {
@@ -322,7 +265,7 @@ export default class VideoPlayer extends Vue {
   }
 
 
- // 播放中的处理
+  // 播放中的处理
   playing() {
     const video = this.$refs.myPlayer;
     video.addEventListener('timeupdate', () => {
@@ -336,7 +279,7 @@ export default class VideoPlayer extends Vue {
     }, false);
   }
 
- // 全屏请求
+  // 全屏请求
   handleFullSize(state: boolean) {
     this.videoEle.pause();
     // if (this.videoType === 'mp4') {
@@ -374,9 +317,3 @@ export default class VideoPlayer extends Vue {
     }
   }
 }
-</script>
-
-<!-- Add "scoped" attribute to limit scss to this component only -->
-<style lang="sass" scoped>
-
-</style>

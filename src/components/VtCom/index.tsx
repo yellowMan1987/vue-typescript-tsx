@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
+  name: 'vt-com',
   props: {
     message: {
       type: String,
@@ -9,12 +10,12 @@ import { Component } from 'vue-property-decorator'
     }
   }
 })
-export default class StPlayer extends Vue {
+export default class VtCom extends Vue {
   readonly message!: string
 
   render() {
     return (
-      <div class='st-player'>
+      <div>
         <el-button onClick={() => {this.callData()}}>hahahahah</el-button>
       </div>
     )

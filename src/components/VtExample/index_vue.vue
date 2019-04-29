@@ -14,7 +14,7 @@
     </div> -->
     <h2>tsx</h2>
     <div class="vtx-example__block">
-      <st-player :message="message" @setData="setData"></st-player>
+      <vt-com :message="message" @setData="setData"></vt-com>
     </div>
     <h2>{{this.$t('lang')}}</h2>
     <div class="vtx-example__block">
@@ -22,7 +22,7 @@
     </div>
     <h2>{{this.$t('theme')}}</h2>
     <div class="vtx-example__block">
-      <Theme/>
+      </>
     </div>
     <h2>WebRtc</h2>
     <div class="vtx-example__block" v-if="!mobi">
@@ -30,7 +30,7 @@
     </div>
     <h2>{{this.$t('videoPlayer')}}</h2>
     <div class="vtx-example__block" >
-      <VideoPlayer 
+      <vt-videoPlayer 
         :videoDataKeyTime="videoDataKeyTime"
         :url="mp4url"
       />
@@ -101,8 +101,6 @@ import Task from '@/components/Task/index.vue';
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
 import WaterMark from "@/components/WaterMark/index.vue";
-import VideoPlayer from "@/components/VideoPlayer/index.vue";
-import StPlayer from "@/components/st-player";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -116,8 +114,6 @@ import "./style.scss";
     Map,
     ImageDrawer,
     WaterMark,
-    VideoPlayer,
-    'st-player': StPlayer,
   },
   props: {},
   computed: {},
