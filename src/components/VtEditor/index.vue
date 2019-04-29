@@ -13,14 +13,14 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import "./style.scss";
 
-@Component<Editor>({
+@Component<VtEditor>({
   components: {},
   props: {},
   computed: {},
   methods: {},
   watch: {}
 })
-export default class Editor extends Vue {
+export default class VtEditor extends Vue {
   content: string = "";
   created() {}
   mounted() {}

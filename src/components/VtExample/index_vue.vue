@@ -86,7 +86,7 @@
     </div>
     <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList" v-if="!mobi"></ContextMenu>
     <WebRtc ref="webRtc" v-if="!mobi"/>
-    <WaterMark :visible="waterMarkVisible" />
+    <VtWaterMark :visible="waterMarkVisible" />
   </div>
 </template>
 <script lang="ts">
@@ -100,7 +100,7 @@ import ContextMenu, {
 import Task from '@/components/Task/index.vue';
 import Map from "@/components/Map/index.vue";
 import ImageDrawer from "@/components/ImageDrawer/index.vue";
-import WaterMark from "@/components/WaterMark/index.vue";
+import VtWaterMark from "@/components/VtWaterMark/index.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
@@ -113,7 +113,7 @@ import "./style.scss";
     Task,
     Map,
     ImageDrawer,
-    WaterMark,
+    VtWaterMark,
   },
   props: {},
   computed: {},

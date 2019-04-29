@@ -31,19 +31,19 @@
       :style="{backgroundImage: `url(${leve})`}"
       @click="hide"
     ></div>
-    <WaterMark :visible="true" :msg="warning" :color="'rgba(255, 255, 0, 0.8)'"/>
+    <VtWaterMark :visible="true" :msg="warning" :color="'rgba(255, 255, 0, 0.8)'"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import WaterMark from "@/components/WaterMark/index.vue";
+import VtWaterMark from "@/components/VtWaterMark/index.vue";
 
 import "./style.scss";
 
 @Component<GlobalAlarm>({
   components: {
-    WaterMark,
+    VtWaterMark,
   },
   props: {},
   computed: {},

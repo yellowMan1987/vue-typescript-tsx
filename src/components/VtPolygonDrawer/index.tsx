@@ -26,7 +26,7 @@ export interface  IPoint {
   y: number;
 }
 
-export default abstract class PolygonDrawer extends vue {
+export default abstract class VtPolygonDrawer extends vue {
 
   isDrawingPolygon = false;
   hasError = false;

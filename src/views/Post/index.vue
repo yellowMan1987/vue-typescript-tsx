@@ -4,7 +4,7 @@
     <span v-show="!isCreate" @click="isCreate = true">CREATE POST</span>
     <span v-show="isCreate" @click="isCreate = false">BACK LIST</span>
     <div v-show="isCreate" >
-      <Editor @getContent="getContent"/>
+      <VtEditor @getContent="getContent"/>
     </div>
     <PostList v-show="!isCreate"/>
   </div>
@@ -12,13 +12,13 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import Editor from '@/components/Editor/index.vue';
+import VtEditor from '@/components/VtEditor/index.vue';
 import PostList from '@/views/Post/PostList/index.vue';
 import './style.scss'
 
 @Component<Post>({
   components:{
-    Editor,
+    VtEditor,
     PostList,
   },
   props: {},

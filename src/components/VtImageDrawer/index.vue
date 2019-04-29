@@ -65,7 +65,7 @@ import PolygonDrawer, {
   DEFAULT_POLYGON_LINE_CONNECT_POINT_RADIUS,
   DEFAULT_POLYGON_MASK_OPACITY,
   IPoint,
-} from "@/components/PolygonDrawer";
+} from "@/components/VtPolygonDrawer";
 import { getImageSize } from "@/utils/image";
 import { hex2rgba } from "@/utils/format";
 import { on, off } from "@/utils/dom";
@@ -82,7 +82,7 @@ interface IRect {
   rightBottom: IPoint;
 }
 
-@Component<ImageDrawaer>({
+@Component<VtImageDrawaer>({
   props: {
     imageUrl: String,
     width: Number,
@@ -182,7 +182,7 @@ interface IRect {
   }
 })
 
-export default class ImageDrawaer extends PolygonDrawer { 
+export default class VtImageDrawaer extends PolygonDrawer { 
   $refs!: {
     container: HTMLElement;
     canvas: HTMLElement;

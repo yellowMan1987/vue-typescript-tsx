@@ -20,7 +20,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import './style.scss'
 
-@Component<WaterMark>({
+@Component<VtWaterMark>({
   components:{},
   props: {
     visible: {
@@ -41,7 +41,7 @@ import './style.scss'
   watch: {},
 })
 
-export default class WaterMark extends Vue {
+export default class VtWaterMark extends Vue {
   visible!: boolean;
   msg!: string;
   total = 0;
