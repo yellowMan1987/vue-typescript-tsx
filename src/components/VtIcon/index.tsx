@@ -68,10 +68,10 @@ export default class VtIcon extends Vue {
     ) : (
         <i
           class={[
-            "vtx-icon",
-            "iconfont",
-            "icon-" + name,
-            disabled ? "is-disabled" : ""
+            'vtx-icon',
+            'iconfont',
+            name,
+            disabled ? 'is-disabled' : ''
           ]}
           style={{
             'font-size': `${size / 100}rem`,

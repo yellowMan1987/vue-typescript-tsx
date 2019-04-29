@@ -3,6 +3,7 @@ import { getRandomId, EventBus } from '@/utils/global';
 import { swallowEvent, on, off } from '@/utils/dom';
 import { debounceByKey } from '@/utils/object';
 import { duration } from 'moment';
+import './style.scss'
 
 @Component<VtVideoPlayer>({
   props: {
@@ -26,13 +27,10 @@ import { duration } from 'moment';
       type: String,
       default: 'https://yz.lol.qq.com/v1/assets/images/featuredvideocover/shurima-rise-ascended.jpg',
     },
-    onlyPlayKey: {
-      type: Boolean,
-      default: false,
-    },
     videoDataKeyTime: {
       type: Array,
-    },
+      default: [],
+    }
   },
   computed: {},
   methods: {},
@@ -41,13 +39,12 @@ import { duration } from 'moment';
 export default class VtVideoPlayer extends Vue {
 
   readonly url!: string;
-  readonly height!: number;
-  readonly width!: number;
+  readonly height!: string;
+  readonly width!: string;
   readonly videoType!: string;
-  readonly onlyPlayKey!: string;
-  readonly videoDataKeyTime!: any[];
   playerId!: string;
   videoCanPlay!: boolean;
+  videoDataKeyTime!: any[];
 
   playKey = false;
 
@@ -70,17 +67,70 @@ export default class VtVideoPlayer extends Vue {
 
   render() {
     return (
-      <div 
-      class="vtx-videoPlayer"
-      style={{
-        width: `${this.width}rem`,
-        height: `${this.height}rem`,
-        margin: '0 auto',
-      }}
-     >
-     
-      
-    </div>
+      <div
+        class="vtx-videoPlayer"
+        style={{
+          width: `${this.width}rem`,
+          height: `${this.height}rem`,
+          margin: '0 auto',
+        }}
+      >
+        <video
+          onClick={this.playOrStopVideo}
+          ref="video"
+          class="vtx-videoPlayer__video"
+          poster="poster"
+          id="playerId">
+          <source src={this.url} type="video/mp4" />
+        </video>
+
+        <div class="vtx-videoPlayer__progress-wrap">
+          <div class="vtx-videoPlayer__progress">
+            <div class="vtx-videoPlayer__progress-default progress-height"
+              onClick={this.handleProgress}></div>
+            <div class="vtx-videoPlayer__progress-inner progress-height"
+              style={{
+                width: `${this.sliderValue}%`,
+              }}></div>
+            {
+              this.playKey &&
+              this.videoDataKeyTime.map((item, index) => {
+                return (
+                  <div
+                    key={index}
+                    class="progress_role progress-height"
+                    style={
+                      {
+                        width: `${((item.end / this.durationMileSecond) - (item.start / this.durationMileSecond)) * 100}%`,
+                        left: `${(item.start / this.durationMileSecond) * 100}%`
+                      }
+                    }
+                  >
+                  </div>
+                )
+              })
+            }
+          </div>
+
+        </div>
+        <div class="vtx-videoPlayer__control">
+          <vt-icon
+            name={`${this.videoPlayState ? 'iconzanting' : 'iconbofang'}`}
+            size={26}
+            onClick={this.playOrStopVideo}>
+          </vt-icon>
+          <div class="vtx-videoPlayer__control--time">
+            {this.currentTimeStr}/{this.durationStr}
+          </div>
+          <el-switch
+            value={this.playKey}
+            active-text={`${this.playKey  ? '只看重点打开' : '只看重点关闭'}`}
+            inactive-color="#ff4949"
+            onInput={this.playKeyChange}
+          >
+          </el-switch>
+        </div>
+      </div>
     );
   }
 

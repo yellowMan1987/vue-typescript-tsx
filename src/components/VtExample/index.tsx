@@ -28,6 +28,13 @@ export default class VtExample extends Vue {
         <div class="vtx-example__block">
           <el-button type="primary" onClick={this.showWebRtc}>打开摄像头</el-button>
         </div>
+        <h2>{this.$t('videoPlayer')}</h2>
+        <div class="vtx-example__block" >
+          <vt-video-player 
+            videoDataKeyTime={this.videoDataKeyTime}
+            url={this.mp4url}
+          />
+        </div>
         <vt-web-rtc ref="webRtc"/>
       </div>
     );
