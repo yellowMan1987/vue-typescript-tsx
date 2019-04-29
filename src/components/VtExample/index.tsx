@@ -12,6 +12,78 @@ import "./style.scss";
 })
 export default class VtExample extends Vue {
 
+
+  render() {
+    return (
+      <div class="vtx-example" ref="example">
+        <h2>{this.$t('lang')}</h2>
+        <div class="vtx-example__block">
+          <vt-language/>
+        </div>
+        <h2>{this.$t('theme')}</h2>
+        <div class="vtx-example__block">
+          <vt-theme/>
+        </div>
+        <h2>webRtc</h2>
+        <div class="vtx-example__block">
+          <el-button type="primary" onClick={this.showWebRtc}>打开摄像头</el-button>
+        </div>
+        <vt-web-rtc ref="webRtc"/>
+      </div>
+    );
+  }
+  updateThemes!: (res: any) => void;
+  
+  created() {
+    this.mobi = window.innerWidth <= 900;
+  }
+  mounted() {}
+  beforeDestroy() {}
+
+  // msg
+  openMsg() {
+    this.$message({
+      duration: 1000,
+      message: "错误的提示信息",
+      type: "error"
+    });
+  }
+  // showWebRtc
+  showWebRtc() {
+    const webRtc = this.$refs.webRtc as any;
+    webRtc.show();
+  }
+
+  // 右键操作
+  showContextMenu(event: any, data: any) {
+    const { clientX, clientY } = event;
+    this.rightMouseClickPosition = { clientX, clientY };
+    this.contextActiveData = data;
+  }
+
+  handleContextMenuClick() {}
+
+  finish(val: any) {
+    console.log("完成绘制", JSON.stringify(val));
+    this.imageDrawerData.drawingPolygon = false;
+    this.imageDrawerData.drawingRect = false;
+  }
+
+  async downloadImage(e:any) {
+    e.preventDefault();
+    e.stopPropagation();
+    const fileName = `${new Date().getTime()}.jpg`;
+    let href;
+    href = await toDataUrl(this.imagePolygonDrawerImgUrl);
+    clickDownload({ href, download: fileName });
+  }
+
+  setData() {
+    console.log('setData')
+  }
+
+
+
   waterMarkVisible = false;
   mobi = false;
   rightMouseClickPosition = {
@@ -84,67 +156,4 @@ export default class VtExample extends Vue {
 
   ];
 
-  render() {
-    return (
-      <div class="vtx-example" ref="example">
-        <h2>{this.$t('lang')}</h2>
-        <div class="vtx-example__block">
-          <vt-language/>
-        </div>
-        <h2>{this.$t('theme')}</h2>
-        <div class="vtx-example__block">
-          <vt-theme/>
-        </div>
-      </div>
-    );
-  }
-  updateThemes!: (res: any) => void;
-  
-  created() {
-    this.mobi = window.innerWidth <= 900;
-  }
-  mounted() {}
-  beforeDestroy() {}
-
-  // msg
-  openMsg() {
-    this.$message({
-      duration: 1000,
-      message: "错误的提示信息",
-      type: "error"
-    });
-  }
-  // showWebRtc
-  showWebRtc() {
-    const webRtc = this.$refs.webRtc as any;
-    webRtc.show();
-  }
-
-  // 右键操作
-  showContextMenu(event: any, data: any) {
-    const { clientX, clientY } = event;
-    this.rightMouseClickPosition = { clientX, clientY };
-    this.contextActiveData = data;
-  }
-
-  handleContextMenuClick() {}
-
-  finish(val: any) {
-    console.log("完成绘制", JSON.stringify(val));
-    this.imageDrawerData.drawingPolygon = false;
-    this.imageDrawerData.drawingRect = false;
-  }
-
-  async downloadImage(e:any) {
-    e.preventDefault();
-    e.stopPropagation();
-    const fileName = `${new Date().getTime()}.jpg`;
-    let href;
-    href = await toDataUrl(this.imagePolygonDrawerImgUrl);
-    clickDownload({ href, download: fileName });
-  }
-
-  setData() {
-    console.log('setData')
-  }
 }
