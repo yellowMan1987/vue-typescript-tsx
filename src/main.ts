@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './store/index';
+import  { versionShow } from './utils/log';
 import '@/components'
 import '@/themes/default/index.scss';
 import '@/themes/iconfont/iconfont.css';
@@ -11,7 +12,7 @@ import { language, i18n } from '@/locale';
 import "./plugins";
 
 Vue.config.productionTip = false;
-console.log('process.env.NODE_ENV :)',process.env.NODE_ENV)
+versionShow();
 new Vue({
   i18n,
   router,

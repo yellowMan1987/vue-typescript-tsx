@@ -1,4 +1,13 @@
 // var HappyPack = require('HappyPack');
+
+const exec = require('child_process').execSync;
+
+process.env.VUE_APP_NAME = require('./package.json').name;
+process.env.VUE_APP_VERSION = require('./package.json').version;
+process.env.VUE_APP_BUILD_TIME = require('dayjs')().format('YYYY-M-D HH:mm:ss');
+process.env.VUE_APP_LAST_COMMIT = exec('git rev-parse HEAD').toString().trim();
+// process.env.VUE_APP_LAST_COMMIT = exec('git show --stat').toString().trim();
+
 module.exports = {
   // 部署应用时的基本 URL
   // baseUrl: process.env.NODE_ENV === 'production' ? '' : '',
@@ -16,7 +25,7 @@ module.exports = {
         target: 'http://localhost:7001',
 
         // 如果要代理 websockets
-        ws: true,
+        ws: false,
         // 将主机标头的原点更改为目标URL
         changeOrigin: false,
       },
