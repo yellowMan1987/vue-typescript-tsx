@@ -13,6 +13,7 @@ export default class VtNav extends Vue {
       <div class="vtx-nav">
         <router-link to="/">TSX Component Demo</router-link> |
         <router-link to="/cssdemo">CSS Demo</router-link> |
+        <router-link to="/mapdemo">Map Demo</router-link> |
       </div>
     );
   }

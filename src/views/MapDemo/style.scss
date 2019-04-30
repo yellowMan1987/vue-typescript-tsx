@@ -1,0 +1,277 @@
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(mapDemo) {
+  height: calc(100% - 0.8rem);
+  width: 100%;
+  @include e(map) {
+    height: 100%;
+    width: 15.6rem;
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    position: relative;
+    .anchorTR {
+      position: absolute;
+      right: 300px !important;
+      top: 20px !important;
+      left: unset !important;
+    }
+    .capture-item {
+      &:first-child  {
+        margin-top: 10px;
+      }
+      position: relative;
+      padding-left: 10px;
+      height: 100px;
+      width: 100%;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(120, 255, 128, 0.2);
+    }
+    span {
+      font-size: 12px;
+    }
+    .start {
+      position: absolute;
+      top: 20px;
+      left: 130px;
+    }
+    .time {
+      position: absolute;
+      bottom: 40px;
+      left: 130px;
+    }
+  }
+
+  @include e(map-head) {
+    .list-title {
+      width: 400px;
+    }
+  }
+  @include e(map-tool) {
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0.2rem;
+    width: 0.8rem;
+    text-align: center;
+    span {
+      background: #004EB8;
+      width: 100%;
+      height: 0.2rem;
+      display: inline-block;
+      line-height: 0.2rem;
+    }
+    ul {
+      background: #fff;
+      cursor: pointer;
+      li {
+        height: 0.4rem;
+        line-height: 0.4rem;
+        font-size: 0.14rem;
+        color: #004EB8;
+        @include when(active) {
+          color: #fff;
+          background: #5da0df;
+        }
+      }
+    }
+  }
+
+  @include e(map-camera-type) {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 210px;
+    background: rgba(0,0,0,0.5);
+    ul {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      li {
+        height: 20px;
+        line-height: 20px;
+        padding-left: 10px;
+        display: flex;
+        i {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin-left: 3px;
+          background: #f56c6c;
+        }
+        .indoor {
+          background: #d39f11;
+        }
+        .low-space {
+          background: #1c91ff;
+        }
+      }
+    }
+  }
+
+
+  @include e(map-checkbox-hard) {
+    position: absolute;
+    top: 109px;
+    right: 0.2rem;
+    width: 2.5rem;
+    // width: 3.7rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.14rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    i {
+      display: inline-block;
+      height: 30px;
+      border-left: 1px solid #d8d8d8;
+    }
+  }
+  @include e(low-type) {
+    width: 49%;
+    text-align: center;
+    color: #d9d9d9;
+
+    @include when(include) {
+      color: #1c91ff;
+      border-bottom: 1px solid #1c91ff;
+    }
+    @include when(not-include) {
+      color: #1c91ff;
+      border-bottom: 1px solid #1c91ff;
+    }
+  }
+  @include e(map-checkbox-wrap) {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.2rem;
+    width: 2.5rem;
+    // width: 3.7rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.14rem;
+    background: #fff;
+    display: flex;
+    .el-checkbox-group {
+      display: flex;
+      .el-checkbox {
+        margin-right: 10px;
+        margin-left:0;
+      }
+    }
+    .el-checkbox {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  .low {
+    top: 1.5rem !important;
+    .el-checkbox-group {
+      margin-left: 0.1rem;
+    }
+  }
+
+  @include e(map-checkbox-count) {
+    position: absolute;
+    padding: 10px 20px;
+    top: 2rem;
+    right: 0.2rem;
+    color: #fff;
+    background: rgba(0,0,0,0.7)
+  }
+
+  @include e(point-wrap) {
+    height: 40px;
+    width: 26px;
+    @include when(highlight) {
+      z-index: 99999;
+    }
+  }
+  @include e(point) {
+    cursor: pointer;
+    height:40px; 
+    width:40px; 
+    display:block; 
+    position:relative;
+    width:26px;
+    &::before {
+      content: attr(data-beforeContent); 
+      height:26px; 
+      width:26px; 
+      display:block; 
+      position:absolute; 
+      top:2px; left:0px; 
+      // z-index:1; 
+      line-height:26px; 
+      background: #f56c6c; 
+      border-radius:40px;
+      -webkit-border-radius:40px;
+      -moz-border-radius:40px; 
+      color:#fff; text-align:center;
+    }
+    &::after {
+      content:'';
+      height:0px;
+      width:0px;
+      display:block; 
+      position:absolute; 
+      bottom:2px; 
+      left:3px; 
+      border:10px transparent solid; 
+      border-top-color:#f56c6c; 
+      border-width:15px 10px 0px 10px; 
+    }
+
+    &.low-space {
+      &::before {
+        background: #1c91ff; 
+      }
+      &::after {
+        border-top-color:#1c91ff; 
+      }
+    }
+    &.outdoor-low-face {
+      &::before {
+        background: #9c27b0; 
+      }
+      &::after {
+        border-top-color:#9c27b0; 
+      }
+    }
+    &.indoor {
+      &::before {
+        background: #d39f11; 
+      }
+      &::after {
+        border-top-color:#d39f11; 
+      }
+    }
+
+    @include when(highlight) {
+      &::before {
+        background: #37a00d !important; 
+      }
+      &::after {
+        border-top-color:#37a00d !important; 
+      }
+    }
+    @include when(onlylowtype) {
+      &::before {
+        background: #1c91ff; 
+      }
+      &::after {
+        border-top-color:#1c91ff; 
+      }
+    }
+    @include when(currLowType) {
+      &::before {
+        background: #1c91ff;
+      }
+      &::after {
+        border-top-color:#1c91ff; 
+      }
+    }
+  }
+}

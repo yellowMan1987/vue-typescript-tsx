@@ -16,6 +16,10 @@ export default class VtExample extends Vue {
   render() {
     return (
       <div class="vtx-example" ref="example">
+        <h2>{this.$t('offlinemap')}</h2>
+        <div class="vtx-example__block" >
+          <vt-map/>
+        </div>
         <h2>{this.$t('lang')}</h2>
         <div class="vtx-example__block">
           <vt-language/>

@@ -12,20 +12,43 @@ const DEFAULT_MAP_LOCATION = {
 };
 
 @Component({
-
+  components: {
+    'baidu-map': BaiduMap,
+  },
+  props: {
+    width: {
+      type: [Number, String],
+    },
+    height: {
+      type: [Number, String],
+    },
+    
+  }
 })
 
 
 export default class VtMap extends Vue {
+  readonly width!: number | string; // 地图宽度（px/百分比）
+  readonly height!: number | string; // 地图高度（px/百分比）
+
   $refs: any;
   id = getRandomId()
-
   render() {
+    let mapWidth = this.width ? `${Number(this.width) * 0.01}rem` : '100%';
+    let mapHeight = this.height ? `${Number(this.height) * 0.01}rem` : '100%';
+
+    // 如果宽高是百分比
+    if (typeof this.width === 'string') {
+      mapWidth = this.width as string;
+    }
+    if (typeof this.height === 'string') {
+      mapHeight = this.height as string;
+    }
     return (
       <div
         style={{
-          width: '8.6rem',
-          height: '6rem',
+          width: mapWidth,
+          height: mapHeight,
         }}
       >
         <baidu-map

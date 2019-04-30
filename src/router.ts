@@ -32,5 +32,10 @@ export default new Router({
       name: 'cssdemo',
       component: () => import(/* webpackChunkName: "cssdemo" */ './views/CSSDemo/index.vue'),
     },
+    {
+      path: '/mapdemo',
+      name: 'mapdemo',
+      component: () => import(/* webpackChunkName: "cssdemo" */ './views/MapDemo/index'),
+    },
   ],
 });

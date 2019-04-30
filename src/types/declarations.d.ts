@@ -5,6 +5,19 @@ interface IMineMapTheme {
 
 interface MyWindow extends Window {
   config: {
+    space: {
+      heatThreshold: any,
+      cameraShowNum: any,
+      shenzhenCenter: any;
+      polygonCenter: any[];
+      coverageList: any[];
+      cameraType: any[];
+      targetType: any[];
+      sceneTypeTotal: any[];
+      targetTypeTotal: any[];
+      targetTypeIncludeTotal: any[];
+      targetTypeNotIncludeTotal: any[];
+    };
     map: {
       type: string;
       net: string;
@@ -52,4 +65,5 @@ interface MyWindow extends Window {
   BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW: any;
   minemap: any;
   env: any;
+
 }
