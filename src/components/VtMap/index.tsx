@@ -49,6 +49,7 @@ export default class VtMap extends Vue {
         style={{
           width: mapWidth,
           height: mapHeight,
+          margin: '0 auto'
         }}
       >
         <baidu-map

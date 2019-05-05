@@ -1,8 +1,8 @@
 import { Component, Vue } from 'vue-property-decorator'
-import { IMenuOptionItem } from "@/components/VtContextMenu/index_vue.vue";
 import { toDataUrl, clickDownload } from '@/utils/image';
 import "./style.scss";
 
+interface IMenuOptionItem {};
 
 @Component({
   props: {},
@@ -16,22 +16,32 @@ export default class VtExample extends Vue {
   render() {
     return (
       <div class="vtx-example" ref="example">
+
         <h2>{this.$t('offlinemap')}</h2>
         <div class="vtx-example__block" >
-          <vt-map/>
+          <vt-map width='800px'  height='400px'/>
         </div>
+
         <h2>{this.$t('lang')}</h2>
         <div class="vtx-example__block">
           <vt-language/>
         </div>
+
         <h2>{this.$t('theme')}</h2>
         <div class="vtx-example__block">
           <vt-theme/>
         </div>
+
+        <h2>{this.$t('waterMark')}</h2>
+        <div class="vtx-example__block">
+          <el-button type="primary" onClick={() => {this.waterMarkerVisible = !this.waterMarkerVisible}}>{`${this.waterMarkerVisible ? '关闭' : '打开'}防拍水印`}</el-button>
+        </div>
+
         <h2>webRtc</h2>
         <div class="vtx-example__block">
           <el-button type="primary" onClick={this.showWebRtc}>打开摄像头</el-button>
         </div>
+
         <h2>{this.$t('videoPlayer')}</h2>
         <div class="vtx-example__block" >
           <vt-video-player 
@@ -39,6 +49,13 @@ export default class VtExample extends Vue {
             url={this.mp4url}
           />
         </div>
+
+        <vt-water-marker
+          visible={this.waterMarkerVisible}
+          content="user-禁止拍照"
+          allowDelete={true}
+          font={'normal normal 400 normal 20px / normal Arial, 微软雅黑'}
+        />
         <vt-web-rtc ref="webRtc"/>
       </div>
     );
@@ -95,7 +112,8 @@ export default class VtExample extends Vue {
 
 
 
-  waterMarkVisible = false;
+  waterMarkerVisible = false;
+
   mobi = false;
   rightMouseClickPosition = {
     clientX: 0,
@@ -149,6 +167,7 @@ export default class VtExample extends Vue {
   };
   message = '一段信息';
   xiangjiao = require("../../../public/static/image/timg.jpg");
+  
   mp4url = require("../../../public/static/video/lol_kda.mp4");
   // 只看阿卡丽
   videoDataKeyTime =  [
