@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>{{this.$t('des')}}</h1>
-    <vt-example />
+    首页
   </div> 
 </template>
 <script lang="ts">
