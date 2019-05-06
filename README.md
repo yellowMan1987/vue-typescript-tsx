@@ -7,16 +7,14 @@
 </p>
 
 
-
-
-
-## 工程概要
-> * 本工程采用TypeScript + JSX + vue-class-component的组合方式。
-> * 支持实现class风格tsx格式组件文件输出。
+## 概要
+> * 使用TypeScript + JSX + vue-class-component的组合方式。
+> * 支持实现 class 风格 tsx 格式组件文件输出。
 > * 支持Vue Templeat模板语.vue文件输出。
-> * 支持sass。
+> * 支持Sass。
 > * 支持国际化/自适应/主题更换。
-> * 仅提供学习与参考,不建议用于生产环境。
+> * 仅提供学习与参考。
+
 
 ## 主要方案
 > * Vue + Vue-Cli3 + Vuex + ES6/ES7 + TypeScript + JSX + Sass +  ElementUI
