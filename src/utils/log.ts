@@ -24,7 +24,7 @@ function typeColor (type: string = 'default') {
  * @param {String} type style
  */
 log.capsule = function (title: string, info: string, type: string = 'primary') {
-  console.log(
+  console.info(
     `%c ${title} %c ${info} %c`,
     'background:#42B983; padding: 4px; border-radius: 3px 0 0 3px; color: #fff;',
     `background:${typeColor('default')}; padding: 4px; border-radius: 0 3px 3px 0;  color: #fff;`,
@@ -36,7 +36,7 @@ log.capsule = function (title: string, info: string, type: string = 'primary') {
  * @description 打印彩色文字
  */
 log.colorful = function (textArr: { text?: string, type: string }[]) {
-  console.log(
+  console.info(
     `%c${textArr.map(t => t.text || '').join('%c')}`,
     ...textArr.map(t => `color: ${typeColor(t.type)};`)
   )

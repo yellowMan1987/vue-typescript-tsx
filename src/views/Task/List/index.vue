@@ -43,10 +43,8 @@ export default class List extends Vue {
   beforeDestroy() {}
 
   start(e: any) {
-    console.log(e);
   }
   end(e: any) {
-    console.log(e);
   }
 }
 </script>

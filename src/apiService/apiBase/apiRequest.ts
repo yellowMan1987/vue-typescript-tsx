@@ -73,7 +73,7 @@ export function initHeaders(user:any) {
   } else if (has(user, "accessToken")) {
     instance.defaults.headers.accessToken = '';
   } else {
-    // console.log('没有token 准备登出');
+    // console.info('没有token 准备登出');
     // history.go(0);
   }
 }

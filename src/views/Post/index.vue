@@ -35,7 +35,6 @@ export default class Post extends Vue {
   beforeDestroy() {}
 
   getContent(val:string) {
-    console.log('getContent',val)
   }
 }
 </script>

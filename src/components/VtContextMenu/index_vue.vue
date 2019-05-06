@@ -57,7 +57,6 @@ import "./style.scss";
     mousePosition: {
       deep: true,
       handler(value) {
-        console.log(value)
         this.$nextTick(() => {
           this.showMenu();
           this.handleCoordinate(value);
@@ -138,7 +137,6 @@ export default class ContextMenu extends Vue {
 
   // 点击单项
   handleItem(event: any,item: any) {
-    console.log(event)
     if (item.handle && typeof item.handle === "function") {
       item.handle(item, event);
       this.visible = false;

@@ -27,7 +27,6 @@ export default class VtEditor extends Vue {
   beforeDestroy() {}
   onEditorChange(e: any) {
     this.content = e.html;
-    // console.log(e)
     this.$emit('getContent',this.content)
   }
   submit() {

@@ -199,9 +199,7 @@ export default class VtVideoPlayer extends Vue {
     this.prograssChanging = true;
     const playProgress = event.offsetX / event.target.clientWidth;
     this.sliderValue = playProgress * 100;
-    console.log(this.sliderValue)
     this.videoEle.currentTime = playProgress * this.videoDuration;
-    console.log()
   }
 
   // 处理进度条回传值

@@ -1,4 +1,4 @@
-[
+const componentsNav = [
   {
     "name": "概要",
     "navPath":"doc",
@@ -12,12 +12,12 @@
         "groupName": "通用业务组件",
         "list": [
           {
-            "path": "/map",
-            "title": "map 地图"
+            "path": "/components/VtWebRtc",
+            "title": "webRtc 视频录制"
           },
           {
-            "path": "/webRtc",
-            "title": "webRtc 视频录制"
+            "path": "/components/VtWaterMarker",
+            "title": "WaterMarker 防拍水印"
           }
         ]
       },
@@ -29,3 +29,5 @@
     ]
   }
 ]
+
+export default componentsNav;

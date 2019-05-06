@@ -35,7 +35,6 @@ import "./style.scss";
   },
   watch: {
     taskList(val) {
-      console.log("watch", val);
     }
   }
 })
@@ -45,10 +44,8 @@ export default class Task extends Vue {
   mounted() {}
   beforeDestroy() {}
   start(e: any) {
-    console.log(e);
   }
   end(e: any) {
-    console.log(e);
   }
 }
 </script>

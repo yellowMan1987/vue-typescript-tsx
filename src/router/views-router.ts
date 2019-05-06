@@ -1,23 +1,23 @@
 const viewsRouter = [
-  { path: '/', redirect: '/home' },
+  { path: '/', redirect: '/components/VtWebRtc' },
   {
-    path: '/home',
     name: 'home',
+    path: '/home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
   },
   {
-    path: '/tsx-components',
     name: 'components',
+    path: '/tsx-components',
     component: () => import(/* webpackChunkName: "home" */ '../views/Example/index'),
   },
   {
-    path: '/cssdemo',
     name: 'cssdemo',
+    path: '/cssdemo',
     component: () => import(/* webpackChunkName: "cssdemo" */ '../views/CSSDemo/index.vue'),
   },
   {
-    path: '/mapdemo',
     name: 'mapdemo',
+    path: '/mapdemo',
     component: () => import(/* webpackChunkName: "cssdemo" */ '../views/MapDemo/index'),
   },
 ] as any[];

@@ -15,7 +15,6 @@ import { initHeaders } from "@/apiService/apiBase/apiRequest";
   methods: {},
   watch: {
     theme(val) {
-      console.log(val);
       this.className = `theme-${val}`;
     }
   },
@@ -41,7 +40,6 @@ export default class App extends Vue {
     setHTMLfontSize();
     resizeWindow(setHTMLfontSize);
     // user.getUserList().then((res) => {
-    //   console.log('请求====>',res)
     // }) 
   }
 }

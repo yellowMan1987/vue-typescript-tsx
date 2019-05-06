@@ -220,7 +220,6 @@ export default class Example extends Vue {
   handleContextMenuClick() {}
 
   finish(val: any) {
-    console.log("完成绘制", JSON.stringify(val));
     this.imageDrawerData.drawingPolygon = false;
     this.imageDrawerData.drawingRect = false;
   }
@@ -235,7 +234,6 @@ export default class Example extends Vue {
   }
 
   setData() {
-    console.log('setData')
   }
 }
 </script>

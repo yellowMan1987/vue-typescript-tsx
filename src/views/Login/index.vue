@@ -40,7 +40,6 @@ export default class Login extends Vue {
       password: 'admin'
     }
     user.addUser(pramas).then((res) => {
-      console.log('请求====>',res)
     }) 
     
   }

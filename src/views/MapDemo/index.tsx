@@ -61,7 +61,7 @@ export default class MapDemo extends vue {
   getData() {
     axios.get('./shenzhen.json').then((res) => {
       const data = res.data;
-      console.log('加载深圳行政区的geojson');
+      console.info('加载深圳行政区的geojson');
     });
   }
 
