@@ -1,0 +1,13 @@
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(demo) {
+  height: calc(100% - 0.8rem);
+  box-sizing: border-box;
+  padding: 0 5vw;
+  display: flex;
+  @include e(container) {
+    width: calc(100% - 3rem);
+    height: 100%;
+	  border: 1px solid #000;
+  }
+}

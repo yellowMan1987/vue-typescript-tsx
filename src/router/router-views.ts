@@ -1,14 +1,9 @@
 const viewsRouter = [
-  { path: '/', redirect: '/components/VtWebRtc' },
+  { path: '/', redirect: '/home' },
   {
     name: 'home',
     path: '/home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
-  },
-  {
-    name: 'components',
-    path: '/tsx-components',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Example/index'),
   },
   {
     name: 'cssdemo',

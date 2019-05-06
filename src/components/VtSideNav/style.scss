@@ -1,0 +1,9 @@
+
+@import 'src/themes/mixins/mixins.scss';
+
+@include b(sideNav) {
+	width: 3rem;
+	height: 100%;
+	border: 1px solid #000;
+	box-sizing: border-box;
+}
