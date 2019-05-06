@@ -6,17 +6,7 @@
 ```html
 <template>
     <div class="demo-container">
-      <el-button type="primary" @click="visible = true">打开防拍水印</el-button>
-      <el-button type="primary" @click="visible = false">关闭防拍水印</el-button>
-      <el-button type="primary" @click="allowDelete = !allowDelete;">{{`${allowDelete ? '允许' : '不允许'}关闭或删除节点`}}
-      </el-button>
-      <el-input type="primary" v-model="content"></el-input>
-      <vt-water-marker 
-        :visible="visible"
-        :allowDelete="allowDelete"
-        :content="content"
-        :font="'normal normal 400 normal 20px / normal Arial, 微软雅黑'"
-      ></vt-water-marker>
+      hahahahahahah
       
     <div>
 </template>
@@ -24,9 +14,6 @@
 export default {
   data(){
     return {
-      visible: false,
-      content: 'admin-系统管理员',
-      allowDelete: true,
     }
   },
 }

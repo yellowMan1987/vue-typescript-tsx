@@ -14,23 +14,23 @@ export default class VtSideNav extends Vue {
   render() {
     return (
       <div class="vtx-sideNav">
-        <ul>
+        <ul class="vtx-sideNav__nav-warp">
           {
             navComponent.map((nav) => {
               return (
-                <li>
-                  <span>{nav.name}</span>
-                  <div class="vtx-sideNav__groups">
-                  <ul>
-                    {
+                <li class="vtx-sideNav__nav-group">
+                  <span class="vtx-sideNav__nav-group-title">{nav.name}</span>
+                  <div class="vtx-sideNav__nav-group-container">
+                    <ul>
+                      {
                         nav.list.map((item) => {
                           return (
-                            <li onClick={() => {this.toPath(item)}}>{item.title}</li>
+                            <li class={['vtx-sideNav__sub-nav',this.sideNavActive(item.title)]} onClick={() => { this.toPath(item) }}>{item.title}</li>
                           )
                         })
-                      } 
-                  </ul>
-                    
+                      }
+                    </ul>
+
                   </div>
                 </li>
               )
@@ -41,11 +41,20 @@ export default class VtSideNav extends Vue {
     );
   }
 
+  mounted() {
+    console.log(
+      this.$route
+    )
+  }
 
   toPath(item: any) {
     if (!!!item.path) {
       return;
     }
     this.$router.push(item.path);
+  }
+
+  sideNavActive(name: string) {
+    return this.$route.name === name ? 'is-active' : ''
   }
 }

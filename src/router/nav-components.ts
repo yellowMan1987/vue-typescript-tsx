@@ -5,16 +5,16 @@ const componentsNav = [
     "list":[
       {
         "path":"developer",
-        "title":"开发指南"
+        "title":"开发概要"
       },
       {
         "path":"user",
-        "title":"使用指南"
+        "title":"使用概要"
       }
     ]
   },
   {
-    "name": "组件",
+    "name": "业务组件",
     "navPath":"components",
     "list": [
       {

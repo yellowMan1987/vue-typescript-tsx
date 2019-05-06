@@ -1,5 +1,3 @@
-import { Footer } from '_element-ui@2.6.1@element-ui';
-
 const config = (window as MyWindow).config.map as any;
 
 export const loadMapFiles = () =>

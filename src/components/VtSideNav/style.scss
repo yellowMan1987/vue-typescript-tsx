@@ -4,6 +4,26 @@
 @include b(sideNav) {
 	width: 3rem;
 	height: 100%;
-	border: 1px solid #000;
 	box-sizing: border-box;
+
+	@include e(nav-warp) {
+		overflow-y: auto;
+	}
+	@include e(nav-group) {
+    margin-top: 0.4rem;
+	}
+	@include e(nav-group-title) {
+		font-size: 0.2rem;
+		font-weight: 600;
+	}
+	@include e(nav-group-container) {
+		font-size: 0.16rem;
+	}
+	@include e(sub-nav) {
+		@include when(active) {
+			@include themify($themes) {
+				color: themed('font-color') !important;
+			}
+		}
+	}
 }

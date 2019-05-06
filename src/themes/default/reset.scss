@@ -3,7 +3,7 @@
 a {
 	color: #333;
 }
-.router-link-exact-active {
+.router-link-active {
 	@include themify($themes) {
 		color: themed('font-color') !important;
 	}

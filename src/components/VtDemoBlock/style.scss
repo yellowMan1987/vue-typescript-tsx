@@ -92,13 +92,14 @@
     }
   }
   @include e(block-code) {
-    background-color: #f7f7f7;
+    color: #fff;
+    background-color: #1f1d1d;
     font-size: 0;
-    padding: 16px 32px;
+    padding: 0.3rem;
     box-sizing: border-box;
 
     code {
-      background-color: #f7f7f7;
+      background-color: #1f1d1d;
       font-family: Consolas, Menlo, Courier, monospace;
       border: none;
       display: block;
@@ -111,6 +112,30 @@
       margin: 0;
       padding: 0;
     }
+
+    .hljs-tag {
+      color: #cd295f;
+    }
+    .hljs-keyword {
+      color: #cd295f;
+    }
+    .hljs-attr {
+      color: #a6e22e;
+    }
+    .javascript {
+      color: #fff;
+      .hljs-attr {
+        color: #fff;
+      }
+    }
+    .hljs-string {
+      color: #e6db74;
+    }
+    .hljs-literal {
+      color: #ae81ff;
+    }
+
+    
   }
   .sh-checkbox {
     color: #444;
