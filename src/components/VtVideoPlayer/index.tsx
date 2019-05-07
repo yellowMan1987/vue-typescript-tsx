@@ -27,7 +27,7 @@ import './style.scss'
       type: String,
       default: 'https://yz.lol.qq.com/v1/assets/images/featuredvideocover/shurima-rise-ascended.jpg',
     },
-    videoDataKeyTime: {
+    keyTimeOfVideo: {
       type: Array,
       default: [],
     }
@@ -44,7 +44,7 @@ export default class VtVideoPlayer extends Vue {
   readonly videoType!: string;
   playerId!: string;
   videoCanPlay!: boolean;
-  videoDataKeyTime!: any[];
+  keyTimeOfVideo!: any[];
 
   playKey = false;
 
@@ -94,7 +94,7 @@ export default class VtVideoPlayer extends Vue {
               }}></div>
             {
               this.playKey &&
-              this.videoDataKeyTime.map((item, index) => {
+              this.keyTimeOfVideo.map((item, index) => {
                 return (
                   <div
                     key={index}
@@ -233,21 +233,21 @@ export default class VtVideoPlayer extends Vue {
   // 播放关键位置的处理
   intervalControl(time: number) {
     const index = this.videoDataKeyIndex;
-    if (this.videoDataKeyIndex <= this.videoDataKeyTime.length - 1 && this.videoDataKeyTime[index].start) {
+    if (this.videoDataKeyIndex <= this.keyTimeOfVideo.length - 1 && this.keyTimeOfVideo[index].start) {
       if (index === 0) {
-        if (time - (this.videoDataKeyTime[index].start / 1000) < 0) {
-          this.videoEle.currentTime = (this.videoDataKeyTime[index].start / 1000);
+        if (time - (this.keyTimeOfVideo[index].start / 1000) < 0) {
+          this.videoEle.currentTime = (this.keyTimeOfVideo[index].start / 1000);
           this.videoDataKeyIndex = this.videoDataKeyIndex + 1;
         }
       } else {
-        if (time > (this.videoDataKeyTime[index - 1].end / 1000)) {
-          this.videoEle.currentTime = (this.videoDataKeyTime[index].start / 1000);
+        if (time > (this.keyTimeOfVideo[index - 1].end / 1000)) {
+          this.videoEle.currentTime = (this.keyTimeOfVideo[index].start / 1000);
           this.videoDataKeyIndex = this.videoDataKeyIndex + 1;
         }
       }
     }
 
-    if (time > (this.videoDataKeyTime[this.videoDataKeyTime.length - 1].end / 1000)) {
+    if (time > (this.keyTimeOfVideo[this.keyTimeOfVideo.length - 1].end / 1000)) {
       this.resetVideo();
     }
   }

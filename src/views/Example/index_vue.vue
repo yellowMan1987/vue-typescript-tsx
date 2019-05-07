@@ -22,7 +22,6 @@
     </div>
     <h2>{{this.$t('theme')}}</h2>
     <div class="vtx-example__block">
-      </>
     </div>
     <h2>WebRtc</h2>
     <div class="vtx-example__block" v-if="!mobi">
@@ -31,24 +30,13 @@
     <h2>{{this.$t('videoPlayer')}}</h2>
     <div class="vtx-example__block" >
       <vt-videoPlayer 
-        :videoDataKeyTime="videoDataKeyTime"
+        :keyTimeOfVideo="keyTimeOfVideo"
         :url="mp4url"
       />
     </div>
     <h2>{{this.$t('waterMark')}}</h2>
     <div class="vtx-example__block">
       <el-button type="primary" @click="waterMarkVisible = !waterMarkVisible">打开防拍水印</el-button>
-    </div>
-    <h2>{{this.$t('contextMenu')}}</h2>
-    <div class="vtx-example__block" v-if="!mobi">
-      <div
-        :style="{
-          height: '1rem',
-          color: '#fff',
-          background:'#d9d9d9'
-        }"
-        v-rightMouseClick="showContextMenu"
-      ></div>
     </div>
     <h2>{{this.$t('taskDrag')}}</h2>
     <div class="vtx-example__block" v-if="!mobi">
@@ -83,7 +71,6 @@
         @click="downloadImage"
       >下载图片</el-button>
     </div>
-    <ContextMenu :mousePosition="rightMouseClickPosition" :menuOptionsList="contextMenuOpsList" v-if="!mobi"></ContextMenu>
     <WebRtc ref="webRtc" v-if="!mobi"/>
     <VtWaterMark :visible="waterMarkVisible" />
   </div>
@@ -93,9 +80,6 @@ import { Component, Vue } from "vue-property-decorator";
 import Language from "@/components/VtLanguage/index_vue.vue";
 import Theme from "@/components/VtTheme/index_vue.vue";
 import WebRtc from "@/components/VtWebRtc/index_vue.vue";
-import ContextMenu, {
-  IMenuOptionItem
-} from "@/components/VtContextMenu/index_vue.vue";
 import Map from "@/components/VtMap/index_vue.vue";
 import ImageDrawer from "@/components/VtImageDrawer/index_vue.vue";
 import VtWaterMark from "@/components/VtWaterMark/index_vue.vue";
@@ -107,7 +91,6 @@ import "./style.scss";
     Theme,
     Language,
     WebRtc,
-    ContextMenu,
     Map,
     ImageDrawer,
     VtWaterMark,
@@ -143,7 +126,7 @@ export default class Example extends Vue {
     {
       txt: "右键操作项",
       class: "",
-      disable: true, // 不显示布控
+      disable: true,
       handle: this.handleContextMenuClick
     },
     {
@@ -152,7 +135,7 @@ export default class Example extends Vue {
       disable: false,
       handle: this.handleContextMenuClick
     }
-  ] as IMenuOptionItem[];
+  ] as any[];
 
   imagePolygonDrawerImgUrl: string = 'http://ossweb-img.qq.com/images/lol/web201310/skin/big145000.jpg'
   imageDrawerData = {
@@ -175,7 +158,7 @@ export default class Example extends Vue {
   xiangjiao = require("../../../public/static/image/timg.jpg");
   mp4url = require("../../../public/static/video/lol_kda.mp4");
   // 只看阿卡丽
-  videoDataKeyTime =  [
+  keyTimeOfVideo =  [
     {
       start: 12 * 1000,
       end: 20 * 1000,

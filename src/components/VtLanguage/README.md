@@ -1,21 +1,16 @@
 
-## WabRtc 视频录制
+## Language 多语言
 
 :::demo
 
 ```html
 <template>
     <div class="demo-container">
-      <el-button type="primary" @click="$refs.webRtc.show()">打开摄像头</el-button>
-      <vt-web-rtc ref="webRtc"/>
+      <vt-language/>
     <div>
 </template>
 <script>
 export default {
-  data(){
-    return {
-    }
-  },
 }
 </script>
 ```
@@ -26,7 +21,7 @@ export default {
 ### methods
 | 方法           | 说明             | 类型   | 参数 | 返回 |
 | -------------   | ---------------- | ------ | ------ | -------- |
-| show()         | 通过 $refs.webRtc.show()| function | —    | —    |
+| —         | —           | — | —    | —    |
 
 
 

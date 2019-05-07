@@ -45,7 +45,7 @@ export default class VtExample extends Vue {
         <h2>{this.$t('videoPlayer')}</h2>
         <div class="vtx-example__block" >
           <vt-video-player 
-            videoDataKeyTime={this.videoDataKeyTime}
+            keyTimeOfVideo={this.keyTimeOfVideo}
             url={this.mp4url}
           />
         </div>
@@ -168,7 +168,7 @@ export default class VtExample extends Vue {
   
   mp4url = require("../../../public/static/video/lol_kda.mp4");
   // 只看阿卡丽
-  videoDataKeyTime =  [
+  keyTimeOfVideo =  [
     {
       start: 12 * 1000,
       end: 20 * 1000,

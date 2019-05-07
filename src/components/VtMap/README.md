@@ -1,21 +1,19 @@
 
-## WabRtc 视频录制
+##  Map 地图
 
 :::demo
 
 ```html
 <template>
     <div class="demo-container">
-      <el-button type="primary" @click="$refs.webRtc.show()">打开摄像头</el-button>
-      <vt-web-rtc ref="webRtc"/>
+      <vt-map
+        :width="'7rem'"
+        :height="'5rem'"
+      />
     <div>
 </template>
 <script>
 export default {
-  data(){
-    return {
-    }
-  },
 }
 </script>
 ```
@@ -26,7 +24,7 @@ export default {
 ### methods
 | 方法           | 说明             | 类型   | 参数 | 返回 |
 | -------------   | ---------------- | ------ | ------ | -------- |
-| show()         | 通过 $refs.webRtc.show()| function | —    | —    |
+| —         | —           | — | —    | —    |
 
 
 

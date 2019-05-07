@@ -31,13 +31,15 @@
     user-select: none;
     position: absolute;
     right: 16px;
-    bottom: 6px;
+    bottom: 0;
     cursor: pointer;
     color: #888888;
     height: 18px;
     line-height: 18px;
     text-align: center;
-
+    @include themify($themes) {
+      color: themed('font-color') !important;
+    }
     img {
       -webkit-transition: all 0.4s;
       transition: all 0.4s;
