@@ -19,27 +19,27 @@ const componentsNav = [
     "list": [
       {
         "path": "VtTheme",
-        "title": "VtTheme 主题更换"
+        "title": "Theme 主题更换"
       },
       {
         "path": "VtIcon",
-        "title": "VtIcon 图标"
+        "title": "Icon 图标"
       },
       {
         "path": "VtLanguage",
-        "title": "VtLanguage 多语言"
+        "title": "Language 多语言"
       },
       {
         "path": "VtContextMenu",
-        "title": "VtContextMenu 右键菜单"
+        "title": "ContextMenu 右键菜单"
       },
       {
         "path": "VtEditor",
-        "title": "VtEditor 富文本编辑器"
+        "title": "Editor 富文本编辑器"
       },
       {
         "path": "VtMap",
-        "title": "VtMap 地图"
+        "title": "Map 地图"
       },
       {
         "path": "VtVideoPlayer",
@@ -55,7 +55,7 @@ const componentsNav = [
       },
       {
         "path": "VtImageDrawer",
-        "title": "VtImageDrawer 图片绘制"
+        "title": "ImageDrawer 图片绘制"
       }
     ]
   }
