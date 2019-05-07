@@ -1,18 +1,22 @@
 @import 'src/themes/mixins/mixins.scss';
 
 @include b(demo) {
-  
+
+  h2 {
+    @include themify($themes) {
+      color: themed('font-color') !important;
+    }
+  }
   @include e(block) {
     border: 1px solid #ebedf0;
     border-radius: 2px;
     display: inline-block;
     width: 100%;
     position: relative;
-    margin: 0 0 16px;
+    margin: 0.4rem 0;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
     border-radius: 2px;
-  
     pre {
       border: none !important;
     }
@@ -97,7 +101,7 @@
     font-size: 0;
     padding: 0.3rem;
     box-sizing: border-box;
-
+    transition:all 0.5s;
     code {
       background-color: #1f1d1d;
       font-family: Consolas, Menlo, Courier, monospace;
@@ -146,5 +150,10 @@
     display: inline-block;
     white-space: nowrap;
     user-select: none;
+  }
+
+  th,td {
+    padding: 0.1rem 0.1rem;
+    min-width: 0.7rem;
   }
 }

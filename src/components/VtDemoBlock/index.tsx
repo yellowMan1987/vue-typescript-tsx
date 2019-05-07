@@ -14,7 +14,7 @@ export default class VtDemoBlock extends Vue {
           {this.$slots.source}
           {
             <span class="vtx-demo__block-code-icon" onClick={() => { this.showCode = !this.showCode }}>
-              <span>{`${this.showCode ? '收起' : '查看'}代码`}</span>
+              <span class="vtx-demo__code-operation"> {`>${this.showCode ? '收起' : '查看'}代码`}</span>
             </span>
           }
         </div>
@@ -22,18 +22,18 @@ export default class VtDemoBlock extends Vue {
         <div class="vtx-demo__block-mate">
           <span slot="mate"></span>
           {
+            this.showCode &&
             <span class="vtx-demo__block-code-icon" onClick={() => { this.showCode = !this.showCode }}>
-              <span>{`${this.showCode ? '收起' : '查看'}代码`}</span>
+              <span class="vtx-demo__code-operation">{`> ${this.showCode ? '收起' : '查看'}代码`}</span>
             </span>
           }
         </div>
 
-        {
-          this.showCode &&
-          <div class="vtx-demo__block-code">
+        <el-collapse-transition>
+          <div class="vtx-demo__block-code" v-show={this.showCode}>
             {this.$slots.highlight}
           </div>
-        }
+        </el-collapse-transition>
       </div>
     );
   }

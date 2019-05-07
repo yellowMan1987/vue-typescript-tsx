@@ -10,7 +10,12 @@
 		overflow-y: auto;
 	}
 	@include e(nav-group) {
-    margin-top: 0.4rem;
+		&:nth-child(1) {
+			padding-top: 0.2rem;
+		}
+    &:nth-child(2) {
+			padding-top: 0.4rem;
+		}
 	}
 	@include e(nav-group-title) {
 		font-size: 0.2rem;

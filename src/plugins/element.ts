@@ -23,6 +23,8 @@ import Vue from "vue";
 import en from "element-ui/lib/locale/lang/en";
 import locale from "element-ui/lib/locale";
 import 'element-ui/lib/theme-chalk/index.css';
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
+
 
 // import "@/assets/scss/element-variables.scss";
 
@@ -50,6 +52,8 @@ Vue.use(DropdownItem);
 Vue.use(Dialog);
 
 Vue.use(Loading.directive as any);
+
+Vue.component(CollapseTransition.name, CollapseTransition)
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$message = Message;
