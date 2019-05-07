@@ -1,7 +1,3 @@
-interface IMineMapTheme {
-  accessToken: string;
-  solution: number;
-}
 
 interface MyWindow extends Window {
   config: {
@@ -48,22 +44,11 @@ interface MyWindow extends Window {
       baidu_offline: string;
       baidu_offline_loadUrl: string;
       baidu_offline_home: string;
-
-      minemap: {
-        host: string;
-        jsLink: string;
-        cssLink: string;
-        themes: {
-          normal: IMineMapTheme;
-          midnight: IMineMapTheme;
-        };
-      };
     };
   }
   BMapLib: any;
   BMap: any;
   BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW: any;
-  minemap: any;
   env: any;
 
 }

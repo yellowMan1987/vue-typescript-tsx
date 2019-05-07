@@ -5,13 +5,6 @@ export const loadMapFiles = () =>
     const jsElm = document.createElement('script');
     if (config.type === 'baidu') {
       jsElm.src = config[`baidu_${config.net}`];
-    } else {
-      const minemapCconfig = config[`minemap_${config.net}`];
-      jsElm.src = minemapCconfig.jsLink;
-      const cssElm = document.createElement('link');
-      cssElm.rel = 'stylesheet';
-      cssElm.href = minemapCconfig.cssLink;
-      document.head.appendChild(cssElm);
     }
     jsElm.onload = () => {
       resolve();

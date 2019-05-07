@@ -53,6 +53,7 @@ export default class BaiduMap extends Vue {
     );
   }
   initialize(args: { center: any; minScale: any; maxScale: any; style: string; scale: any; }, cb: () => void) {
+    
     const BMap = (window as MyWindow).BMap;
     const center = this.decodeCors(args.center);
     this.map = new BMap.Map(this.$refs.map, {
