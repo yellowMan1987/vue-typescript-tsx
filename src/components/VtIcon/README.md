@@ -14,6 +14,11 @@
         :name="'iconzanting'"
         :size="48">
       </vt-icon>
+      <vt-icon
+        :type="'svg'"
+        :name="'Bulldozer'"
+        :size="48">
+      </vt-icon>
     <div>
 </template>
 <script>

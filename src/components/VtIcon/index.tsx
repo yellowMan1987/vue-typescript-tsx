@@ -57,13 +57,7 @@ export default class VtIcon extends Vue {
         onMouseleave={handleMouseleave}
         onMousedown={handleMousedown}
       >
-        <use
-          href={
-            disabled
-              ? `#icon-${name}-disabled`
-              : this.isHovering ? `#icon-${name}-hover` : `#icon-${name}`
-          }
-        />
+        <use href={`#icon-${name}`} />
       </svg>
     ) : (
         <i

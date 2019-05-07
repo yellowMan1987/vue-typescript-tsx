@@ -49,3 +49,30 @@ html, body {
   fill: currentColor;
   overflow: hidden;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-right: 5vw;
+  background: #fff;
+  height: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.12rem;
+  span {
+    &:nth-child(1) {
+      background:#42B983;
+      padding: 4px;
+      border-radius: 3px 0 0 3px;
+      color: #fff;
+    }
+    &:nth-child(2) {
+      background:#35495E;
+      padding: 4px;
+      border-radius: 0 3px 3px 0;
+      color: #fff;
+    }
+  }
+}

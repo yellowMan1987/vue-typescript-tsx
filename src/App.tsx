@@ -30,6 +30,10 @@ export default class App extends Vue {
       <div id="app" class={this.className}>
         <vt-header/>
         <router-view/>
+        <div class="footer">
+          <span>vue-typescript-jsx-demo</span>
+          <span>粤ICP备17107475号-2	</span>
+        </div>
       </div>
     );
   }

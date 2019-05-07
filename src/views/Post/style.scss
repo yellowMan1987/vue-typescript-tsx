@@ -2,6 +2,7 @@
 @import 'src/themes/mixins/mixins.scss';
 
 @include b(post) {
-	width: 9rem;
-	margin: 0 auto;
+	min-height: calc(100% - 0.8rem);
+	box-sizing: border-box;
+	padding: 0 5vw 0.5rem 5vw;
 }
