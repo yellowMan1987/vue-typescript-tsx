@@ -22,6 +22,10 @@ const componentsNav = [
         "title": "VtTheme 主题更换"
       },
       {
+        "path": "VtIcon",
+        "title": "VtIcon 图标"
+      },
+      {
         "path": "VtLanguage",
         "title": "VtLanguage 多语言"
       },

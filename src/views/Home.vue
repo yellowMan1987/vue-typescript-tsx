@@ -1,6 +1,6 @@
 <template>
   <div>
-    首页
+    假装有个首页
   </div> 
 </template>
 <script lang="ts">

@@ -5,7 +5,7 @@ import { Component, Vue } from 'vue-property-decorator'
     visible: {type: Boolean, default: false},
     content: {type: String, default: '防拍水印'},
     allowDelete: {type: Boolean, default: false},
-    color: {type: String, default: 'rgba(66, 133, 244, 0.6)'},
+    color: {type: String, default: 'rgba(233, 30, 99, 0.6)'},
     font: {type: String, default: getComputedStyle(document.body).font},
   },
   watch: {

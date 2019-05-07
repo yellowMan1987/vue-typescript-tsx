@@ -24,7 +24,7 @@ export default {
   data(){
     return {
       visible: false,
-      content: 'admin-系统管理员',
+      content: '不要拍照哦',
       allowDelete: true,
     }
   },

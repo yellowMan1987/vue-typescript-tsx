@@ -1,9 +1,9 @@
 const viewsRouter = [
-  { path: '/', redirect: '/home' },
+  { path: '/', redirect: '/post' },
   {
-    name: 'home',
-    path: '/home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+    name: 'post',
+    path: '/post',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Post/index.vue'),
   },
   {
     name: 'cssdemo',

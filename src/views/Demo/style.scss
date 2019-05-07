@@ -9,7 +9,19 @@
   @include e(container) {
     width: calc(100% - 3rem);
     height: 100%;
-    padding: 0.2rem;
+    padding: 0.2rem 0 0.2rem 0;
     overflow : auto;
+  }
+  section {
+    width: calc(100% - 5vw);
+    pre {
+      border: none !important;
+      margin: 0.2rem 0;
+      background: #444;
+      color: #fff;
+      code {
+        font-family: Consolas, Menlo, Courier, monospace;
+      }
+    }
   }
 }

@@ -317,7 +317,6 @@ export default class ComponentName extends Vue {
 
   mounted() {
     this.$nextTick(() => {                   // 一些组件需等全部渲染完之后再获取
-      console.log(this.$refs.subcomponent)
     }) 
   }
 } 

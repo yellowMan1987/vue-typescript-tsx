@@ -41,11 +41,7 @@ export default class VtSideNav extends Vue {
     );
   }
 
-  mounted() {
-    console.log(
-      this.$route
-    )
-  }
+  mounted() {}
 
   toPath(item: any) {
     if (!!!item.path) {
