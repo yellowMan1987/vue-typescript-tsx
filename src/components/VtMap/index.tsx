@@ -60,11 +60,8 @@ export default class VtMap extends Vue {
     );
   }
   mounted() {
-
-    this.$nextTick(() => {
-      loadMapFiles().then(() => {
-        this.initMap();
-      })
+    loadMapFiles().then(() => {
+      this.initMap();
     })
   }
 

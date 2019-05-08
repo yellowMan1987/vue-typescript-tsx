@@ -12,15 +12,5 @@ var offmapcfg = {
   tiles_dir: config.map.baidu_offline_loadUrl, // 普通瓦片图的地址，为空默认在 offlineemap/tiles/ 目录
   tiles_hybrid: './static/offlineMap/sateTiles', // 卫星瓦片图的地址，为空默认在 offlineemap/tiles_hybrid/ 目录
   tiles_self: '', // 自定义图层的地址，为空默认在 offlineemap/tiles_self/ 目录
+  home: config.map.baidu_offline_home, // 自定义图层的地址，为空默认在 offlineemap/tiles_self/ 目录
 };
-
-offmapcfg.home = config.map.baidu_offline_home; // 地图API主目录
-(function () {
-  window.BMap_loadScriptTime = (new Date()).getTime();
-  // 加载地图API主文件
-  document.write(`<script type="text/javascript" src="${offmapcfg.home}map.js?v=2.1"></script>`);
-  // 加载扩展函数
-  document.write(`<script type="text/javascript" src="${offmapcfg.home}map_plus.js?v=2.1"></script>`);
-  // 加载城市坐标
-  document.write(`<script type="text/javascript" src="${offmapcfg.home}map_city.js?v=2.1"></script>`);
-}());
