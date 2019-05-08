@@ -7,8 +7,8 @@ const DEFAULT_MAP_SCALE = 14;
 const DEFAULT_MAP_MAX_SCALE = 18;
 const DEFAULT_MAP_MIN_SCALE = 5;
 const DEFAULT_MAP_LOCATION = {
-  x: 116.397507,
-  y: 40.025193
+  x: 114.062252,
+  y: 22.549791
 };
 
 @Component({

@@ -8,7 +8,7 @@
 
 // eslint-disable-next-line no-var
 var offmapcfg = {
-  imgext: '.jpg', // 瓦片图的后缀 ------ 根据需要修改，一般是 .png .jpg
+  imgext: '.png', // 瓦片图的后缀 ------ 根据需要修改，一般是 .png .jpg
   tiles_dir: config.map.baidu_offline_loadUrl, // 普通瓦片图的地址，为空默认在 offlineemap/tiles/ 目录
   tiles_hybrid: './static/offlineMap/sateTiles', // 卫星瓦片图的地址，为空默认在 offlineemap/tiles_hybrid/ 目录
   tiles_self: '', // 自定义图层的地址，为空默认在 offlineemap/tiles_self/ 目录
