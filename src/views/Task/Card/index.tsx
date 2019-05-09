@@ -24,8 +24,6 @@ export default class Card extends Vue {
     )
   }
   created() {}
-  mounted() {
-    console.log('2222222222 d s')
-  }
+  mounted() {}
   beforeDestroy() {}
 }

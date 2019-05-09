@@ -45,7 +45,6 @@ export default class List extends Vue {
   }
   created() {}
   mounted() {
-    console.log('111111list',this.list.cards)
   }
   beforeDestroy() {}
 

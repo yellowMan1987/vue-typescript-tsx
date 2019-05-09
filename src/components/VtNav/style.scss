@@ -1,6 +1,11 @@
 
-    @import 'src/themes/mixins/mixins.scss';
-    
-    @include b(nav) {
+@import 'src/themes/mixins/mixins.scss';
 
-    }
+@include b(nav) {
+  a {
+		margin:0 0.05rem;
+		&:nth-child(1) {
+			margin-left: 0;
+		}
+	}
+}

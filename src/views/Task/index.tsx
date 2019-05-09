@@ -22,7 +22,6 @@ import "./style.scss";
   },
   watch: {
     taskList(val) {
-      console.log('val',val)
     }
   }
 })

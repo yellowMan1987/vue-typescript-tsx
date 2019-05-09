@@ -8,10 +8,12 @@
             <div class="yellow"></div>
             <div class="green"></div>
           </div>
-          <div class="titulo">CSS Terminal</div>
+          <div class="titulo">Terminal</div>
           <div class="vacio"></div>
         </div>
-        <p class="texto">{{text}}</p>
+        <div class="terminal_content">
+          <p class="texto">{{text}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -20,53 +22,68 @@
 import { Component, Vue } from "vue-property-decorator";
 @Component({})
 export default class Terminal extends Vue {
-  text = '' as string;
+  text = "" as string;
+  mandale = null as any;
 
   mounted() {
-    this.escribir("this window was created with CSS3 & JavaScript!");
+    this.enter();
   }
 
-  escribir(palabras:string) {
+  beforeDestroy() {
+    this.mandale && clearInterval(this.mandale);
+  }
+
+  escribir(palabras: string) {
     let i = 0;
-    let palabra = palabras.split('');
+    let palabra = palabras.split("");
     const that = this;
-    let mandale = setInterval(function(){  
+    that.mandale = setInterval(function() {
       that.text = that.text + palabra[i];
-      i++
-      if(i===palabra.length){
-        clearInterval(mandale);
+      i++;
+      if (i === palabra.length) {
+        clearInterval(that.mandale);
+        setTimeout(() => {
+          that.text = "";
+          that.enter();
+        }, 1000);
       }
-      
-    },200);
+    }, 200);
+  }
+
+  enter() {
+    this.escribir("cd Documents/laoge/vue-typescript-jsx-demo/");
   }
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+@import "src/themes/mixins/mixins.scss";
+
 .terminal_wrap {
+  display: flex;
   margin: 0;
-  padding: 0;
+  padding: 0.2rem 0;
   box-sizing: border-box;
-  background-color: rgb(150, 100, 225);
   font-family: Consolas;
   font: bold 100% Consolas, Monaco, monospace;
-  position: relative;
   height: 50vh;
 }
 .terminal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(57, 52, 86);
   height: 40vh;
   width: 60vw;
   /* border: 1px solid red; */
   border-radius: 10px 10px 10px 10px;
   min-width: 300px;
+	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+.terminal_content {
+  height: calc(100% - 0.3rem);
+  background-color: rgb(57, 52, 86);
+  border-radius: 0px 0px 10px 10px;
 }
 .titulo {
   opacity: 0.6;
+  line-height: 0.3rem;
 }
 .red,
 .yellow,
@@ -94,10 +111,11 @@ export default class Terminal extends Vue {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0.2em;
+  // padding: 0.2em;
   background-color: rgb(229, 229, 229);
   /* border: 1px solid red; */
   border-radius: 10px 10px 0px 0px;
+  height: 0.3rem;
 }
 .flex {
   display: flex;
@@ -115,7 +133,7 @@ export default class Terminal extends Vue {
 .texto:before {
   content: "laoge: ~laoge$ ";
   opacity: 0.5;
-  left:0;
+  left: 0;
 }
 
 .texto:after {

@@ -1,5 +1,10 @@
 const viewsRouter = [
-  { path: '/', redirect: '/post' },
+  { path: '/', redirect: '/home' },
+  {
+    name: 'home',
+    path: '/home',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+  },
   {
     name: 'post',
     path: '/post',
@@ -18,7 +23,7 @@ const viewsRouter = [
   {
     name: 'mapdemo',
     path: '/mapdemo',
-    component: () => import(/* webpackChunkName: "cssdemo" */ '../views/MapDemo/index'),
+    component: () => import(/* webpackChunkName: "cssdemo" */ '../views/MapDemo'),
   },
 ] as any[];
 

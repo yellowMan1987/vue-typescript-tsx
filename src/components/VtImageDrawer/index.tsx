@@ -298,7 +298,6 @@ export default class VtImageDrawaer extends PolygonDrawer {
       x: e.offsetX,
       y: e.offsetY
     });
-    console.log(111111)
   }
 
   handleCanvasMove(e: any) {
