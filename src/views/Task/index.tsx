@@ -1,18 +1,5 @@
-
-<template>
-  <div class="vtx-task">
-    <draggable class="vtx-task__drag-container" @start="start" @end="end" group="taskList">
-      <List v-for="(list,index) in taskList" :key="index" :list="list"/>
-      <div class="vtx-list" >
-        <div class="vtx-list__title">添加列表</div>
-      </div>
-    </draggable>
-  </div>
-</template>
-
-<script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import List from "./List/index.vue";
+import List from "./List/index";
 import draggable from "vuedraggable";
 
 import { mapState, mapActions, mapMutations } from "vuex";
@@ -21,7 +8,7 @@ import "./style.scss";
 
 @Component<Task>({
   components: {
-    List,
+    'task-list': List,
     draggable
   },
   props: {},
@@ -35,22 +22,38 @@ import "./style.scss";
   },
   watch: {
     taskList(val) {
+      console.log('val',val)
     }
   }
 })
 export default class Task extends Vue {
   taskList!: ILists[];
+
+  render() {
+    return (
+      <div class="vtx-task">
+        <h2>任务卡片拖拽的示例</h2>
+        <draggable class="vtx-task__drag-container" onStart={this.start} onEnd={this.end} group="taskList">
+          {
+            this.taskList.map((list) => {
+              return (
+                <task-list list={list}/>
+              )
+            })
+          }
+          <div class="vtx-list" >
+            <div class="vtx-list__title">添加列表</div>
+          </div>
+        </draggable>
+      </div>
+    )
+  }
   created() {}
-  mounted() {}
+  mounted() {
+  }
   beforeDestroy() {}
   start(e: any) {
   }
   end(e: any) {
   }
 }
-</script>
-
-<!-- Add "scoped" attribute to limit scss to this component only -->
-<style lang="sass" scoped>
-
-</style>

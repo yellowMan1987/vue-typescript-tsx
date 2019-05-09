@@ -1,12 +1,3 @@
-
-<template>
-  <div class="vtx-card">
-    {{cardInfo.name}}  
-    {{cardInfo.name}}  
-  </div>
-</template>
-
-<script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import './style.scss'
 
@@ -23,14 +14,18 @@ import './style.scss'
 })
 
 export default class Card extends Vue {
-  cardInfo!: any;
+  readonly cardInfo!: any;
+  render() {
+    return (
+      <div class="vtx-card">
+        {this.cardInfo.name} 
+        {this.cardInfo.name} 
+      </div>
+    )
+  }
   created() {}
-  mounted() {}
+  mounted() {
+    console.log('2222222222 d s')
+  }
   beforeDestroy() {}
 }
-</script>
-
-<!-- Add "scoped" attribute to limit scss to this component only -->
-<style lang="sass" scoped>
-
-</style>
