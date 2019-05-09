@@ -1,22 +1,26 @@
 const componentsNav = [
   {
     "name": "概要",
-    "navPath":"docs",
-    "list":[
+    "navPath": "docs",
+    "list": [
       {
-        "path":"developer",
-        "title":"开发概要"
+        "path": "developer",
+        "title": "开发概要"
       },
       {
-        "path":"user",
-        "title":"使用概要"
+        "path": "user",
+        "title": "使用概要"
       }
     ]
   },
   {
     "name": "业务组件",
-    "navPath":"components",
+    "navPath": "components",
     "list": [
+      {
+        "path": "VtLanguage",
+        "title": "Language 多语言"
+      },
       {
         "path": "VtTheme",
         "title": "Theme 主题更换"
@@ -26,12 +30,12 @@ const componentsNav = [
         "title": "Icon 图标"
       },
       {
-        "path": "VtLanguage",
-        "title": "Language 多语言"
-      },
-      {
         "path": "VtContextMenu",
         "title": "ContextMenu 右键菜单"
+      },
+      {
+        "path": "VtWaterMarker",
+        "title": "WaterMarker 防拍水印"
       },
       {
         "path": "VtEditor",
@@ -39,7 +43,7 @@ const componentsNav = [
       },
       {
         "path": "VtMap",
-        "title": "Map 地图"
+        "title": "Map 离线地图"
       },
       {
         "path": "VtVideoPlayer",
@@ -49,10 +53,7 @@ const componentsNav = [
         "path": "VtWebRtc",
         "title": "WebRtc 视频录制"
       },
-      {
-        "path": "VtWaterMarker",
-        "title": "WaterMarker 防拍水印"
-      },
+
       {
         "path": "VtImageDrawer",
         "title": "ImageDrawer 图片绘制"
