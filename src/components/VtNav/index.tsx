@@ -14,8 +14,8 @@ export default class VtNav extends Vue {
         <router-link to="/post">Post</router-link> |
         <router-link to="/components">Component Demo</router-link> |
         <router-link to="/taskdemo">Task Demo</router-link> |
-        <router-link to="/cssdemo">Css Demo</router-link> |
         <router-link to="/mapdemo">Map Demo</router-link> |
+        <router-link to="/cssdemo">Css Demo</router-link> |
       </div>
     );
   }
