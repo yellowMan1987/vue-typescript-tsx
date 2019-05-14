@@ -1,5 +1,6 @@
 <template>
   <div class="cssDemo">
+    <MatrixTransform/>
     <Heart/>
     <Terminal/>
     <FontInput/>
@@ -18,6 +19,7 @@ import Loading1 from '@/views/CSSDemo/Loading1.vue';
 import FontInput from '@/views/CSSDemo/FontInput.vue';
 import Terminal from '@/views/CSSDemo/Terminal.vue';
 import PercentBall from '@/views/CSSDemo/PercentBall.vue';
+import MatrixTransform from '@/views/CSSDemo/MatrixTransform.vue';
 @Component({
   components: {
     Macaron,
@@ -27,6 +29,7 @@ import PercentBall from '@/views/CSSDemo/PercentBall.vue';
     FontInput,
     Terminal,
     PercentBall,
+    MatrixTransform,
   },
   
 })
