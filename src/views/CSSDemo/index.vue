@@ -6,6 +6,7 @@
     <Loading1/>
     <Macaron/>
     <FantasyNav/>
+    <PercentBall/>
   </div> 
 </template>
 <script lang="ts">
@@ -16,6 +17,7 @@ import Heart from '@/views/CSSDemo/Heart.vue';
 import Loading1 from '@/views/CSSDemo/Loading1.vue';
 import FontInput from '@/views/CSSDemo/FontInput.vue';
 import Terminal from '@/views/CSSDemo/Terminal.vue';
+import PercentBall from '@/views/CSSDemo/PercentBall.vue';
 @Component({
   components: {
     Macaron,
@@ -24,6 +26,7 @@ import Terminal from '@/views/CSSDemo/Terminal.vue';
     Loading1,
     FontInput,
     Terminal,
+    PercentBall,
   },
   
 })
