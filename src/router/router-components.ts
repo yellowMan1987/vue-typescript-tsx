@@ -4,7 +4,6 @@ import componentsNav from './nav-components'
 
 function createNav() {
   const componentRoutes = [] as any;
-
   componentsNav.forEach((nav: any) => {
     nav.list.forEach((item: any) => {
       componentRoutes.push({
@@ -15,7 +14,6 @@ function createNav() {
     });
   })
   return componentRoutes;
-
 }
 
 const componentRouters = [{

@@ -11,11 +11,6 @@ const viewsRouter = [
     component: () => import(/* webpackChunkName: "home" */ '../views/Post/index.vue'),
   },
   {
-    name: 'cssdemo',
-    path: '/cssdemo',
-    component: () => import(/* webpackChunkName: "cssdemo" */ '../views/CSSDemo/index.vue'),
-  },
-  {
     name: 'taskdemo',
     path: '/taskdemo',
     component: () => import(/* webpackChunkName: "cssdemo" */ '../views/Task'),
