@@ -8,6 +8,7 @@
     <Macaron/>
     <FantasyNav/>
     <PercentBall/>
+    <Rocket/>
   </div> 
 </template>
 <script lang="ts">
@@ -20,6 +21,7 @@ import FontInput from '@/views/CSSDemo/FontInput.vue';
 import Terminal from '@/views/CSSDemo/Terminal.vue';
 import PercentBall from '@/views/CSSDemo/PercentBall.vue';
 import MatrixTransform from '@/views/CSSDemo/MatrixTransform.vue';
+import Rocket from '@/views/CSSDemo/Rocket.vue';
 @Component({
   components: {
     Macaron,
@@ -30,6 +32,7 @@ import MatrixTransform from '@/views/CSSDemo/MatrixTransform.vue';
     Terminal,
     PercentBall,
     MatrixTransform,
+    Rocket,
   },
   
 })
