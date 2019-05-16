@@ -18,19 +18,13 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component<Macaron>({
-  components: {},
-  props: {},
-  computed: {},
-  methods: {},
-  watch: {}
-})
-export default class Macaron extends Vue {
-  macarons = [1,2,3]
-
+<script>
+export default {
+  data() {
+    return {
+      macarons: [1,2,3],
+    }
+  }
 }
 </script>
 

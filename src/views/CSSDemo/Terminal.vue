@@ -18,41 +18,48 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-@Component({})
-export default class Terminal extends Vue {
-  text = "" as string;
-  mandale = null as any;
+<script>
+export default {
+  data() {
+    return {
+        text: "",
+        mandale: null,
+    }
+  },
 
+  methods: {
+    escribir(palabras) {
+      let i = 0;
+
+      let palabra = palabras.split("");
+      const that = this;
+      that.mandale = setInterval(function() {
+        that.text = that.text + palabra[i];
+
+        i++;
+
+        if (i === palabra.length) {
+
+          clearInterval(that.mandale);
+          setTimeout(() => {
+            that.text = "";
+            that.enter();
+          }, 1000);
+        }
+      }, 200);
+    },
+
+    enter() {
+      this.escribir("cd Documents/laoge/vue-typescript-jsx-demo/");
+    }
+  },
   mounted() {
     this.enter();
-  }
-
+  },
   beforeDestroy() {
     this.mandale && clearInterval(this.mandale);
   }
 
-  escribir(palabras: string) {
-    let i = 0;
-    let palabra = palabras.split("");
-    const that = this;
-    that.mandale = setInterval(function() {
-      that.text = that.text + palabra[i];
-      i++;
-      if (i === palabra.length) {
-        clearInterval(that.mandale);
-        setTimeout(() => {
-          that.text = "";
-          that.enter();
-        }, 1000);
-      }
-    }, 200);
-  }
-
-  enter() {
-    this.escribir("cd Documents/laoge/vue-typescript-jsx-demo/");
-  }
 }
 </script>
 
@@ -64,8 +71,9 @@ export default class Terminal extends Vue {
   margin: 0;
   padding: 0.2rem 0;
   box-sizing: border-box;
-  font-family: Consolas;
-  font: bold 100% Consolas, Monaco, monospace;
+  font-family: Microsoft Yahei;
+  // font: bold 100% PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;;
+  font-weight: 600;
   height: 50vh;
 }
 .terminal {

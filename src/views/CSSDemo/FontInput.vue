@@ -3,10 +3,10 @@
     <h1>Pure CSS Typing animation.</h1>
   </div>
 </template>
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-@Component({})
-export default class FontInput extends Vue {}
+<script>
+export default {
+  
+}
 </script>
 
 <style lang="css" scoped>

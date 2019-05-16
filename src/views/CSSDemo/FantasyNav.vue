@@ -16,12 +16,14 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-@Component({})
-export default class FantasyNav extends Vue {
-  scene = 0;
-  maxScene = 8;
+<script>
+export default {
+  data() {
+    return {
+      scene: 0,
+      maxScene: 8,
+    }
+  }
 }
 </script>
 
