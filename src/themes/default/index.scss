@@ -4,6 +4,22 @@
 
 @import './reset.scss';
 
+$dc-promo-gradient: linear-gradient(
+    307deg,
+    transparent 0%,
+    transparent 53%,
+    #ffffff 53%,
+    #f0f4f5 100%
+  ),
+  linear-gradient(to bottom, #ffffff 0%, #f0f4f5 100%);
+$dc-promo-gradient-light: linear-gradient(193deg, #f0f4f5, #ffffff);
+
+body {
+  background: $dc-promo-gradient;
+  min-height: 100vh;
+}
+
+
 ul {
   margin: 0;
   padding: 0;
@@ -26,6 +42,11 @@ html, body {
   overflow: hidden;
   padding: 0;
   font-size: 625% !important;
+}
+
+body {
+  // background: $dc-promo-gradient;
+  // min-height: 100vh;
 }
 
 #app {

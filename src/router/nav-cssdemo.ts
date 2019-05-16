@@ -29,6 +29,11 @@ const cssDemoNav = [
     path: '/cssdemo/macaron',
     title: '跳跳马卡龙'
   },
+  {
+    name: 'Camera',
+    path: '/cssdemo/camera',
+    title: '卡通照相机'
+  },
 ]
 
 export default cssDemoNav;
