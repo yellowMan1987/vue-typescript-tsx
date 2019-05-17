@@ -106,22 +106,22 @@ export default class VtLive2d extends Vue {
   }
 
   showMessage() {
-    (this.$refs.message as any).style.opacity = 1
+    this.$refs.message && (this.$refs.message as any).style.opacity = 1
   }
 
   hideMessage() {
-    setTimeout(() => {(this.$refs.message as any).style.opacity = 0;},5000);
+    setTimeout(() => {this.$refs.message && (this.$refs.message as any).style.opacity = 0;},5000);
   }
   // 隐藏 model
   hideModel() {
     this.modelVisible = false;
-    (this.$refs.modelWrap as any).style.display = 'none';
+    this.$refs.modelWrap && (this.$refs.modelWrap as any).style.display = 'none';
   }
 
   // 显示 model
   showModel() {
     this.modelVisible = true;
-    (this.$refs.modelWrap as any).style.display = 'block';
+    this.$refs.modelWrap && (this.$refs.modelWrap as any).style.display = 'block';
   }
   
 
