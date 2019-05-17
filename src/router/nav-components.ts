@@ -57,6 +57,10 @@ const componentsNav = [
       {
         "path": "VtImageDrawer",
         "title": "ImageDrawer 图片绘制"
+      },
+      {
+        "path": "VtLiveBoard",
+        "title": "Live2d 看板娘"
       }
     ]
   }

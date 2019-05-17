@@ -18,13 +18,22 @@ export const loadMapFiles = () => {
     }
   }
   return Promise.all(
-    scriptAssets.map(loadFiles).concat(
+    scriptAssets.map(loadJs).concat(
       styleAssets.map(loadCss),
     ),
   );
 }
 
-export const loadFiles = memoize((url: string) =>
+export const loadFiles = (scriptAssets: any,styleAssets:any) => {
+
+  return Promise.all(
+    scriptAssets.map(loadJs).concat(
+      styleAssets.map(loadCss),
+    ),
+  );
+}
+
+export const loadJs = memoize((url: string) =>
   new Promise((resolve, reject) => {
     const jsElm = document.createElement('script');
     jsElm.src = url;

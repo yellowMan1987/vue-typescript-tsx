@@ -28,6 +28,7 @@ export default class App extends Vue {
   render() {
     return (
       <div id="app" class={this.className}>
+        <vt-live-board/>
         <vt-header/>
         <router-view/>
         <div class="footer">
