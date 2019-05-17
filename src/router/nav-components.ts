@@ -14,7 +14,7 @@ const componentsNav = [
     ]
   },
   {
-    "name": "业务组件",
+    "name": "小功能",
     "navPath": "components",
     "list": [
       {
@@ -60,7 +60,7 @@ const componentsNav = [
       },
       {
         "path": "VtLiveBoard",
-        "title": "Live2d 看板娘"
+        "title": "Live2d 小助手(看板娘)"
       }
     ]
   }
