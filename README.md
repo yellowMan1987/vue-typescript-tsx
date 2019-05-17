@@ -14,6 +14,8 @@
 > * 支持Sass。
 > * 仅提供学习与参考。
 
+
+
 ## 集成的小功能
 - [x] 多语言
 - [x] 主题更换
@@ -26,7 +28,9 @@
 - [x] 视频录制
 - [x] live2d
 
-
+<p align="center">
+  <a href="https://www.laoge.mobi"><img src="../public/static/image/2019-05-18 01.00.38.gif" alt="License"></a>
+</p>
 
 
 ## 主要方案
