@@ -3,8 +3,6 @@ node_modules
 /dist
 public/static/offlineMap/tiles*
 public/static/offlineMap/sateTiles*
-public/static/live2d/model*
-public/static/live2d/model-p*
 
 *.tar.gz
 *.zip

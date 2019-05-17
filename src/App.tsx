@@ -16,6 +16,9 @@ import { initHeaders } from "@/apiService/apiBase/apiRequest";
   watch: {
     theme(val) {
       this.className = `theme-${val}`;
+    },
+    $route(val) {
+      console.log(val)
     }
   },
 })
@@ -28,7 +31,7 @@ export default class App extends Vue {
   render() {
     return (
       <div id="app" class={this.className}>
-        <vt-live-board/>
+        {!(this.$route.fullPath as any).includes('VtLiveBoard') && <vt-live-board/>}
         <vt-header/>
         <router-view/>
         <div class="footer">
@@ -39,6 +42,7 @@ export default class App extends Vue {
     );
   }
 
+  
   mounted() {
     initHeaders('');
     this.className = `theme-${this.theme}`
