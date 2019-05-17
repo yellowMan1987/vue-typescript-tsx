@@ -29,7 +29,7 @@
 - [x] live2d
 
 <p align="center">
-  <a href="https://www.laoge.mobi"><img src="../public/static/image/2019-05-18 01.00.38.gif" alt="License"></a>
+  <a href="https://www.laoge.mobi"><img src="https://github.com/hedongxiaoshimei/vue-tsx/blob/master/public/static/image/2019-05-18%2001.00.38.gif" alt="live2d"></a>
 </p>
 
 
