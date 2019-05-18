@@ -29,7 +29,7 @@ export default class List extends Vue {
   render() {
     return (
       <div class="vtx-list">
-        <div class="vtx-list__title">{this.list.name}</div>
+        <div class="vtx-list__title"><span class="text">{this.list.name}</span></div>
         <draggable class="vtx-list__drag-container" onStart={this.start} onEnd={this.end} group="cards">
           {
             this.list.cards.map((item) => {
@@ -39,7 +39,9 @@ export default class List extends Vue {
             })
           }
         </draggable>
-        <div class="vtx-list__add-card">添加卡片</div>
+        <div class="vtx-list__add-card">
+          <span class="text">添加卡片</span>
+        </div>
       </div>
     )
   }

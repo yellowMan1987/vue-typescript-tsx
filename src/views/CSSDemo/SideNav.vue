@@ -18,7 +18,6 @@ export default {
   methods: {
     toPath(item) {
       this.$router.push(item.path);
-      console.log(this.$route.name, item.name)
     },
     sideNavActive(name) {
       return this.$route.name === name ? 'is-active' : ''

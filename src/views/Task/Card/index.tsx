@@ -18,8 +18,7 @@ export default class Card extends Vue {
   render() {
     return (
       <div class="vtx-card">
-        {this.cardInfo.name} 
-        {this.cardInfo.name} 
+        <span class="text">{this.cardInfo.name} </span>
       </div>
     )
   }

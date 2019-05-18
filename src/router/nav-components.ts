@@ -59,6 +59,10 @@ const componentsNav = [
         "title": "ImageDrawer 图片绘制"
       },
       {
+        "path": "TaskDemo",
+        "title": "TaskDemo 任务卡片拖拽"
+      },
+      {
         "path": "VtLiveBoard",
         "title": "Live2d 小助手(看板娘)"
       }

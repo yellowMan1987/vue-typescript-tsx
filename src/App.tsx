@@ -17,9 +17,6 @@ import { initHeaders } from "@/apiService/apiBase/apiRequest";
     theme(val) {
       this.className = `theme-${val}`;
     },
-    $route(val) {
-      console.log(val)
-    }
   },
 })
 export default class App extends Vue {

@@ -9,7 +9,12 @@ function createNav() {
       componentRoutes.push({
         name: item.title,
         path: `/components/${item.path}`,
-        component: () => nav.navPath === 'docs' ? import(`../docs/${item.path}/README.md`) : import(`../components/${item.path}/README.md`)
+        component: () => 
+          nav.navPath === 'docs' ?
+          import(`../docs/${item.path}/README.md`) :
+          item.path === 'TaskDemo' ? 
+          import('../views/Task/index') :
+          import(`../components/${item.path}/README.md`)
       })
     });
   })
