@@ -10,7 +10,11 @@
     <div>
 </template>
 <script>
+import VtEditor from '~/VtEditor';
 export default {
+  components: {
+    'vt-editor': VtEditor,
+  },
   methods: {
     getContent(content) {}
   }

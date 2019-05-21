@@ -13,7 +13,11 @@
     <div>
 </template>
 <script>
+import VtMap from '~/VtMap';
 export default {
+  components: {
+    'vt-map': VtMap,
+  }
 }
 </script>
 ```

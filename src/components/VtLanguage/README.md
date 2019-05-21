@@ -10,7 +10,11 @@
     <div>
 </template>
 <script>
+import VtLanguage from '~/VtLanguage';
 export default {
+  components: {
+    'vt-language': VtLanguage ,
+  }
 }
 </script>
 ```

@@ -3,9 +3,13 @@ import { getRandomId, EventBus } from '@/utils/global';
 import { swallowEvent, on, off } from '@/utils/dom';
 import { debounceByKey } from '@/utils/object';
 import { duration } from 'moment';
+import VtIcon from '~/VtIcon';
 import './style.scss'
 
 @Component<VtVideoPlayer>({
+  components: {
+    'vt-icon': VtIcon,
+  },
   props: {
     videoType: {
       type: String,

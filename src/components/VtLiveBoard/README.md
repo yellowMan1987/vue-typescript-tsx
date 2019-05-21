@@ -9,7 +9,11 @@
   <vt-live-board ref="live2d"/>
 </template>
 <script>
+import VtLiveBoard from '~/VtLiveBoard';
 export default {
+  components: {
+    'vt-live-board': VtLiveBoard,
+  },
 }
 </script>
 ```

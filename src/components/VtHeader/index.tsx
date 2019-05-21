@@ -1,11 +1,15 @@
 import { Component, Vue } from 'vue-property-decorator'
+import VtNav from '~/VtNav';
+import VtLanguage from '~/VtLanguage';
+import VtTheme from '~/VtTheme';
 import "./style.scss";
 
 @Component({
-  props: {},
-  computed: {},
-  methods: {},
-  watch: {},
+  components: {
+    'vt-nav': VtNav,
+    'vt-language': VtLanguage,
+    'vt-theme': VtTheme,
+  }
 })
 export default class VtHeader extends Vue {
   visible = false;

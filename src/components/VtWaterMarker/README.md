@@ -20,7 +20,11 @@
     <div>
 </template>
 <script>
+import VtWaterMarker from '~/VtWaterMarker';
 export default {
+  components: {
+    'vt-water-marker': VtWaterMarker,
+  },
   data(){
     return {
       visible: false,

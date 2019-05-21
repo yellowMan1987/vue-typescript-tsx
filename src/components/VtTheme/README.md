@@ -10,7 +10,11 @@
     <div>
 </template>
 <script>
+import VtTheme from '~/VtTheme';
 export default {
+  components: {
+    'vt-theme': VtTheme ,
+  },
 }
 </script>
 ```

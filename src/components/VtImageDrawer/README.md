@@ -7,11 +7,7 @@
 <template>
     <div class="demo-container">
       <el-button type="primary" size="small" @click="imageDrawerData.drawingPolygon = true">画多边形</el-button>
-      <el-button size="small" @click="imageDrawerData.drawingRect = true">画矩形</el-button>
-      <el-button
-        size="small"
-        @click="imageDrawerData.drawingRect = false ,imageDrawerData.drawingPolygon = false"
-      >取消绘制</el-button>
+      <el-button type="primary" size="small" @click="imageDrawerData.drawingRect = true">画矩形</el-button>
       <el-button
         size="small"
         type="primary"
@@ -33,8 +29,11 @@
 </template>
 <script>
 import { toDataUrl, clickDownload } from '@/utils/image';
-
+import VtImageDrawer from '~/VtImageDrawer';
 export default {
+  components: {
+    'vt-image-drawer': VtImageDrawer,
+  },
   data() {
     return {
       imagePolygonDrawerImgUrl:'http://ossweb-img.qq.com/images/lol/web201310/skin/big145000.jpg',

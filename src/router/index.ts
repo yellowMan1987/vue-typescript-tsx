@@ -6,7 +6,6 @@ import componentRouters from './router-components'
 import cssDemoRouters from './router-cssdemo'
 
 Vue.use(Router)
-
 let routes = [] as any[];
 
 routes = routes.concat(viewsRouter);

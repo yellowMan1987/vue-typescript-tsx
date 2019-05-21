@@ -1,11 +1,11 @@
 import { Component, Vue } from 'vue-property-decorator';
 import './style.scss';
+import VtSideNav from '~/VtSideNav';
 @Component({
   name: 'demo',
-  props: {},
-  computed: {},
-  methods: {},
-  watch: {},
+  components: {
+    'vt-side-nav': VtSideNav
+  }
 })
 export default class Demo extends Vue {
   render() {

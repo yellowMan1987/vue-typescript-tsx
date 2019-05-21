@@ -7,7 +7,7 @@ import PolygonDrawer, {
   DEFAULT_POLYGON_LINE_CONNECT_POINT_RADIUS,
   DEFAULT_POLYGON_MASK_OPACITY,
   IPoint,
-} from "@/components/VtPolygonDrawer";
+} from "~/VtPolygonDrawer";
 import { getImageSize } from "@/utils/image";
 import { hex2rgba } from "@/utils/format";
 import { on, off } from "@/utils/dom";

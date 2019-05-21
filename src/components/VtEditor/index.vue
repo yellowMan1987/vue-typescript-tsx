@@ -10,7 +10,16 @@
   
   <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import VueQuillEditor from 'vue-quill-editor'
 import "./style.scss";
+
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor, /* { default global options } */)
 
 @Component<VtEditor>({
   components: {},

@@ -4,8 +4,14 @@ import { mapState, mapActions, mapMutations } from 'vuex';
 import * as system from '@/store/modules/system';
 import * as user from "@/apiService/apis/user";
 import { initHeaders } from "@/apiService/apiBase/apiRequest";
+import VtHeader from '~/VtHeader';
+import VtDemoBlock from '~/VtDemoBlock';
+// 加载 demo 模板;
+Vue.component('vt-demo-block',VtDemoBlock);
 @Component<App>({
-  props: {},
+  components: {
+    'vt-header': VtHeader,
+  },
   computed: {
     ...mapState(system.MODULE_PATH,['theme']),
     isDev() {

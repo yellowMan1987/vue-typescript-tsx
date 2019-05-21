@@ -2,9 +2,11 @@ import vue from 'vue';
 import { Component, Vue } from 'vue-property-decorator'
 import axios from 'axios';
 import './style.scss';
+import VtMap from '~/VtMap';
 
 @Component({
   components: {
+    'vt-map': VtMap,
   },
   watch: {
     cameraMarkers: {

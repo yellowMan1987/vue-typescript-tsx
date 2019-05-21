@@ -22,7 +22,11 @@
     <div>
 </template>
 <script>
+import VtIcon from '~/VtIcon';
 export default {
+  components: {
+    'vt-icon': VtIcon,
+  }
 }
 </script>
 ```

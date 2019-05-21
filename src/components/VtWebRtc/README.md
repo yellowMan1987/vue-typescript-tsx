@@ -11,7 +11,11 @@
     <div>
 </template>
 <script>
+import VtWebRtc from '~/VtWebRtc';
 export default {
+  components: {
+    'vt-web-rtc': VtWebRtc,
+  },
   data(){
     return {
     }

@@ -20,7 +20,11 @@
     <div>
 </template>
 <script>
+import VtContextMenu from '~/VtContextMenu';
 export default {
+  components: {
+    'vt-context-menu': VtContextMenu,
+  } ,
   data() {
     return {
       rightMouseClickPosition: {

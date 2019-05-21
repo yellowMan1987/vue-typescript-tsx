@@ -13,7 +13,11 @@
     <div>
 </template>
 <script>
+import VtVideoPlayer from '~/VtVideoPlayer';
 export default {
+  components: {
+    'vt-video-player': VtVideoPlayer,
+  },
   data(){
     return {
       mp4url: require("../../../public/static/video/lol_kda.mp4"),

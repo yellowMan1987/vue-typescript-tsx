@@ -3,7 +3,6 @@ import App from './App';
 import router from './router';
 import store from './store/index';
 import  { versionShow } from './utils/log';
-import '@/components'
 import '@/themes/default/index.scss';
 import '@/themes/iconfont/iconfont.css';
 
