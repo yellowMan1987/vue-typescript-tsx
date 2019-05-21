@@ -2,7 +2,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { getRandomId, EventBus } from '@/utils/global';
 import { swallowEvent, on, off } from '@/utils/dom';
 import { debounceByKey } from '@/utils/object';
-import { duration } from 'moment';
+import dayjs from 'dayjs';
 import VtIcon from '~/VtIcon';
 import './style.scss'
 
@@ -60,8 +60,8 @@ export default class VtVideoPlayer extends Vue {
   videoDuration: number = 0; // 视频总时长  单位秒
   durationMileSecond: number = 0 // 毫秒
   prograssIntervalTimer: any;
-  durationStr: string = '00:00';
-  currentTimeStr: string = '00:00';
+  durationStr: string = '00:00:00';
+  currentTimeStr: string = '00:00:00';
   videoPlayState: boolean = false;
 
   $refs: any;
@@ -173,7 +173,7 @@ export default class VtVideoPlayer extends Vue {
       // 获取总时长
       this.videoDuration = this.videoEle.duration;
       this.durationMileSecond = this.videoDuration * 1000;
-      this.durationStr = this.calcTime(this.durationMileSecond);
+      this.durationStr = this.duration(this.durationMileSecond);
     };
 
     this.videoEle.onpause = (event: Event) => {
@@ -299,21 +299,35 @@ export default class VtVideoPlayer extends Vue {
     }
   }
 
+  duration(ms: number){
+    let sec = 0;
+    let min = 0;
+    let hour = 0;
+    if(ms > 0){
+     sec = Number((ms / 1000).toFixed(0));
+     if ( sec >= 60){
+      min = Math.floor(sec / 60);
+      sec = Number((sec % 60).toFixed(0));
+     }
+     if(min >= 60){
+      hour = Math.floor(min / 60);
+      min = min % 60;
+     }
+    }
+    
+    const hourStr = hour < 10 ? `0${hour}` : hour;
+    const minStr = min < 10 ? `0${min}` : min;
+    const secStr = sec < 10 ? `0${sec}` : sec;
+    return `${hourStr}:${minStr}:${secStr}`;
+   }
+
   // 计算时间
   calcTime(mileSecond: number) {
     if (mileSecond === Infinity) {
       return '0:0';
     }
-    const hours = duration(mileSecond).hours();
-    const hoursStr = hours >= 10 ? hours : `0${hours}`;
-    const minutes = duration(mileSecond).minutes();
-    const minutesStr = minutes >= 10 ? minutes : `0${minutes}`;
-    const seconds = duration(mileSecond).seconds();
-    const secondsStr = seconds >= 10 ? seconds : `0${seconds}`;
-    if (hours) {
-      return `${hoursStr}:${minutesStr}:${secondsStr}`;
-    }
-    return `${minutesStr}:${secondsStr}`;
+
+    return this.duration(mileSecond)
   }
 
 
