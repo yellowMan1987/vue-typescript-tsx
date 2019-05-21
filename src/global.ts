@@ -64,10 +64,7 @@ declare module "date-fns/esm" {
   const content: any;
   export default content;
 }
-declare module "ramda" {
-  const content: any;
-  export default content;
-}
+
 declare module "coordtransform" {
   const content: any;
   export default content;

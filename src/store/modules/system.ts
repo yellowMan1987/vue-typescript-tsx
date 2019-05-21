@@ -1,11 +1,14 @@
 export const MODULE_PATH = "system";
+import assign from "lodash/assign";
+import cloneDeep from 'lodash/cloneDeep';
+
+
 export enum actionTypes {
   INIT = "INIT",
   UPDATE_THEMES = "UPDATE_THEMES",
   UPDATE_LANGUAGE = "UPDATE_LANGUAGE",
 }
 
-const R = require('ramda');
 
 export interface IThemes {
   name: string;
@@ -24,11 +27,11 @@ const initialState = {
   language: 'zh_CN' as string,
 };
 
-const state = R.clone(initialState);
+const state = cloneDeep(initialState);
 
 const actions = {
   [actionTypes.INIT]({ state }:any) {
-    R.assoc(state, R.clone(initialState));
+    assign(state, cloneDeep(initialState));
   },
 
 };

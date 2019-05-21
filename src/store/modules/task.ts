@@ -1,3 +1,6 @@
+import assign from "lodash/assign";
+import cloneDeep from 'lodash/cloneDeep';
+
 export const MODULE_PATH = "task";
 export enum actionTypes {
   INIT = "INIT",
@@ -7,7 +10,6 @@ export enum actionTypes {
   ADD_CARD = 'ADD_CARD',
 }
 
-const R = require('ramda');
 
 export interface ILists {
   id: number,
@@ -73,11 +75,11 @@ const initialState = {
   dropId: 0,
 };
 
-const state = R.clone(initialState);
+const state = cloneDeep(initialState);
 
 const actions = {
   [actionTypes.INIT]({ state }:any) {
-    R.assoc(state, R.clone(initialState));
+    assign(state, cloneDeep(initialState));
   },
 
 };

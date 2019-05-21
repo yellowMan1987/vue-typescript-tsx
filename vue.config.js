@@ -2,6 +2,7 @@
 
 const exec = require('child_process').execSync;
 const markdownRender = require('markdown-it')();
+const TerserPlugin = require('terser-webpack-plugin');
 
 process.env.VUE_APP_NAME = require('./package.json').name;
 process.env.VUE_APP_VERSION = require('./package.json').version;
@@ -45,8 +46,35 @@ module.exports = {
 
   // 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
   chainWebpack: (config) => {
-
     config.plugins.delete('prefetch');
+
+    if (process.env.use_analyzer) {
+      config
+        .plugin('webpack-bundle-analyzer')
+      // eslint-disable-next-line global-require
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin);
+    }
+
+
+    config
+      // 开发环境
+      .when(
+        process.env.NODE_ENV === 'development',
+        // sourcemap不包含列信息
+        // eslint-disable-next-line no-shadow
+        config => config.devtool('cheap-source-map'),
+      )
+      // 非开发环境
+      // eslint-disable-next-line no-shadow
+      .when(process.env.NODE_ENV !== 'development', (config) => {
+        config.optimization.minimizer([
+          new TerserPlugin({
+            cache: true,
+            parallel: true,
+            sourceMap: true,
+          }),
+        ]);
+      });
 
     config.module
       .rule('md')
