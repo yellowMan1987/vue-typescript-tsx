@@ -1,8 +1,6 @@
 import vue from 'vue';
 import { Component, Vue } from 'vue-property-decorator'
-
 import axios from 'axios';
-import { Checkbox, CheckboxGroup } from 'element-ui';
 import './style.scss';
 
 @Component({

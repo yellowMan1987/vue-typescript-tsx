@@ -18,6 +18,9 @@
       "*": ["types/*"],
       "@/*": [
         "src/*"
+      ],
+      "~/*": [
+        "src/components/*"
       ]
     },
     "lib": [
@@ -36,5 +39,6 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "allowJs": true
 }

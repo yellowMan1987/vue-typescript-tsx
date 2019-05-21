@@ -8,12 +8,12 @@ const viewsRouter = [
   {
     name: 'post',
     path: '/post',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Post/index.vue'),
+    component: () => import(/* webpackChunkName: "post" */ '../views/Post/index.vue'),
   },
   {
     name: 'mapdemo',
     path: '/mapdemo',
-    component: () => import(/* webpackChunkName: "cssdemo" */ '../views/MapDemo'),
+    component: () => import(/* webpackChunkName: "map-demo" */ '../views/MapDemo'),
   },
 ] as any[];
 

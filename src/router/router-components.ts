@@ -11,10 +11,10 @@ function createNav() {
         path: `/components/${item.path}`,
         component: () => 
           nav.navPath === 'docs' ?
-          import(`../docs/${item.path}/README.md`) :
+          import(/* webpackChunkName: "docs-content" */ `../docs/${item.path}/README.md`) :
           item.path === 'TaskDemo' ? 
-          import('../views/Task/index') :
-          import(`../components/${item.path}/README.md`)
+          import(/* webpackChunkName: "task-demo" */ '../views/Task/index') :
+          import(/* webpackChunkName: "components-demo" */ `../components/${item.path}/README.md`)
       })
     });
   })
@@ -25,7 +25,7 @@ const componentRouters = [{
   name: 'components',
   path: '/components',
   redirect: '/components/developer',
-  component: () => import(/* webpackChunkName: "home" */ '../views/Demo/index'),
+  component: () => import(/* webpackChunkName: "components-container" */ '../views/Demo/index'),
   children: createNav(),
 },]
 

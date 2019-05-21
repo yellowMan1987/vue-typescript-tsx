@@ -1,4 +1,8 @@
-// var HappyPack = require('HappyPack');
+const path = require('path');
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
 
 const exec = require('child_process').execSync;
 const markdownRender = require('markdown-it')();
@@ -62,6 +66,12 @@ module.exports = {
 
   // 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
   chainWebpack: (config) => {
+    // 添加别名
+    config.resolve.alias
+      .set('@', resolve('src'))
+      .set('utils', resolve('src/utils'))
+      .set('~', resolve('src/components'));
+
     config.plugins.delete('prefetch');
 
     if (process.env.use_analyzer) {
