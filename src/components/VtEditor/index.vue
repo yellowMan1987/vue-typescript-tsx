@@ -2,7 +2,6 @@
 <template>
   <div class="vtx-editor">
     <quill-editor :content="content" @change="onEditorChange"></quill-editor>
-    <!-- <mavon-editor v-model="content" @change="onEditorChange"/> -->
     <div class="vtx-editor__content" v-html="content"></div>
     <el-button type="primary" @click="submit">SUBMIT</el-button>
 

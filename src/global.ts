@@ -56,10 +56,7 @@ declare module "quill" {
   const content: any;
   export default content;
 }
-declare module "mavon-editor" {
-  const content: any;
-  export default content;
-}
+
 declare module "date-fns/esm" {
   const content: any;
   export default content;

@@ -44,6 +44,22 @@ module.exports = {
   // 多线程暂时关闭,因为在编译 md 文件的时候会报错.
   parallel: false,
 
+  configureWebpack: {
+    externals: {
+    },
+  },
+
+  css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: true,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // css预设器配置项
+    loaderOptions: {},
+    // 启用 CSS modules for all css / pre-processor files.
+    modules: false,
+  },
+
   // 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
   chainWebpack: (config) => {
     config.plugins.delete('prefetch');

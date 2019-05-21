@@ -28,7 +28,7 @@ export default class App extends Vue {
   render() {
     return (
       <div id="app" class={this.className}>
-        {!(this.$route.fullPath as any).includes('VtLiveBoard') && <vt-live-board/>}
+        {/* {!(this.$route.fullPath as any).includes('VtLiveBoard') && <vt-live-board/>} */}
         <vt-header/>
         <router-view/>
         <div class="footer">
