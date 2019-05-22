@@ -7,6 +7,7 @@ function resolve(dir) {
 const exec = require('child_process').execSync;
 const markdownRender = require('markdown-it')();
 const TerserPlugin = require('terser-webpack-plugin');
+const ComperssionPlugin = require('compression-webpack-plugin');
 
 process.env.VUE_APP_NAME = require('./package.json').name;
 process.env.VUE_APP_VERSION = require('./package.json').version;
@@ -48,11 +49,6 @@ module.exports = {
   // 多线程暂时关闭,因为在编译 md 文件的时候会报错.
   parallel: false,
 
-  configureWebpack: {
-    externals: {
-    },
-  },
-
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
     extract: true,
@@ -62,6 +58,20 @@ module.exports = {
     loaderOptions: {},
     // 启用 CSS modules for all css / pre-processor files.
     modules: false,
+  },
+
+  // eslint-disable-next-line consistent-return
+  // 开启 gzip
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV !== 'development') {
+      return {
+        plugins: [new ComperssionPlugin({
+          test: /\.js$|\.html$|\.css/,
+          threshold: 10240,
+          deleteOriginalAssets: false,
+        })],
+      };
+    }
   },
 
   // 对内部的 webpack 配置（比如修改、增加Loader选项）(链式操作)
