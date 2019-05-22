@@ -82,6 +82,7 @@ module.exports = {
       .set('utils', resolve('src/utils'))
       .set('~', resolve('src/components'));
 
+    // 关闭利用空余带宽加载文件 提升首页速度
     config.plugins.delete('prefetch');
 
     if (process.env.use_analyzer) {
