@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { Message } from "element-ui";
 import Router from "vue-router";
 import merge  from 'lodash.merge';
 import { language, i18n } from '@/locale';
@@ -30,10 +29,6 @@ export let uploadApi: AxiosInstance = axios.create({
 function success(resp:any) {
   if (resp.status === 200) {
     if (resp.data.errorCode) {
-      Message({
-        message: '成功',
-        type: "error"
-      });
       return Promise.reject(new Error());
     } else {
       return resp.data;
@@ -43,23 +38,13 @@ function success(resp:any) {
 
 function error(error:any) {
   if (error.response && error.response.status === 401) {
-    Message({
-      message: '请求失败',
-      type: "error"
-    });
     // setTimeout(() => {
     //   history.go(0);
     // }, 2000);
   } else if (error.response && error.response.status === 403) {
-    Message({
-      message: '木有访问权限',
-      type: "error"
-    });
+
   } else {
-    Message({
-      message: '未发送请求',
-      type: "error"
-    });
+
   }
 
   return Promise.reject(error);
