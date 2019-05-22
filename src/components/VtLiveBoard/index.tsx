@@ -5,14 +5,14 @@ import './style.scss';
 import models from './models';
 
 
-@Component<VtLive2d>({
+@Component<VtLiveBoard>({
   name: 'vt-live-board',
   props: {},
   computed: {},
   methods: {},
   watch: {},
 })
-export default class VtLive2d extends Vue {
+export default class VtLiveBoard extends Vue {
   loadlive2d = null as any;
   modelVisible = false;
   refs!: {

@@ -6,11 +6,13 @@ import * as user from "@/apiService/apis/user";
 import { initHeaders } from "@/apiService/apiBase/apiRequest";
 import VtHeader from '~/VtHeader';
 import VtDemoBlock from '~/VtDemoBlock';
+import VtLiveBoard from './components/VtLiveBoard';
 // 加载 demo 模板;
 Vue.component('vt-demo-block',VtDemoBlock);
 @Component<App>({
   components: {
     'vt-header': VtHeader,
+    'vt-live-board': VtLiveBoard, 
   },
   computed: {
     ...mapState(system.MODULE_PATH,['theme']),
@@ -34,7 +36,7 @@ export default class App extends Vue {
   render() {
     return (
       <div id="app" class={this.className}>
-        {/* {!(this.$route.fullPath as any).includes('VtLiveBoard') && <vt-live-board/>} */}
+        {!(this.$route.fullPath as any).includes('VtLiveBoard') && <vt-live-board/>}
         <vt-header/>
         <router-view/>
         <div class="footer">
